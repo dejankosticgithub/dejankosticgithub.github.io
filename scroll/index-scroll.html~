@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Scrolling Nav - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Welcome</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger"
+              href="#services">Recent Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#bio">Short bio</a>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+<h1>Dejan Kostic</h1>
+<br />
+<div align="right"><dd><img src="../image/Dejan_Kostic-320-240.jpg"
+			    alt="Dejan Kostic" height="320"
+			    width="240" /></dd>
+        <p class="lead">Professor of
+Internetworking at the <a href="https://www.kth.se/">KTH
+Royal Institute of Technology</a>. Starting January 1, 2018 Head of
+	  the Communication Systems Department
+the&nbsp;<a style="font-weight: bold;" href="https://www.kth.se/en/ict/forskning/cos/research"> &nbsp;</a>Also associated
+with&nbsp;<a href="https://www.sics.se/groups/decisions-networks-and-analytics-lab-dna">the
+Decisions, Networks and Analytics (DNA) Laboratory</a>
+	  of <a href="https://www.sics.se/">RISE SICS</a>. Research interests: Distributed Systems,
+Computer Networks, Operating Systems, and Mobile Computing.&nbsp;</p>
+</p>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Recent Work</h2>
+            <p class="lead">
+<p align="justify">A&nbsp;major focus area for my
+research group is on <a href="https://www.kth.se/blogs/tcc/"><span style="font-weight: bold;">Time-Critical Clouds</span></a>,
+a 2016-2021 project supported by <a href="http://stratresearch.se/">SSF
+(the Swedish Foundation for Strategic Research)</a>. This is a
+joint effort with <a href="https://www.sics.se/groups/decisions-networks-and-analytics-lab-dna">the
+Decisions, Networks and Analytics (DNA) Laboratory</a> of the <a href="https://www.sics.se/">Swedish
+Institute of Computer
+Science (SICS). &nbsp;</a>Our
+first major contribution is a Eurosys 2017 paper&nbsp;<a href="https://www.kth.se/blogs/tcc/2017/05/presentation-at-eurosys-2017-on-reducing-tail-latency-in-key-value-datastores/">(<span style="font-weight: bold;">link to video and paper available
+here</span>).</a></p>
+<p align="justify">We have concluded the work on the <a href="https://www.kth.se/blogs/prophet/"><b>PROPHET</b></a>
+ERC project (2010-2016), in which we aimed to dramatically change the
+way networked
+systems
+are developed and deployed. For example, we&nbsp;improved
+the performance of geo-replicated storage systems using <a style="font-weight: bold;" href="documents/publications/geoperf-socc15.pdf">GeoPerf
+[SOCC '15]</a>. We have successfully
+applied software verification techniques to increase the
+reliability
+of&nbsp;<span style="font-weight: bold;">Software-Defined
+Networks (SDN)</span>. Here are some of our key contributions
+to testing of OpenFlow networks: <a href="documents/publications/nice-nsdi12.pdf"><b>NICE
+[NSDI'12]</b></a> and <a href="documents/publications/soft-conext12.pdf"><b>SOFT
+[CoNEXT'12]</b></a>. &nbsp;Recently, we have
+identified serious issues in the <a style="font-weight: bold;" href="documents/publications/switches-pam15.pdf">interplay
+between the control and data planes in OpenFlow switches [PAM '15]</a>,
+and
+proposed an <a style="font-weight: bold;" href="documents/publications/rum-conext14.pdf">approach
+for verifying rule installation [CoNEXT '14]</a> as well as <a style="font-weight: bold;" href="documents/publications/monocle-conext15.pdf">fine-grained
+dynamic monitoring of switch dataplanes [CoNEXT '15]</a>.</p>
+<p align="justify">We have wrapped up our work in the <a style="font-weight: bold;" href="http://www.beba-project.eu/">BEhavioral-BAsed
+Forwarding (BEBA)</a> Horizon2020 project (2014-2017) that aimed
+to reshape
+Software-Defined Networks. Our contributions are described in&nbsp;<a style="font-weight: bold;" href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1044355&amp;dswid=-9309">George
+Katsikas' licentiate thesis</a>, and involve <a style="font-weight: bold;" href="http://www.sciencedirect.com/science/article/pii/S0164121217300055">deep
+understanding and performance optimization</a>&nbsp; of
+Network Functions Virtualization (NFV) service chains.
+Moreover,&nbsp;our recent work on<span style="font-weight: bold;"><span style="font-weight: bold;"></span></span> <a style="font-weight: bold;" href="http://kth.diva-portal.org/smash/get/diva2:1046357/FULLTEXT01.pdf">Synthesized
+Network Functions</a>,&nbsp;demonstrates
+high&nbsp;throughput with low predictable latency on a single
+commodity
+server thanks to its highly synthesized code and request dispatching. The overall&nbsp;project was recently <a style="font-weight: bold;" href="http://cordis.europa.eu/result/rcn/206128_en.html">highlighted by the EU comission</a>. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Services we offer</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Contact/office location</h2>
+            <p class="lead">
+<h1>Email</h1>&nbsp; d m k &lt;at&gt; k t h &nbsp;&lt;dot&gt; s e<br /><p>Office phone# +46&nbsp;8-790&nbsp;42&nbsp;65</p><h1>Mailing address</h1>
+
+<p><span style="font-weight: bold;"></span><br />Prof. Dejan Kostic<br /><span style="" lang="EN">KTH Kista<br />
+Kistagången 16<br />
+164 40 Kista</span><br /><span style="font-weight: bold;"><br /></span></p><h1>How to reach my office<br />
+</h1>
+<p>
+My office is 4401 in the Electrum Building on the KTH Kista campus,
+East
+side, entering from Elevator B on the 4th floor. Approximate
+coordinates (on Google Maps): <a style="font-family: Courier New,Courier,monospace; font-weight: bold;" href="https://www.google.com/maps/place/KTH+CoS+in+Electrum,+164+40+Kista,+Sweden/@59.4045766,17.9500363,19z/data=%214m2%213m1%211s0x465f9eed31335bf1:0xe77155a08083f6a6">59.404850,
+17.949922</a></p>
+<p>
+The
+best way to enter the Electrum building is from Kistagangen 16, 164 40
+Kista, Sweden. Another, lower and harder-to-find, entrance
+is&nbsp;Isafjordsgatan
+26, 164
+40 Kista, Sweden.
+</p>
+<p><span style="font-weight: bold;">Getting
+here from the Arlanda Stockholm airport:</span> a
+convenient way of getting to KTH Kista is by catching the suburban
+train from the Arlanda airport (but NOT the Arlanda express train!) to
+the Helenelund Train Station. You need to go to <a href="http://en.wikipedia.org/wiki/Arlanda_Central_Station" style="text-decoration: none;">Arlanda
+C in Terminal 5</a>to board the train, and please expect to pay
+an airport supplement (85
+SEK, I think but prices are gradually increasing).
+Example
+google maps itinerary from the airport (entrance to the Electrum
+building is a bit inconspicuous, through the sliding doors).</p>
+<p style="line-height: 1.15; margin-top: 0pt; margin-bottom: 0pt;" dir="ltr"><a href="https://www.google.com/maps/dir/Stockholm+Arlanda+Airport,+190+45+Stockholm-Arlanda,+Sweden/Kistag%C3%A5ngen+16,+164+40+Kista,+Sweden/@59.4054259,17.9562285,15.63z/data=%214m16%214m15%211m5%211m1%211s0x465f9d63c32d83fd:0x52f895a27e4e5c33%212m2%211d17.923781%212d59.649762%211m5%211m1%211s0x465f9e92c961b301:0x64c9ee19dac11281%212m2%211d17.9502077%212d59.4045714%212m1%216e4%213e3" style="text-decoration: none;"><span style="font-size: 15px; font-family: Calibri; color: rgb(17, 85, 204); background-color: transparent; font-weight: normal; font-style: normal; font-variant: normal; text-decoration: underline; vertical-align: baseline;">https://www.google.com/maps/dir/Stockholm+Arlanda+Airport,+190+45+Stockholm-Arlanda,+Sweden/Kistag%C3%A5ngen+16,+164+40+Kista,+Sweden/@59.4054259,17.9562285,15.63z/data=!4m16!4m15!1m5!1m1!1s0x465f9d63c32d83fd:0x52f895a27e4e5c33!2m2!1d17.923781!2d59.649762!1m5!1m1!1s0x465f9e92c961b301:0x64c9ee19dac11281!2m2!1d17.9502077!2d59.4045714!2m1!6e4!3e3</span></a>
+</p>
+<p><span style="font-weight: bold;">Getting here
+from Stockholm downtown:</span>
+taking the Blue Line metro toward Akalla and getting off at Kista
+T-Bana (next to the Galleria shopping mall) is the best option. Then
+you follow the signs for Kistamassan, going up the Kistagangen street.
+You will reach KTH Kista very quickly (and will not get to Kistamassan
+itself).</p>
+<br />
+<span style="font-size: 11pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="ES"><br />
+</span>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+  </body>
+
+</html>
