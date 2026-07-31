@@ -351,7 +351,7 @@ footer a:hover { color: var(--acc); }
     <div class="entries">
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/kvcomm.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/kvcomm.png" alt="The KVComm pipeline: a calibration stage scores KV pairs by cross-model attention, and at test time only the selected KV pairs reach the answering model." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/kvcomm.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/kvcomm.png" alt="The KVComm pipeline: a calibration stage scores KV pairs by cross-model attention, and at test time only the selected KV pairs reach the answering model." loading="lazy" width="900" height="307"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: calibration scores each KV pair by cross-model attention; at test time only the selected pairs are handed to the answering model.</figcaption>
         </figure>
         <div class="entry-body">
@@ -368,28 +368,8 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <svg class="ill" viewBox="0 0 320 200" role="img" aria-label="Diagram: arriving packets are split into headers, processed by a network function accelerator, and payloads, parked in energy-efficient Queue-Mem storage, then rejoined on egress.">
-            <text class="ts" x="10" y="96">packets</text>
-            <path class="f" d="M10 104h34"/>
-            <rect class="n" x="48" y="82" width="52" height="44" rx="6"/>
-            <text class="ts" x="74" y="100" text-anchor="middle">split</text>
-            <text class="ts" x="74" y="114" text-anchor="middle">hdr | payload</text>
-            <path class="fa" d="M104 94C118 94 116 62 128 62"/>
-            <path class="f"  d="M104 114C118 114 116 148 128 148"/>
-            <rect class="na" x="134" y="38" width="104" height="46" rx="7"/>
-            <text class="t"  x="186" y="58" text-anchor="middle">NF accelerator</text>
-            <text class="ts" x="186" y="74" text-anchor="middle">headers + state</text>
-            <rect class="n" x="134" y="124" width="104" height="50" rx="7"/>
-            <text class="t"  x="186" y="144" text-anchor="middle">Queue-Mem</text>
-            <text class="ts" x="186" y="160" text-anchor="middle">payloads parked</text>
-            <path class="ca" d="M128 168l12-16h-8l6-13-15 17h8l-3 12Z"/>
-            <path class="f" d="M242 62C256 62 254 94 264 94"/>
-            <path class="f" d="M242 148C256 148 254 114 264 114"/>
-            <rect class="n" x="268" y="86" width="40" height="30" rx="6"/>
-            <text class="ts" x="288" y="105" text-anchor="middle">rejoin</text>
-            <text class="ta" x="160" y="192" text-anchor="middle">less energy per stored bit → richer NFs in the same budget</text>
-          </svg>
-          <figcaption>Sketch, not from the paper — I could not find the Queue-Mem sources.</figcaption>
+          <a class="fig-img" href="image/figs/queuemem.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/queuemem.png" alt="Queue-Mem: the ASIC switch splits each packet, sends the header to the external NF processor, and buffers the payload in the output-port queue until the processed header returns, when the packet is rebuilt." loading="lazy" width="900" height="355"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: payloads wait in the switch output-port queue while the headers are processed externally, then the packet is rebuilt.</figcaption>
         </figure>
         <div class="entry-body">
           <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2026</span></div>
@@ -405,7 +385,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/fajita.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/fajita.png" alt="FAJITA pipeline: a flow manager routes packets to per-flow state blocks, and each network function prefetches its state before the processing phase." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/fajita.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/fajita.png" alt="FAJITA pipeline: a flow manager routes packets to per-flow state blocks, and each network function prefetches its state before the processing phase." loading="lazy" width="900" height="564"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: the flow manager groups packets by state block, and each NF prefetches its state before processing.</figcaption>
         </figure>
         <div class="entry-body">
@@ -421,7 +401,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/netconfeval.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/netconfeval.png" alt="NetConfEval prototype: three LLM stages take high-level policies to a formal specification, high-level configuration and finally low-level device configuration, with a verifier checking each stage." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/netconfeval.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/netconfeval.png" alt="NetConfEval prototype: three LLM stages take high-level policies to a formal specification, high-level configuration and finally low-level device configuration, with a verifier checking each stage." loading="lazy" width="900" height="326"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: three LLM stages carry high-level policy down to device configuration, with a verifier checking each step.</figcaption>
         </figure>
         <div class="entry-body">
@@ -442,7 +422,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/ribosome.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ribosome.png" alt="Ribosome overview: the programmable switch sends headers to the NF packet processor and stores payloads on RDMA servers, retrieving and rejoining them on egress." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/ribosome.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ribosome.png" alt="Ribosome overview: the programmable switch sends headers to the NF packet processor and stores payloads on RDMA servers, retrieving and rejoining them on egress." loading="lazy" width="900" height="553"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: headers go to the NF processor, payloads are parked on RDMA servers, and the two are rejoined on egress.</figcaption>
         </figure>
         <div class="entry-body">
@@ -459,7 +439,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/ordermatters.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ordermatters.png" alt="Top: flows from different servers are interleaved by the network before reaching the receiver. Bottom: Reframer buffers packets briefly and forwards them grouped by flow." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/ordermatters.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ordermatters.png" alt="Top: flows from different servers are interleaved by the network before reaching the receiver. Bottom: Reframer buffers packets briefly and forwards them grouped by flow." loading="lazy" width="892" height="414"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: the network interleaves flows (top); Reframer regroups them by flow before the server sees them (bottom).</figcaption>
         </figure>
         <div class="entry-body">
@@ -481,7 +461,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/redn.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/redn.png" alt="RedN hash-lookup RDMA program: a posted chain of RECV, READ, CAS and SEND work requests in which each step rewrites the next, so the NIC walks the hash table on its own." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/redn.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/redn.png" alt="RedN hash-lookup RDMA program: a posted chain of RECV, READ, CAS and SEND work requests in which each step rewrites the next, so the NIC walks the hash table on its own." loading="lazy" width="900" height="476"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: a chain of RDMA work requests that rewrites itself — the NIC walks the hash table with no remote CPU involved.</figcaption>
         </figure>
         <div class="entry-body">
@@ -499,7 +479,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/linefs.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/linefs.png" alt="LineFS IO path across host and SmartNIC: fetching, validation, compression and transfer to the replicas overlap as a pipeline." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/linefs.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/linefs.png" alt="LineFS IO path across host and SmartNIC: fetching, validation, compression and transfer to the replicas overlap as a pipeline." loading="lazy" width="900" height="207"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: the IO path across host and SmartNIC — fetch, validate, compress and transfer overlap instead of queuing.</figcaption>
         </figure>
         <div class="entry-body">
@@ -519,7 +499,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/packetmill.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/packetmill.png" alt="Copying versus overlaying packet metadata: instead of copying descriptors between the driver, DPDK and the application, PacketMill overlays application metadata on the existing buffer." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/packetmill.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/packetmill.png" alt="Copying versus overlaying packet metadata: instead of copying descriptors between the driver, DPDK and the application, PacketMill overlays application metadata on the existing buffer." loading="lazy" width="900" height="792"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: rather than copying descriptors between driver, DPDK and application, PacketMill overlays metadata on the existing buffer.</figcaption>
         </figure>
         <div class="entry-body">
@@ -573,7 +553,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/ddio.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ddio.png" alt="Data Direct I/O: the network interface card DMAs incoming data straight into the last-level cache of the CPU socket rather than into DRAM." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/ddio.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ddio.png" alt="Data Direct I/O: the network interface card DMAs incoming data straight into the last-level cache of the CPU socket rather than into DRAM." loading="lazy" width="893" height="900"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: with Data Direct I/O the NIC places incoming data straight into the last-level cache rather than DRAM.</figcaption>
         </figure>
         <div class="entry-body">
@@ -589,7 +569,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/cheetah.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/cheetah.png" alt="Cheetah stateless load balancer: the chosen server is encoded in a cookie carried by the connection, so the load balancer can recompute the mapping without per-connection state." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/cheetah.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/cheetah.png" alt="Cheetah stateless load balancer: the chosen server is encoded in a cookie carried by the connection, so the load balancer can recompute the mapping without per-connection state." loading="lazy" width="900" height="664"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: the selected server travels with the connection as a cookie, so consistency does not require per-connection state.</figcaption>
         </figure>
         <div class="entry-body">
@@ -604,7 +584,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/rsspp.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/rsspp.png" alt="Receive Side Scaling: the NIC hashes each packet into an indirection table whose buckets are assigned to processing cores." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/rsspp.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/rsspp.png" alt="Receive Side Scaling: the NIC hashes each packet into an indirection table whose buckets are assigned to processing cores." loading="lazy" width="900" height="294"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: RSS hashes packets into an indirection table of buckets — the table RSS++ rebalances at run time.</figcaption>
         </figure>
         <div class="entry-body">
@@ -619,7 +599,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/cachedirector.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/cachedirector.png" alt="Traditional DPDK places the first 64 bytes of the packet — the header — in a random last-level cache slice; with CacheDirector the mbuf headroom is adjusted so the header lands in the slice belonging to the core that will process it." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/cachedirector.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/cachedirector.png" alt="Traditional DPDK places the first 64 bytes of the packet — the header — in a random last-level cache slice; with CacheDirector the mbuf headroom is adjusted so the header lands in the slice belonging to the core that will process it." loading="lazy" width="900" height="466"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: stock DPDK drops the packet header in a random LLC slice; CacheDirector steers it to the slice of the core that will process it.</figcaption>
         </figure>
         <div class="entry-body">
@@ -646,7 +626,7 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <a class="fig-img" href="image/figs/metron.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/metron.png" alt="The Metron controller takes a service chain description, identifies traffic classes, synthesizes hardware and software operations, installs OpenFlow rules and dispatches traffic to the correct core." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <a class="fig-img" href="image/figs/metron.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/metron.png" alt="The Metron controller takes a service chain description, identifies traffic classes, synthesizes hardware and software operations, installs OpenFlow rules and dispatches traffic to the correct core." loading="lazy" width="900" height="609"><span class="zoom">click to enlarge</span></a>
           <figcaption>From the paper: Metron synthesizes the chain into switch rules plus per-core software, then rebalances from run-time statistics.</figcaption>
         </figure>
         <div class="entry-body">
