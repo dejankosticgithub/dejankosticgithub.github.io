@@ -1,467 +1,1035 @@
 <!DOCTYPE html>
 <html lang="en">
-	
-  <head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dejan Kostic — Chair Professor of Internetworking at KTH Royal Institute of Technology. Distributed Systems, Machine Learning, Computer Networks, Operating Systems.">
+<meta name="author" content="Dejan Kostic">
+<title>Dejan Kostic — Professor of Internetworking, KTH</title>
+<link rel="icon" href="image/favicon.ico">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<style>
+:root {
+  --bg:#ffffff; --bg-alt:#f6f7f9; --bg-card:#ffffff;
+  --fg:#1a1d21; --fg-muted:#5a6472; --rule:#e2e6ec;
+  --acc:#004791; --acc-soft:#e7eef7; --acc2:#00879a;
+  --ill-bg:#f2f6fb; --ill-muted:#a9bcd2;
+  --gold:#a97400; --gold-soft:#fdf3dc;
+  --shadow:0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#0f1216; --bg-alt:#141920; --bg-card:#171d25;
+    --fg:#e8ecf1; --fg-muted:#9aa7b8; --rule:#262f3b;
+    --acc:#6aa9f0; --acc-soft:#16283f; --acc2:#3fd0df;
+    --ill-bg:#121a24; --ill-muted:#46596f;
+    --gold:#e8bc5c; --gold-soft:#33280f;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
+  }
+}
 
-    <title>Dejan Kostic's Home Page</title>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--acc); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1,h2,h3,h4 { line-height: 1.22; margin: 0 0 .5em; letter-spacing: -.02em; font-weight: 700; }
+h1 { font-size: clamp(2rem, 4.5vw, 2.9rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.16rem; }
+h4 { font-size: 1.02rem; }
+p { margin: 0 0 1em; }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 68px 0; border-top: 1px solid var(--rule); }
+.section.alt { background: var(--bg-alt); }
+.section-head { margin-bottom: 36px; max-width: 66ch; }
+.section-head p { color: var(--fg-muted); margin: 0; }
+.eyebrow {
+  display: inline-block; font-size: .74rem; font-weight: 700;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--acc); margin-bottom: .7em;
+}
 
-    <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+/* nav */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner { display: flex; align-items: center; gap: 20px; min-height: 60px; padding: 8px 0; flex-wrap: wrap; }
+.nav-brand { font-weight: 700; color: var(--fg); white-space: nowrap; }
+.nav-brand:hover { text-decoration: none; color: var(--acc); }
+.nav-links { display: flex; gap: 16px; margin-left: auto; flex-wrap: wrap; }
+.nav-links a { color: var(--fg-muted); font-size: .9rem; font-weight: 500; }
+.nav-links a:hover { color: var(--acc); text-decoration: none; }
+@media (max-width: 820px) { .nav-links { margin-left: 0; gap: 13px; } .nav-links a { font-size: .82rem; } }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Media Links</title>
-  <!-- Add Font Awesome stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-  <!-- Add custom CSS -->
-  <link rel="stylesheet" href="styles.css">
-    <style>
-      .social-icons a {
-        margin: 0 10px; /* Add some space between icons */
-        text-decoration: none;
-        color: white; /* Make the icon color white */
-      }
-      .social-icons a:hover {
-        color: yellow; /* Change the icon color to yellow when hovered */
-      }
-    </style>
-  </head>
+/* hero */
+.hero { padding: 56px 0 48px; }
+.hero-grid { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+.portrait { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--rule); background: var(--bg-card); }
+.portrait img { display: block; width: 100%; height: auto; }
+.hero h1 { margin-bottom: .25em; }
+.hero .role { font-size: 1.08rem; color: var(--fg-muted); margin-bottom: 1em; }
+.hero .role strong { color: var(--fg); font-weight: 600; }
+.hero .lede { font-size: 1.04rem; max-width: 62ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--rule); background: var(--bg-card); font-size: .89rem; font-weight: 600; color: var(--fg);
+}
+.chip:hover { border-color: var(--acc); color: var(--acc); text-decoration: none; }
+.chip.primary { background: var(--acc); border-color: var(--acc); color: #fff; }
+.chip.primary:hover { color: #fff; filter: brightness(1.08); }
+.chip svg { width: 15px; height: 15px; fill: currentColor; }
+.social { display: flex; gap: 14px; margin-top: 16px; }
+.social a { color: var(--fg-muted); display: inline-flex; }
+.social a:hover { color: var(--acc); }
+.social svg { width: 20px; height: 20px; fill: currentColor; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 26px; } .portrait { max-width: 240px; } }
 
-  <body id="page-top">
+/* news */
+.news { margin-top: 42px; }
+.news h2 { font-size: 1.24rem; margin-bottom: 16px; }
+.news-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.news-list li {
+  position: relative; padding: 14px 18px 14px 40px;
+  background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px;
+  font-size: .96rem; line-height: 1.55;
+}
+.news-list li::before {
+  content: ""; position: absolute; left: 18px; top: 22px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--acc2);
+}
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Prof. Dejan Kostic</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#hiring">Hiring</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Research</a>
-            </li>
-            <li class="nav-item">
-	      <a class="nav-link js-scroll-trigger" href="#service">Service</a>
-            </li>
-            <li class="nav-item">
-	      <a class="nav-link js-scroll-trigger" href="#mainpublications">Main Publications</a>
-            </li>
-            <li class="nav-item">
-	      <a class="nav-link js-scroll-trigger" href="#allpublications">All Publications</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#students">Students</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#teaching">Teaching</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#bio">Bio</a>
-	    </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#personal">Personal</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+/* position banner */
+.banner {
+  display: flex; gap: 20px; align-items: flex-start;
+  border: 1px solid var(--acc); border-left-width: 4px; background: var(--acc-soft);
+  border-radius: 12px; padding: 22px 26px;
+}
+.banner .dot {
+  flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--acc2); margin-top: 9px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--acc2) 25%, transparent);
+}
+.banner h3 { margin-bottom: .3em; }
+.banner p { margin: 0; color: var(--fg-muted); }
+.banner .deadline { color: var(--fg); font-weight: 600; }
 
-    <header class="bg-primary" class="bg-light">
-      <div class="container text-center text-white">
-<h1>Dejan Kostic (<a style="font-weight:" style="color: rgb(25,25,112)" href="documents/dkostic-cv.pdf"><font color="FFFFFF">Link to Full CV</font></a>)</h1>
-<br />
-<table style="text-align: left; width: 100%;" border="1"
- cellpadding="2" cellspacing="2">
-  <tbody>
-    <tr>
-      <td>
-      <div align="left"><dd><img
- src="image/Dejan_Kostic-320-240.jpg" alt="Dejan Kostic"
- height="240" width="180"></dd>
-      </div>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/dekostic" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://twitter.com/dmkostic" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/dmkostic" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/dmkostic" target="_blank"><i class="fab fa-facebook-f"></i></a>
+/* cards / blog entries */
+.entries { display: flex; flex-direction: column; gap: 26px; }
+.entry {
+  display: grid; grid-template-columns: 360px 1fr; gap: 30px; align-items: start;
+  background: var(--bg-card); border: 1px solid var(--rule); border-radius: 14px;
+  padding: 26px; box-shadow: var(--shadow);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.entry.nofig { grid-template-columns: 1fr; }
+.entry:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--acc) 45%, var(--rule)); }
+.entry-body h3 { margin-bottom: .35em; }
+.entry-body h3 a { color: var(--fg); }
+.entry-body h3 a:hover { color: var(--acc); text-decoration: none; }
+.entry-body p { margin: 0; color: var(--fg-muted); }
+.entry-body p + p { margin-top: .8em; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 12px; font-size: .87rem; }
+.venue { font-weight: 700; color: var(--acc); }
+.sep { color: var(--rule); }
+.year { color: var(--fg-muted); }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  background: var(--gold-soft); color: var(--gold); font-size: .76rem; font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+}
+.more { display: inline-block; margin-top: 14px; font-weight: 600; font-size: .93rem; }
+.more::after { content: " →"; }
+figure { margin: 0; }
+.fig-img {
+  display: block; position: relative; background: #fff;
+  border: 1px solid var(--rule); border-radius: 10px; padding: 10px; transition: border-color .18s ease;
+}
+.fig-img:hover { border-color: var(--acc); }
+.fig-img img { width: 100%; height: auto; border-radius: 4px; }
+.fig-img .zoom {
+  position: absolute; right: 12px; bottom: 12px; font-size: .68rem; font-weight: 600;
+  color: #fff; background: rgba(20,28,38,.72); padding: 3px 8px; border-radius: 999px;
+  opacity: 0; transition: opacity .18s ease; pointer-events: none;
+}
+.fig-img:hover .zoom { opacity: 1; }
+figcaption { font-size: .8rem; color: var(--fg-muted); margin-top: 8px; line-height: 1.4; }
+@media (max-width: 820px) { .entry { grid-template-columns: 1fr; gap: 20px; padding: 20px; } }
+
+/* project cards (no drawings) */
+.proj {
+  background: var(--bg-card); border: 1px solid var(--rule); border-left: 4px solid var(--acc);
+  border-radius: 12px; padding: 24px 26px; box-shadow: var(--shadow);
+}
+.proj + .proj { margin-top: 22px; }
+.proj p { color: var(--fg-muted); }
+.proj p:last-child { margin-bottom: 0; }
+
+/* hand-drawn sketches (only where no paper figure exists) */
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ill {
+  width: 100%; aspect-ratio: 8 / 5; display: block; background: var(--ill-bg);
+  border-radius: 10px; border: 1px solid var(--rule);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.ill .n  { fill: var(--bg-card); stroke: var(--ill-muted); stroke-width: 2; }
+.ill .na { fill: var(--acc-soft); stroke: var(--acc); stroke-width: 2; }
+.ill .nd { fill: none; stroke: var(--ill-muted); stroke-width: 2; stroke-dasharray: 5 5; }
+.ill .cm { fill: var(--ill-muted); }
+.ill .ca { fill: var(--acc); }
+.ill .f  { fill: none; stroke: var(--ill-muted); stroke-width: 2.4; stroke-linecap: round; marker-end: url(#ah-m); }
+.ill .fa { fill: none; stroke: var(--acc); stroke-width: 2.4; stroke-linecap: round; marker-end: url(#ah-a); }
+.ill .fd { fill: none; stroke: var(--ill-muted); stroke-width: 2; stroke-dasharray: 5 5; marker-end: url(#ah-m); }
+.ill .t  { font-size: 12px; font-weight: 600; fill: var(--fg); }
+.ill .ts { font-size: 10px; font-weight: 500; fill: var(--fg-muted); }
+.ill .ta { font-size: 11px; font-weight: 700; fill: var(--acc); }
+
+/* two-column blocks */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; gap: 28px; } }
+.cols h3 { margin-bottom: .4em; }
+.cols p, .cols address { color: var(--fg-muted); font-style: normal; margin: 0 0 1em; }
+.list-plain { list-style: none; margin: 0; padding: 0; }
+.list-plain li { padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: .96rem; }
+.list-plain li:last-child { border-bottom: 0; }
+.note { font-size: .95rem; color: var(--fg-muted); border-left: 3px solid var(--rule); padding-left: 16px; margin-top: 30px; }
+
+/* legacy content carried over from the previous site */
+.legacy { color: var(--fg-muted); font-size: .97rem; }
+.legacy h2, .legacy h3, .legacy h4 { color: var(--fg); }
+.legacy p, .legacy li, .legacy span, .legacy div { font-size: inherit !important; font-family: inherit !important; }
+.legacy li, .legacy p { text-align: left !important; }
+.legacy li { margin: 0 0 .5em; line-height: 1.55; }
+.legacy ul { padding-left: 22px; margin: 0 0 1em; }
+.legacy b, .legacy strong { color: var(--fg); }
+.legacy br + br { line-height: .6; }
+.legacy .lead { font-size: inherit; }
+.legacy big { font-size: inherit; }
+
+details.more-block { margin-top: 8px; }
+details.more-block > summary {
+  cursor: pointer; font-weight: 600; color: var(--acc); font-size: .95rem;
+  padding: 10px 0; list-style: none;
+}
+details.more-block > summary::-webkit-details-marker { display: none; }
+details.more-block > summary::before { content: "▸ "; }
+details.more-block[open] > summary::before { content: "▾ "; }
+
+footer { border-top: 1px solid var(--rule); padding: 30px 0 46px; color: var(--fg-muted); font-size: .9rem; }
+footer a { color: var(--fg-muted); text-decoration: underline; }
+footer a:hover { color: var(--acc); }
+</style>
+</head>
+
+<body>
+
+<svg class="defs" aria-hidden="true" focusable="false"><defs>
+  <marker id="ah-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0 0 10 5 0 10Z" fill="var(--ill-muted)"/></marker>
+  <marker id="ah-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M0 0 10 5 0 10Z" fill="var(--acc)"/></marker>
+</defs></svg>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top">Dejan Kostic</a>
+    <div class="nav-links">
+      <a href="#news">News</a>
+      <a href="#hiring">Hiring</a>
+      <a href="#mainpublications">Main publications</a>
+      <a href="#research">Research</a>
+      <a href="#allpublications">All publications</a>
+      <a href="#service">Service</a>
+      <a href="#students">Students</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#bio">Bio</a>
+      <a href="#contact">Contact</a>
+      <a href="#personal">Personal</a>
     </div>
-Lab: <a href="https://www.kth.se/blogs/nslab/"><b><font color="FFFFFF">Networked Systems Laboratory</b></a>
-<br>
- <a href="https://www.kth.se/blogs/dai/"><b><font color="FFFFFF">DAI KAW WS</b></a> project
-<br>
- <a href="https://www.kth.se/blogs/sfl/"><b><font color="FFFFFF">VR SFL</b></a> project
-      </td>
-      <td>
-<div align="bottom">
-Chair Professor of Internetworking at the KTH Royal Institute of Technology. Associated with the Connected Intelligence unit of RISE (Research Institutes of Sweden), and a Wallenberg AI, Autonomous Systems and Software Program (WASP) faculty member. Main research interests: Distributed Systems, Machine Learning, Computer Networks, and Operating Systems. 
-<!-- Full CV is available <a style="font-weight:" href="documents/dkostic-cv.pdf"><font color="FFFFFF"><b>here</b></a>. -->
-<p>
-<h4>News:</h4>
-<p><p>
+  </div>
+</nav>
 
-<!-- <li>Dejan's 2-M EUR ERC Consolidator Grant 2018 has been extended -->
-<!--   until the end of 2024.</li> -->
-<li><font color="FFFFFF"><b>Dejan is a <a href="https://kaw.wallenberg.org/en/press/knut-and-alice-wallenberg-foundation-grants-sek-21-billion-118-swedens-top-researchers"><font color="FFFFFF"><b>Wallenberg Scholar!</b></a> This 5-year grant comes with 18 MSEK in funding.
-<li><a href="https://www.kth.se/blogs/ultra/2022/06/185/"><font color="FFFFFF"><b>Community Award at NSDI '22</b></a> for our Packet Order Matters! paper! Also in the news at <a href="https://www.kth.se/en/om/nyheter/lokala-nyheter/kth-researchers-behind-breakthrough-set-to-halve-data-centre-energy-consumption-1.1176662"><b><font color="FFFFFF">KTH EECS</b> and <a href="https://www.ericsson.com/en/blog/2022/8/packet-reordering-effects-on-packet-processing"><b><font color="FFFFFF">Ericsson</b></a>.
-
-<li><b>RedN</b> is in the news at <a href="https://techxplore.com/news/2022-09-commodity-rdma-network-interface-cards.html"><font color="FFFFFF"><b>TechXplore!</a></b>, and <a href="https://www.hpcwire.com/2021/04/06/whats-new-in-hpc-research-tundra-fugaku-%C2%B5hpc-more/"><font color="FFFFFF"><b>HPCWire</b></a>.
-
-<li><a href="https://www.kth.se/blogs/ultra/2021/11/best-paper-award-at-sosp-2021-for-our-paper-linefs-efficient-smartnic-offload-of-a-distributed-file-system-with-pipeline-parallelism/"><font color="FFFFFF"><b>Best Paper Award at SOSP 2021</b></a> for our <b><a href="documents/publications/linefs-sosp21.pdf"><font color="FFFFFF">LineFS</a></b> paper! Also in the <a href="https://intra.kth.se/en/eecs/nyheter/grattis-dejan-kosti-1.1121645"><font color="FFFFFF"><b>News at KTH EECS.</b></a>
-
-<!-- <li><a href="https://www.kth.se/blogs/nslab/2021/09/google-ph-d-fellowship-2021-for-alireza-farshin/"><font color="FFFFFF"><b>Google Ph.D. Fellowship (2021)</b></a> for Alireza Farshin!</li> -->
-
-<li>PacketMill is in the news in <a href="https://www.ericsson.com/en/blog/2021/4/multi-hundred-gigabit-networking-commodity-hardware"><font color="FFFFFF"><b>the Ericsson Blog.</b></a>, our load-balancing work (RSS++, Cheetah, and CrossRSS) is in the news <a href="https://intra.kth.se/en/eecs/nyheter/forskning-kommer-att-minska-datacenters-elforbrukning-1.1051568"><font color="FFFFFF"><b>at KTH EECS</b></a>, and CacheDirector is in the
-  news (<b><font color="FFFFFF"><a href="https://techxplore.com/news/2019-07-cache-intel-processors-packet.html"><font color="FFFFFF">TechXplore</a></b>, <a href="https://www.ericsson.com/en/blog/2019/3/maximizing-cots-hardware-performance-with-cpu-memory-management"><font color="FFFFFF"><b>Ericsson</b></a>, <a href="https://web.archive.org/web/2020/https://www.kth.se/en/aktuellt/nyheter/forskare-pa-g-1.890770"><font color="FFFFFF"><b>KTH</b>, <a href="https://intra.kth.se/en/eecs/nyheter/a-positive-side-effect-of-cache-monitoring-doing-good-rather-than-evil-1.912507"><font color="FFFFFF"><b>KTH EECS</b></a>).</a></li>
-<!-- <li>Metron is in the -->
-<!--   news! <a href="http://technews.acm.org/archives.cfm?fo=2018-05-may/may-16-2018.html"><font color="FFFFFF"><b>ACM TechNews</b></a>, <a href="https://phys.org/news/2018-05-platform-mobile-networks-gbps.html"><font color="FFFFFF"><b>PHYS.ORG</b></a>, -->
-<!--   and <a href="https://www.kth.se/en/aktuellt/nyheter/platform-brings-mobile-connection-speeds-up-to-100-gbps-1.819807"><font color="FFFFFF"><b>KTH</b></a>. -->
-<!-- <li>Our upcoming NSDI '18 paper on <a href="documents/publications/metron-nsdi18.pdf"><font color="FFFFFF"><b>NFV service chains at the true speed of the underlying hardware</a></b> is available. -->
-</li>
-</div>
-</td>
-    </tr>
-  </tbody>
-</table>
-
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="portrait">
+        <img src="image/Dejan_Kostic-400-300.jpg" alt="Portrait of Dejan Kostic" width="300" height="400">
       </div>
-    </header>
-
-
-    <section id="hiring" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-<h2>Open positions</h2>
-
-<!-- I am looking for more <a href="https://kth.varbi.com/en/what:job/jobID:273411"><b>doctoral students</b></a> to join my ULTRA ERC project (deadline extended to September 30, 2019!)</b></a>. I am also again looking for excellent <b><a href="https://kth.varbi.com/en/what:job/jobID:278673/">doctoral students (licentiate)</b></a> to work on the <a href="https://www.kth.se/blogs/tcc/"><span style="font-weight: bold;">SSF TCC</span></a> project. -->
-<p align="justify">We are accepting applications for a <b><a href="https://kth.varbi.com/what:job/jobID:929760/">Postdoc in Large Language Model inferencing</a></b> (deadline August 14, 2026). The position is part of my Wallenberg Scholar Project titled <b><a href="https://kaw.wallenberg.org/en/research/democratizing-use-ai">"Sustainable and Adaptive Inferencing for Democratizing AI"</a></b>.
-<!-- There's often a delay before an actual job ad is published, so please feel to email me directly if you are interested in working on this project. -->
-<!-- We are accepting applications <b><a href="https://kth.varbi.com/en/what:job/jobID:918950/"> (deadline May 31, 2026) for a doctoral position in Inferencing for Large Language Models</b></a>. -->
-<!-- <p align="justify">I am completing the recruiting process for <b><a href="https://kth.varbi.com/what:job/jobID:652656/">Multiple FPGA research engineers</b></a> within my European Research Council (ERC) Consolidator Project <b><a href="https://www.kth.se/blogs/ultra/">ULTRA</a></b> (ERC is the flagship funding agency in Europe, and is funding this project with 2 M EUR). I am also seeking applications for the <b><a href="https://kth.varbi.com/what:job/jobID:684496/">Multiple Postdoc positions in Networked Systems for Machine Learning</a></b>.  -->
-<!-- I am also seeking applications for <b><a href="https://kth.varbi.com/what:job/jobID:519216/">postdocs</b></a> on this project. -->
-<!-- <p> -->
-<!-- <p align="justify"> -->
-<!-- In this project we want to dramatically change the way Internet Services are constructed. We have already started to achieve significant gains in efficiency (about 7x), that come with substantial improvements in bandwidth (reaching and exceeding 100-Gbps with commodity server hardware) and latency (low and with low variance). As you can imagine, having services like this is crucial for the society. You can get a more detailed view of the type of work we do by looking at our <a href="documents/publications/metron-nsdi18.pdf"><b>Metron NSDI '18</a></b>, <a href="documents/publications/kurma-socc18.pdf"><b>Kurma SOCC '18</a></b>, <a href="documents/publications/rsspp-conext19.pdf"><b>RSS++ CoNEXT '19</a></b>, <a href="documents/publications/cheetah-nsdi20.pdf"><b>Cheetah NSDI '20</b></a>, <a href="documents/publications/packetmill-asplos21.pdf"><b>PacketMill ASPLOS '21</b></a>, <a href="documents/publications/ordermatters-nsdi22.pdf"><b>Packet Order Matters! NSDI '22</b></a> papers. More info is available in the text below, and especially, at the <b><a href="https://www.kth.se/blogs/ultra/">ULTRA project blog</a></b>. -->
-<!-- <p align="justify"> -->
-<!-- I also have <a href="https://www.kth.se/en/om/work-at-kth/lediga-jobb/what:job/jobID:333424/where:4/"><b>two doctoral students (licentiate) positions</b></a></b> for my <b><a href="https://www.kth.se/blogs/tcc/">Time-Critical Clouds</a></b> project (another large project, this time from the Swedish Foundation for Strategic Research). Licentiate is a degree halfway to the PhD in Sweden. This project started in 2016 and has accumulated <b><a href="https://www.kth.se/blogs/tcc/publications">publications in top venues, multiple PhD graduations, and several patents</a></b>. -->
-
-      </div>
-    </section>
-
-
-    <section id="about" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Research</h2>
-            <p class="lead">
-            <h4><i>Wallenberg Scholar Project: (unlimited) ChatGPT for every child</i></h4>
-            <p class="lead">
-<p align="justify">
-The goal of my Wallenberg Scholar Project is to build a substantially more energy efficient platform for AI inferencing. The project will run from 2025 until 2029, and is titled <a href="https://www.kth.se/blogs/dai/"><b>"Sustainable and Adaptive Inferencing for Democratizing AI (project blog link)"</a></b>. An interview about the project is also <b><a href="https://kaw.wallenberg.org/en/research/democratizing-use-ai">available</a></b>. 
-<br>
-<br>
-Our <b><a href="https://www.kth.se/blogs/dai/2024/12/our-first-paper-deriving-coding-specific-sub-models-from-llms-using-resource-efficient-pruning/">first paper</a></b> shows that it is possible to efficiently extract programming-language-specific sub-models using appropriate calibration datasets while maintaining acceptable accuracy w.r.t. full models.
-<br>
-<br>
-Which <b>form of communication should Large Language Models (LLMs) use</b> when they are collaboratively working on a problem, for example, one or two models processing the context and another model answering a question without seeing the context itself: plain text, hidden state, or some other way? In our <a href="https://www.kth.se/blogs/dai/2026/01/our-upcoming-iclr-paper-kvcomm-enabling-efficient-llm-communication-through-selective-kv-sharing/"><b>upcoming ICLR 2026 paper</b></a>, we propose and evaluate an approach called KVComm that uses carefully selected KV pairs computed during self-attention for this purpose. Our KV selection strategy is based on attention importance scores and a Gaussian prior. KVComm reduces the computation costs by 2.5x to 6x relative to textual approaches, and enables up to a 3x reduction in communication relative to approaches that transmit the entire set of KV pairs. 
-<!-- Interestingly enough, on two data sets KVComm even exceeds the performance of an approach that gives both the context and the question in text to the model answering the question. Our approach works even for different LLMs that are fine-tuned from the same base model. -->
-
-            <h4><i>ML for systems, systems for ML</i></h4>
-            <p class="lead">
-<p align="justify">My recent focus is on using <b>machine learning for systems, and building systems for machine learning</b>. One key example is our Swedish Research Council (VR) project on <a href="https://www.kth.se/blogs/sfl/"><b>Scalable Federated Learning (SFL)</b></a>. This project aims to develop a highly scalable, flexible, extensible, distributed federated machine learning approach that can directly benefit public health and wellness. In our recent <a href="documents/publications/cfd-lnai23.pdf"><b>CFD</b></a> paper we demonstrate our ability to perform dropout on image recognition models using coding theory (e.g., using Gold codes), resulting in more than 2X network bandwidth savings when used for Federated Learning. Our <a href="documents/publications/fmmhead-icprai24.pdf"><b>FMM-head</b></a> work shows the benefit of taking the underlying model of the heart (via Frequency Modulated Möbius waves) into account when performing ECG anomaly detection. Our model achieves up to 0.31 increase in area under the ROC curve (AUROC) when compared to the state of the art models. Moreover, the processing time of our model is four orders of magnitude lower than solving an optimization problem to obtain the same parameters, thus making it suitable for real-time ECG parameter extraction and anomaly detection. Our <a href="documents/publications/ecgi-miccai-stacom24.pdf"><b>paper at STACOM</b></a> demonstrates a potential for removing a large number of leads (more than half!) during ECG Imaging.
-<br>
-<br>
-In the domain of optimization, our <a href="documents/publications/deepgantt-ipsn23.pdf"><b>DeepGANTT IPSN '23</b></a> paper demonstrates our ability to apply transformers to Graph Neural Networks (GNNs) for scaling up an IoT scheduling problem 10X beyond what a constraint optimization solver can solve in a reasonable time. The follow-on <a href="https://ieeexplore.ieee.org/document/11271344"><b>RobustGANNT journal article</b></a> demonstrates that GNN-based models with Transformer-like architecture trained on small 10-node networks can robustly generalize to large-scale IoT deployments with up to 1000 nodes (i.e., 100x bigger than those encountered during training), achieving up to 2× resource savings in energy and spectrum utilization while maintaining consistent performance across diverse network topologies.
-
-            <h4><i>ERC Consolidator Project: 10x more efficient Internet Services</i></h4>
-            <p class="lead">
-<p align="justify">In my 2018-2024 <b>ERC Consolidator Project</b> called <a href="https://www.kth.se/blogs/ultra/"><span style="font-weight: bold;">ULTRA</span></a>, we wanted to dramatically change the way Internet Services are constructed.
-In our SoCC 2018 paper, we present <a href="https://www.kth.se/blogs/ultra/2018/09/our-upcoming-socc-paper-fast-and-accurate-load-balancing-for-geo-distributed-storage-systems/"><b>Kurma, our fast and accurate load balancer for geo-distributed storage systems</b></a>. We have recently collaborated with Ericsson on our <a href="documents/publications/slice-aware-eurosys19.pdf"><b>CacheDirector work published at EuroSys 2019</b></a>.
-The work on Metron (<a href="documents/publications/metron-nsdi18.pdf"><b>NFV service chains at the true speed of the underlying hardware</a></b>) has led to, and has inspired this project. Our most recent CoNEXT 2019 paper called <a href="documents/publications/rsspp-conext19.pdf"><b>RSS++</a></b>shows how load-balancing with Receive Side Scaling (RSS) can be improved for large increases in efficiency. In our NSDI 2020 paper we have introduced <a href="documents/publications/cheetah-nsdi20.pdf"><b>Cheetah</b></a>, a new load balancer for solving the difficult challenge of remembering which server is serving which connection, without the tradeoff between uniform load balancing and efficiency. In our <a href="documents/publications/packetmill-asplos21.pdf"><b>ASPLOS 2021 paper</b></a>, we have shown that vertically integrating a network protocol stack enables a single CPU core to forward packets faster than 100 Gbps. More details are available at the <a href="https://packetmill.github.io"><b>PacketMill</b></a> project page. The <a href="documents/publications/metron-tocs21.pdf"><b>Metron journal article</b></a> is now also available, and it shows how high performance NFV service chaining can be done even in the presence of blackboxes. Our NSDI 2022 paper <a href="documents/publications/ordermatters-nsdi22.pdf"><b>Packet Order Matters</b></a> shows a surprising result: deliberately <b>delaying</b> packets can improve the performance of backend servers by up to a factor of 2 (e.g., those used for Network Function Virtualization)! We show three different scenarios in which our <b>Reframer</b> can be deployed. Our final work in this project is <a href="documents/publications/fajita-conext24.pdf"><b>FAJITA</b></a>, which shows that a commodity server running a chain of stateful network functions can process more than 170 M packets per second (equivalent of 1.4 Tbps if payloads are stored in a disaggregated fashion as in our earlier  <a href="documents/publications/ribosome-nsdi23.pdf"><b>Ribosome</b></a> work [NSDI ’23]!).
-</p>
-
-<p align="justify">
-In our <a href="documents/publications/assise-osdi20.pdf"><b>OSDI 2020 paper</b></a> on Assise, we provide a blueprint of how a <b>next generation distributed file system</b> should be built on top of NVRAM that is becoming widely available, and achieve large performance gains. Our <a href="documents/publications/linefs-sosp21.pdf"><b>LineFS</a></b> paper (Best Paper award at SOSP '21) builds upon this work by offloading CPU-intensive tasks to a SmartNIC (BlueField-1 in our case) for about 80% performance improvement across the board. Our <a href="documents/publications/redn-nsdi22.pdf"><b>RedN NSDI 2022</a></b> paper shows another suprising result, namely that Remote Direct Memory Access (RDMA), as implemented in widely deployed RDMA Network Interface Cards, is <b>Turing Complete!</b> We leverage this finding to reduce the tail latency of services running on busy servers <b>by 35x!</b>
-</p>
-
-            <h4><i>SSF Framework project: Time-Critical Clouds</i></h4>
-            <p class="lead">
-
-<p align="justify">A&nbsp;major focus area for my
-research group was on <a href="https://www.kth.se/blogs/tcc/"><span style="font-weight: bold;">Time-Critical Clouds</span></a>,
-a 2016-2022 project supported by <a href="http://stratresearch.se/">SSF
-(the Swedish Foundation for Strategic Research)</a> with 27 M SEK (~2.7 M EUR). This was a
-joint effort with <a href="https://www.ri.se/en/what-we-do/our-areas/internet-things">the
-Connected Intelligence group</a> of <a href="https://www.ri.se/">RISE AB. &nbsp;</a>Our
-first major contribution is a Eurosys 2017 paper&nbsp;<a href="https://www.kth.se/blogs/tcc/2017/05/presentation-at-eurosys-2017-on-reducing-tail-latency-in-key-value-datastores/">(link to video and paper available
-here)</a>. In this work we reduce the tail latency in
-key-value stores by up to 1.9x by scheduling multiget requests
-more efficiently. Most recently we have shown how to run NFV service chains at the true speed of the underlying hardware <a href="documents/publications/metron-nsdi18.pdf"><b>in our NSDI '18 paper.</a></b>
-In our <a href="documents/publications/slice-aware-eurosys19"><b>EuroSys 2019</b></a> paper we have unlocked a performance-enhancing feature that existed in Intel processors for almost a decade. In our <a href="documents/publications/ddio-atc20.pdf"><b>USENIX ATC 2020 paper</b></a>, we are reexamining Direct Cache Access (DCA) to optimize I/O intensive applications for multi-hundred-gigabit networks.
-In our <a href="documents/publications/nicbench-pam21.pdf"><b>PAM 2021</b></a> paper,  we show that the forwarding throughput of the widely-deployed programmable Network Interface Cards (NICs) sharply degrades when i) the forwarding plane is updated and ii) packets match multiple forwarding tables in the NIC.
-
-</p>
-            <h4><i>ERC Starting Grant: simplifying the way networked systems are developed and deployed</i></h4>
-            <p class="lead">
-<p align="justify">We have also concluded the work on the <a href="https://www.kth.se/blogs/prophet/"><b>PROPHET</b></a>
-ERC project (2010-2016), in which we aimed to dramatically change the
-way networked
-systems
-are developed and deployed. For example, we&nbsp;improved
-the performance of geo-replicated storage systems using <a href="documents/publications/geoperf-socc15.pdf">GeoPerf
-[SOCC '15]</a>. We have successfully
-applied software verification techniques to increase the
-reliability
-of&nbsp;<span style="font-weight: bold;">Software-Defined
-Networks (SDN)</span>. Some of our key contributions
-to testing of OpenFlow networks are <a href="documents/publications/nice-nsdi12.pdf">NICE
-[NSDI'12]</a> and <a href="documents/publications/soft-conext12.pdf">SOFT
-[CoNEXT'12]</a>. &nbsp;We have
-identified serious issues in the <a href="documents/publications/switches-pam15.pdf">interplay
-between the control and data planes in OpenFlow switches [PAM '15]</a>,
-and
-proposed an <a href="documents/publications/rum-conext14.pdf">approach
-for verifying rule installation [CoNEXT '14]</a> as well as <a href="documents/publications/monocle-conext15.pdf">fine-grained
-dynamic monitoring of switch dataplanes [CoNEXT '15]</a>. Extended versions of these contributions are now available as <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1184865&dswid=-4372">IEEE/ACM TON</a> and <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1184868&dswid=-8556">Elsevier Computer Networks</a> journal publications. My work in Wallenberg AI, Autonomous Systems and Software Program (WASP) as a WASP faculty (advising an industrial PhD student at Ericsson, Amir Roozbeh) is complementary to these efforts.</p>
-
-<p align="justify">We have wrapped up our work in the <a href="http://www.beba-project.eu/">BEhavioral-BAsed
-Forwarding (BEBA)</a> Horizon2020 project (2014-2017) that aimed
-to reshape
-Software-Defined Networks. Our contributions are described in&nbsp;<a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1044355&amp;dswid=-9309">George
-Katsikas' licentiate thesis</a>, and involve <a href="http://www.sciencedirect.com/science/article/pii/S0164121217300055">deep
-understanding and performance optimization</a>&nbsp; of
-Network Functions Virtualization (NFV) service chains.
-Moreover,&nbsp;our recent work on <a href="http://kth.diva-portal.org/smash/get/diva2:1046357/FULLTEXT01.pdf">Synthesized
-Network Functions</a>,&nbsp;demonstrates
-high&nbsp;throughput with low predictable latency on a single
-commodity
-server thanks to its highly synthesized code and request dispatching. The overall&nbsp;project was recently <a href="http://cordis.europa.eu/result/rcn/206128_en.html">highlighted by the EU comission</a>. </p>
-          </div>
+      <div>
+        <h1>Dejan Kostic</h1>
+        <p class="role">
+          <strong>Chair Professor of Internetworking</strong>, KTH Royal Institute of Technology ·
+          Wallenberg Scholar · WASP faculty · associated with the Connected Intelligence unit of RISE
+        </p>
+        <p class="lede">
+          Main research interests: <strong>distributed systems, machine learning, computer networks and
+          operating systems</strong>. My group works on making computing dramatically more efficient — from
+          network stacks that saturate 100+ Gbps links on a single CPU core, to inference platforms that aim
+          to put large language models within everyone's reach at a fraction of today's energy cost.
+        </p>
+        <ul class="chips">
+          <li><a class="chip primary" href="documents/dkostic-cv.pdf">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 11.5 3.5 7l1.4-1.4L7 7.7V1h2v6.7l2.1-2.1L12.5 7 8 11.5ZM2 13h12v2H2v-2Z"/></svg>
+            Full CV</a></li>
+          <li><a class="chip" href="https://www.kth.se/blogs/nslab/">Networked Systems Lab</a></li>
+          <li><a class="chip" href="https://www.kth.se/blogs/dai/">DAI · Wallenberg Scholar project</a></li>
+          <li><a class="chip" href="https://www.kth.se/blogs/sfl/">VR SFL project</a></li>
+          <li><a class="chip" href="https://www.kth.se/profile/dejanko/publications">DiVA publications</a></li>
+        </ul>
+        <div class="social">
+          <a href="https://www.linkedin.com/in/dekostic" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.02h4.5V24H.24V8.02Zm7.86 0h4.31v2.18h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-7.35c0-1.75-.03-4-2.44-4-2.45 0-2.82 1.9-2.82 3.87V24H8.1V8.02Z"/></svg>
+          </a>
+          <a href="https://twitter.com/dmkostic" target="_blank" rel="noopener" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26L22.75 21.75h-6.6l-5.17-6.77-5.92 6.77H1.75l7.73-8.84L1.25 2.25h6.77l4.67 6.18 5.55-6.18Zm-1.16 17.52h1.83L7.02 4.13H5.06l12.02 15.64Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/dmkostic" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 5.68a4.16 4.16 0 1 0 0 8.32 4.16 4.16 0 0 0 0-8.32Zm0 6.86a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4Zm5.3-7.02a.97.97 0 1 1-1.94 0 .97.97 0 0 1 1.94 0Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/dmkostic" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
 
+    <div class="news" id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><b>Dejan is a <a href="https://kaw.wallenberg.org/en/press/knut-and-alice-wallenberg-foundation-grants-sek-21-billion-118-swedens-top-researchers"><b>Wallenberg Scholar!</b></a> This 5-year grant comes with 18 MSEK in funding.</b></li>
+        <li><a href="https://www.kth.se/blogs/ultra/2022/06/185/"><b>Community Award at NSDI '22</b></a> for our Packet Order Matters! paper! Also in the news at <a href="https://www.kth.se/en/om/nyheter/lokala-nyheter/kth-researchers-behind-breakthrough-set-to-halve-data-centre-energy-consumption-1.1176662"><b>KTH EECS</b> and <a href="https://www.ericsson.com/en/blog/2022/8/packet-reordering-effects-on-packet-processing"><b>Ericsson</b></a>.</a></li>
+        <li><b>RedN</b> is in the news at <a href="https://techxplore.com/news/2022-09-commodity-rdma-network-interface-cards.html"><b>TechXplore!</b></a>, and <a href="https://www.hpcwire.com/2021/04/06/whats-new-in-hpc-research-tundra-fugaku-%C2%B5hpc-more/"><b>HPCWire</b></a>.</li>
+        <li><a href="https://www.kth.se/blogs/ultra/2021/11/best-paper-award-at-sosp-2021-for-our-paper-linefs-efficient-smartnic-offload-of-a-distributed-file-system-with-pipeline-parallelism/"><b>Best Paper Award at SOSP 2021</b></a> for our <b><a href="documents/publications/linefs-sosp21.pdf">LineFS</a></b> paper! Also in the <a href="https://intra.kth.se/en/eecs/nyheter/grattis-dejan-kosti-1.1121645"><b>News at KTH EECS.</b></a></li>
+        <li>PacketMill is in the news in <a href="https://www.ericsson.com/en/blog/2021/4/multi-hundred-gigabit-networking-commodity-hardware"><b>the Ericsson Blog.</b></a>, our load-balancing work (RSS++, Cheetah, and CrossRSS) is in the news <a href="https://intra.kth.se/en/eecs/nyheter/forskning-kommer-att-minska-datacenters-elforbrukning-1.1051568"><b>at KTH EECS</b></a>, and CacheDirector is in the news (<b><a href="https://techxplore.com/news/2019-07-cache-intel-processors-packet.html">TechXplore</a></b>, <a href="https://www.ericsson.com/en/blog/2019/3/maximizing-cots-hardware-performance-with-cpu-memory-management"><b>Ericsson</b></a>, <a href="https://web.archive.org/web/2020/https://www.kth.se/en/aktuellt/nyheter/forskare-pa-g-1.890770"><b>KTH</b>, <a href="https://intra.kth.se/en/eecs/nyheter/a-positive-side-effect-of-cache-monitoring-doing-good-rather-than-evil-1.912507"><b>KTH EECS</b></a>).</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
 
-
-    <section id="service" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Selected Recent Service</h2>
-ERC Starting Grant 2023 PE6 Panel Chair<br />
-ERC Starting Grant 2021 PE6 Panel Chair<br />
-ERC Starting Grant 2019 PE6 Panel member<br />
-ERC Starting Grant 2017 PE6 Panel member<br />
-
-<br>
-TPC Co-chair of <a style="font-weight: bold;" href="https://www.systor.org/2023/">SYSTOR 2023</a><br />
-TPC Co-chair of <a style="font-weight: bold;" href="https://www.eurosys2020.org/">EuroSys 2020</a> <br />
-TPC Co-chair of <a style="font-weight: bold;" href="http://icdcs2018.ocg.at/">ICDCS 2018</a> "Cloud Computing and Data Centers</span>"<br />
-TPC Co-chair of <a style="font-weight: bold;"
-		   href="http://conferences.sigcomm.org/co-next/2016/#%21/home">CoNEXT
-  2016</a><span style="font-weight: bold;"> </span><br />
-
-<br>
-TPC Member
-for <b><a href="https://www.usenix.org/conference/nsdi26">NSDI '27</a></b>
-<br>
-<br>
-TPC Member
-for <b><a href="https://www.usenix.org/conference/nsdi26">NSDI '26</a></b>, 
-<b><a href="https://www.usenix.org/conference/osdi26">OSDI '26</a></b>,
-<b><a href="https://sigops.org/s/conferences/sosp/2026/">SOSP '26</a></b>
-<br>
-TPC Member
-for <b><a href="https://www.usenix.org/conference/nsdi25">NSDI
-    '25</a></b>, <b><a href="https://www.usenix.org/conference/osdi25">OSDI '25</a></b>, <b>SIGCOMM '25</b>
-<br>
-TPC Member for <b>ASPLOS '24</b>, <b>OSDI '24</b>, <b>SIGCOMM '24</b>
-<br>
-TPC Member for <b><a href="https://www.usenix.org/conference/nsdi23">NSDI '23</a></b>
-<br>
-TPC Member for <b>ASPLOS '22</b>, <b>NSDI '22</b>, <b>OSDI '22</b>, <b>SYSTOR '22</b>
-<br>
-TPC Member for <a style="font-weight: bold;" href="https://www.usenix.org/conference/nsdi21">NSDI '21</a>, 
-<a style="font-weight: bold;" href="https://sosp2021.mpi-sws.org/">SOSP '21</a>
-<br>
-TPC Member for <a style="font-weight: bold;" href="https://www.usenix.org/conference/nsdi20">NSDI '20</a>
-
-<br>
-TPC Member for <a href="https://conferences.sigcomm.org/sigcomm/2019/"><b>SIGCOMM '19</b></a>, <a href="https://www.usenix.org/conference/atc19"><b>USENIX ATC '19</b></a>, <a style="font-weight: bold;" href="https://www.usenix.org/conference/nsdi19">NSDI '19</a>
-<br>
-
-TPC Member for <a style="font-weight: bold;" href="http://eurosys2018.org/">Eurosys '18</a>, <a style="font-weight: bold;" href="http://eurosys2017.org/"> EuroSys '17</a>, <a style="font-weight: bold;" href="https://conferences2.sigcomm.org/co-next/2018/#!/home"> CoNEXT '18</a>, <a style="font-weight: bold;" href="http://conext2017.kaist.ac.kr/#%21/home">CoNEXT '17</a><span style="font-weight: bold;"> </span><br />
-TPC Member for OSDI '16, CoNEXT '15, SoCC '15, NSDI'15</p>
-          </div>
-        </div>
+<!-- ===== HIRING ===== -->
+<section class="section alt" id="hiring">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Open positions</span>
+      <h2>Join the group</h2>
+    </div>
+    <div class="banner">
+      <span class="dot" aria-hidden="true"></span>
+      <div>
+        <h3>Postdoc in Large Language Model inferencing</h3>
+        <p>
+          We are accepting applications (<a href="https://kth.varbi.com/what:job/jobID:929760/">job ad</a>) —
+          <span class="deadline">deadline August 14, 2026</span>. The position is part of my Wallenberg
+          Scholar Project,
+          <a href="https://kaw.wallenberg.org/en/research/democratizing-use-ai">“Sustainable and Adaptive Inferencing for Democratizing AI”</a>.
+        </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
+<!-- ===== MAIN PUBLICATIONS ===== -->
+<section class="section" id="mainpublications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Selected work</span>
+      <h2>Main publications</h2>
+      <p>Full author lists and the complete record are in
+        <a href="#allpublications">all publications</a> below and in
+        <a href="https://www.kth.se/profile/dejanko/publications">DiVA</a>.</p>
+    </div>
 
-
-    <section id="mainpublications" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Main Publications</h2>
-            <p class="lead">
-
-<!-- <p>Please see the complete list of publications below for full author lists. <a href="http://www.diva-portal.org/dice/table?query=+publicationTypeCode:%28article%20OR%20conferencePaper%29%20+authorId:u12eursm&amp;start=0&amp;rows=500&amp;sort=year%20desc"><span style="font-weight: bold;">(Auto-generated publication list from the DiVA repository is also available)</span></a><br/> -->
-<p>Please see the complete list of publications below for full author lists. <a href="https://www.kth.se/profile/dejanko/publications"><span style="font-weight: bold;">(Auto-generated publication list from the DiVA repository is also available)</span></a><br/>
-
-
-<p>
-
-<li><b><a href="https://openreview.net/forum?id=F7rUng23nw">"KVComm: Enabling Efficient LLM Communication through Selective KV Sharing"</a></b>, <i>ICLR 2026</i>.
-<li><b><a href="documents/publications/queuemem-nsdi26.pdf">"Queue-Mem: Energy-Efficient Hardware Storage for Advanced Network Function Acceleration"</a></b>, <i>NSDI 2026</i>.
-<li><b><a href="documents/publications/fajita-conext24.pdf">"FAJITA: Stateful Packet Processing at 100 Million pps"</a></b>, <i>CoNEXT 2024</i>.
-<li><b><a href="documents/publications/netconfeval-conext24.pdf">"NetConfEval: Can LLMs Facilitate Network Configuration"</a></b>, <i>CoNEXT 2024</i><b>, ANRP award!</b>
-<li><b><a href="documents/publications/ribosome-nsdi23.pdf">"A High-Speed Stateful Packet Processing Approach for Tbps Programmable Switches"</a></b>, <i>NSDI 2023.</i>
-<li><b><a href="documents/publications/ordermatters-nsdi22.pdf">"Packet Order Matters! Improving Application Performance by Deliberately Delaying Packets"</a></b>, <i>NSDI 2022.</i> <b>Community Award!</b>.
-<li><b><a href="documents/publications/redn-nsdi22.pdf">"RDMA is Turing complete, we just did not know it yet!"</a></b>, <i>NSDI 2022</i>.
-<li><b><a href="documents/publications/linefs-sosp21.pdf">"LineFS: Efficient SmartNIC Offload of a Distributed File System with Pipeline Parallelism"</a></b>, <i>SOSP 2021</i>. <b>Best Paper Award!</b>
-<li><b><a href="documents/publications/packetmill-asplos21.pdf">"PacketMill: Toward per-core 100-Gbps Networking"</a></b>, <i>ASPLOS 2021</i>.
-<li><b><a href="documents/publications/assise-osdi20.pdf">"Assise: Performance and Availability via Client-local NVM in a Distributed File System"</a></b>, <i>USENIX OSDI 2020</i>.
-<li><b><a href="documents/publications/ddio-atc20.pdf">"Reexamining Direct Cache Access to Optimize I/O Intensive Applications for Multi-hundred-gigabit Networks"</a></b>, <i>USENIX ATC 2020</i>.
-<li><b><a href="documents/publications/cheetah-nsdi20.pdf">"A High-Speed Load-Balancer Design with Guaranteed Per-Connection-Consistency"</a></b>, <i>NSDI 2020</i>.
-
-<li><b><a href="documents/publications/rsspp-conext19.pdf">"RSS++: load and state-aware receive side scaling"</a></b>, <i>CoNEXT 2019</i>.
-
-<li><b><a href="documents/publications/slice-aware-eurosys19.pdf">"Make the Most out of Last Level Cache in Intel Processors"</a></b>, <i>EuroSys 2019</i>.
-
-<li><b><a href="documents/publications/kurma-socc18.pdf">"Fast and Accurate Load Balancing for Geo-Distributed Storage Systems"</a></b>, <i>SoCC 2018</i>.
-<li class="MsoNormal" ><b><a href="documents/publications/metron-nsdi18.pdf">"Metron: NFV Service Chains at the True Speed of the Underlying Hardware"</a></b>, <i>NSDI 2018.</i></span><br /></li>
-
-<li class="MsoNormal" ><span style="font-size: 11pt;font-weight: bold;">"<a href="documents/publications/rein-eurosys17.pdf">Rein: Taming Tail Latency in Key-Value Stores via Multiget Scheduling</a>"</span>, <i>EuroSys 2017</i>.<br /> 
-
-<!-- <li class="MsoNormal" >"<a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A867620&amp;dswid=-6124"><b style="">Systematically Testing OpenFlow Controller Applications</a>"</b><span style="font-style: italic; font-weight: normal;">, 2015, journal version of the NICE NSDI '12 paper.</span></span><span style="font-weight: bold;"></span></span></span></span></a></li> -->
-
-<li class="MsoNormal" ><a href="documents/publications/monocle-conext15.pdf"><span style="font-size: 11pt;font-weight: bold">"Monocle: Dynamic, Fine-Grained Data Plane Monitoring</span></a>", <i>CoNEXT, 2015</i>.</span><br /></li>
-
-<li class="MsoNormal" ><a href="documents/publications/geoperf-socc15.pdf"><span style="font-weight: bold;">"</span></span></a><a href="documents/publications/geoperf-socc15.pdf"><span style="font-weight: bold;">The Nearest Replica Can Be
-Farther Than You Think</span></a></span><span style="font-weight: bold;">"</span></span>, <span style="font-style: italic;">SOCC 2015</span>.&nbsp;</span><span style="font-weight: bold;"></span></span></li>
-
-<li class="MsoNormal" ></span><span style="font-weight: bold;">"<a href="documents/publications/switches-pam15.pdf">What
-You Need to Know About SDN Flow Tables</a>", &nbsp;</span></span><span class="more"><span style="font-style: italic;">PAM 2015</span>.</span><span style="font-weight: bold;">&nbsp;</span></span><a href="documents/publications/rum-conext14.pdf"><span style="font-weight: bold;"><span class="more"></span></span><span style="font-weight: bold;"></span></span></a></li>
-
-<li class="MsoNormal" ><a href="documents/publications/rum-conext14.pdf"><span style="font-weight: bold;"></span></span></a><span style="font-weight: bold;"><a href="documents/publications/rum-conext14.pdf">"Providing
-Reliable FIB Update Acknowledgments in SDN</a><span class="more"><a href="documents/publications/rum-conext14.pdf">"</a>, </span></span><span class="more"><span style="font-style: italic;">CoNEXT
-2014</span>.</span><span style="font-weight: bold;"><br />
-</span></span></li>
-
-<li class="MsoNormal" ><a name="OLE_LINK5">"</a><a href="documents/publications/deepdive-usenix13.pdf"><b>DeepDive: Transparently Identifying
-and Managing Performance Interference in Virtualized Environments</span></b></a>",&nbsp;</span></span><i>USENIX
-</span>ATC&nbsp;2013</i>.</span></li>
-<li class="MsoNormal" ><a name="OLE_LINK5">"</span></a><a href="documents/publications/soft-conext12.pdf"><b>A SOFT Way for OpenFlow Switch
-Interoperability Testing</span></b></a>",&nbsp;<i>CoNEXT
-2012</i>.</span></li>
-<li class="MsoNormal" >"</span><a href="documents/publications/nice-nsdi12.pdf"><b>A NICE Way to Test OpenFlow
-Applications</span></b></a>",&nbsp;<i>NSDI</i>
-<span style="font-style: italic;">2012</span>. </span></li>
-<li class="MsoNormal" >"</span><a href="documents/publications/dejavu-asplos12.pdf"><b>DejaVu: Accelerating Resource
-Allocation in Virtualized Environments</span></b></a>"</b>,<span style="font-style: italic;"> </span><i>ASPLOS
-2012</i>. </span></li>
-<li class="MsoNormal" ><a href="documents/publications/response-conext11.pdf"><b>"Identifying and Using
-Energy-Critical Paths</span></b></a>", <i>CoNEXT
-2011</i>.</span></li>
-<li class="MsoNormal"><a href="documents/publications/bh2-sigcomm11.pdf"><b>"Insomnia in
-the Access (or How to Curb Access Network Related Energy Consumption)"</a></b>,&nbsp;<i>SIGCOMM</i>
-<span style="font-style: italic;">2011</span>.</span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/crystalball-nsdi09.pdf">CrystalBall:
-Predicting and Preventing Inconsistencies in Deployed Distributed
-Systems</a></b>",<b>&nbsp;</b><i>NSDI
-2009</i>. </span></li>
-<li class="MsoNormal" ><a href="documents/publications/mirage-sosp07.pdf">"</span></a><b><a href="documents/publications/mirage-sosp07.pdf">Staged
-Deployment in Mirage, an Integrated Software Upgrade Testing and
-Distribution System</a></b>", <i>SOSP</i>
-<span style="font-style: italic;">2007</span>.</span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/bullet-usenix05.pdf">Maintaining
-High Bandwidth under Dynamic Network<span style="font-weight: normal;"> </span>Conditions</a></b>",&nbsp;<i>USENIX
-ATC 2005</i>. </span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/fuse-osdi04.pdf">FUSE:
-Lightweight Guaranteed Distributed Failure Notification</a></b>",&nbsp;<i>OSDI</i>
-<span style="font-style: italic;">2004</span>.</span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/macedon-nsdi04.pdf">MACEDON:
-Methodology for Automatically Creating, Evaluating, and Designing
-Overlay Networks</a></span></b>",&nbsp;<i>NSDI</i>
-<span style="font-style: italic;">2004</span>. </span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/bullet-sosp03.pdf">Bullet: High
-Bandwidth Data Dissemination Using an Overlay Mesh</a></b>",&nbsp;<i>SOSP</i>
-<span style="font-style: italic;">2003</span>. </span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/ransub-usits03.pdf">Using
-Random Subsets to Build Scalable Network Services</a></b>",&nbsp;<i>USITS
-2003</i>.</span></li>
-<li class="MsoNormal" >"<b><a href="documents/publications/modelnet-osdi02.pdf">Scalability
-and Accuracy in a Large-Scale Network Emulator</a></b>",&nbsp;<i>OSDI</i>
-<span style="font-style: italic;">2002</span>.</span></li>
-</ul>
-<h2>
-	    </p>
-          </div>
+    <div class="entries">
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/kvcomm.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/kvcomm.png" alt="The KVComm pipeline: a calibration stage scores KV pairs by cross-model attention, and at test time only the selected KV pairs reach the answering model." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: calibration scores each KV pair by cross-model attention; at test time only the selected pairs are handed to the answering model.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ICLR</span><span class="sep">·</span><span class="year">2026</span></div>
+          <h3><a href="https://openreview.net/forum?id=F7rUng23nw">KVComm: Enabling Efficient LLM Communication through Selective KV Sharing</a></h3>
+          <p>
+            When several LLMs collaborate on a problem, shipping natural-language text between them is wasteful.
+            KVComm instead passes a carefully chosen subset of the key–value pairs computed during self-attention,
+            selected via attention importance scores and a Gaussian prior. The result: 2.5–6× less computation than
+            textual approaches, and up to 3× less communication than sending the whole KV cache.
+          </p>
         </div>
-      </div>
-    </section>
+      </article>
 
- 
-    <section id="allpublications" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Journal Publications</h2>
-            <p class="lead">
+      <article class="entry">
+        <figure>
+          <svg class="ill" viewBox="0 0 320 200" role="img" aria-label="Diagram: arriving packets are split into headers, processed by a network function accelerator, and payloads, parked in energy-efficient Queue-Mem storage, then rejoined on egress.">
+            <text class="ts" x="10" y="96">packets</text>
+            <path class="f" d="M10 104h34"/>
+            <rect class="n" x="48" y="82" width="52" height="44" rx="6"/>
+            <text class="ts" x="74" y="100" text-anchor="middle">split</text>
+            <text class="ts" x="74" y="114" text-anchor="middle">hdr | payload</text>
+            <path class="fa" d="M104 94C118 94 116 62 128 62"/>
+            <path class="f"  d="M104 114C118 114 116 148 128 148"/>
+            <rect class="na" x="134" y="38" width="104" height="46" rx="7"/>
+            <text class="t"  x="186" y="58" text-anchor="middle">NF accelerator</text>
+            <text class="ts" x="186" y="74" text-anchor="middle">headers + state</text>
+            <rect class="n" x="134" y="124" width="104" height="50" rx="7"/>
+            <text class="t"  x="186" y="144" text-anchor="middle">Queue-Mem</text>
+            <text class="ts" x="186" y="160" text-anchor="middle">payloads parked</text>
+            <path class="ca" d="M128 168l12-16h-8l6-13-15 17h8l-3 12Z"/>
+            <path class="f" d="M242 62C256 62 254 94 264 94"/>
+            <path class="f" d="M242 148C256 148 254 114 264 114"/>
+            <rect class="n" x="268" y="86" width="40" height="30" rx="6"/>
+            <text class="ts" x="288" y="105" text-anchor="middle">rejoin</text>
+            <text class="ta" x="160" y="192" text-anchor="middle">less energy per stored bit → richer NFs in the same budget</text>
+          </svg>
+          <figcaption>Sketch, not from the paper — I could not find the Queue-Mem sources.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2026</span></div>
+          <h3><a href="documents/publications/queuemem-nsdi26.pdf">Queue-Mem: Energy-Efficient Hardware Storage for Advanced Network Function Acceleration</a></h3>
+          <p>
+            Accelerating network functions in hardware runs into a storage wall: packets must be held somewhere
+            while they are processed, and that memory costs both power and area. Queue-Mem is a hardware storage
+            design that makes this far cheaper energetically, so more advanced network functions fit within the
+            same power budget.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/fajita.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/fajita.png" alt="FAJITA pipeline: a flow manager routes packets to per-flow state blocks, and each network function prefetches its state before the processing phase." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: the flow manager groups packets by state block, and each NF prefetches its state before processing.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2024</span></div>
+          <h3><a href="documents/publications/fajita-conext24.pdf">FAJITA: Stateful Packet Processing at 100 Million pps</a></h3>
+          <p>
+            A commodity server running a whole chain of <em>stateful</em> network functions can process more than
+            170 million packets per second — the equivalent of 1.4 Tbps when payloads are stored in a disaggregated
+            fashion, as in our earlier Ribosome work. This was the closing result of the ULTRA ERC project.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/netconfeval.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/netconfeval.png" alt="NetConfEval prototype: three LLM stages take high-level policies to a formal specification, high-level configuration and finally low-level device configuration, with a verifier checking each stage." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: three LLM stages carry high-level policy down to device configuration, with a verifier checking each step.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta">
+            <span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2024</span>
+            <span class="badge">ANRP Award</span>
+          </div>
+          <h3><a href="documents/publications/netconfeval-conext24.pdf">NetConfEval: Can LLMs Facilitate Network Configuration?</a></h3>
+          <p>
+            Rather than asking in the abstract whether an LLM can configure a network, NetConfEval builds a
+            benchmark around the tasks operators actually face — translating high-level requirements, producing
+            code that drives the network, and generating low-level configuration — and measures where today's
+            models succeed and where they break. Recognized with an
+            <strong>Applied Networking Research Prize</strong>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/ribosome.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ribosome.png" alt="Ribosome overview: the programmable switch sends headers to the NF packet processor and stores payloads on RDMA servers, retrieving and rejoining them on egress." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: headers go to the NF processor, payloads are parked on RDMA servers, and the two are rejoined on egress.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2023</span></div>
+          <h3><a href="documents/publications/ribosome-nsdi23.pdf">A High-Speed Stateful Packet Processing Approach for Tbps Programmable Switches</a></h3>
+          <p>
+            Programmable switches have the throughput for terabit-scale stateful processing but nowhere near the
+            memory. Ribosome resolves the tension by disaggregating storage: the switch keeps what it needs to make
+            decisions, while payloads live elsewhere — which is what later let FAJITA quote 1.4 Tbps-equivalent
+            numbers on commodity hardware.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/ordermatters.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ordermatters.png" alt="Top: flows from different servers are interleaved by the network before reaching the receiver. Bottom: Reframer buffers packets briefly and forwards them grouped by flow." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: the network interleaves flows (top); Reframer regroups them by flow before the server sees them (bottom).</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta">
+            <span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2022</span>
+            <span class="badge">Community Award</span>
+          </div>
+          <h3><a href="documents/publications/ordermatters-nsdi22.pdf">Packet Order Matters! Improving Application Performance by Deliberately Delaying Packets</a></h3>
+          <p>
+            A counter-intuitive result: <em>deliberately delaying</em> packets can improve the performance of
+            backend servers by up to a factor of 2, because an interleaved stream wrecks locality downstream. Our
+            Reframer buys order with a little latency, and we show three deployment scenarios where that trade is
+            clearly worth it. Covered by
+            <a href="https://www.kth.se/en/om/nyheter/lokala-nyheter/kth-researchers-behind-breakthrough-set-to-halve-data-centre-energy-consumption-1.1176662">KTH EECS</a>
+            and <a href="https://www.ericsson.com/en/blog/2022/8/packet-reordering-effects-on-packet-processing">Ericsson</a>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/redn.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/redn.png" alt="RedN hash-lookup RDMA program: a posted chain of RECV, READ, CAS and SEND work requests in which each step rewrites the next, so the NIC walks the hash table on its own." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: a chain of RDMA work requests that rewrites itself — the NIC walks the hash table with no remote CPU involved.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2022</span></div>
+          <h3><a href="documents/publications/redn-nsdi22.pdf">RDMA is Turing complete, we just did not know it yet!</a></h3>
+          <p>
+            RDMA, as implemented in widely deployed RDMA Network Interface Cards, turns out to be Turing complete.
+            We leverage that finding to offload real computation onto the NIC and reduce the tail latency of
+            services running on busy servers <strong>by 35×</strong>. Picked up by
+            <a href="https://techxplore.com/news/2022-09-commodity-rdma-network-interface-cards.html">TechXplore</a>
+            and <a href="https://www.hpcwire.com/2021/04/06/whats-new-in-hpc-research-tundra-fugaku-%C2%B5hpc-more/">HPCwire</a>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/linefs.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/linefs.png" alt="LineFS IO path across host and SmartNIC: fetching, validation, compression and transfer to the replicas overlap as a pipeline." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: the IO path across host and SmartNIC — fetch, validate, compress and transfer overlap instead of queuing.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta">
+            <span class="venue">ACM SOSP</span><span class="sep">·</span><span class="year">2021</span>
+            <span class="badge">Best Paper</span>
+          </div>
+          <h3><a href="documents/publications/linefs-sosp21.pdf">LineFS: Efficient SmartNIC Offload of a Distributed File System with Pipeline Parallelism</a></h3>
+          <p>
+            Building on Assise, LineFS offloads the CPU-intensive tasks of a distributed file system to a SmartNIC
+            (BlueField-1 in our case) and pipelines them, for about 80% performance improvement across the board.
+            <strong>Best Paper Award at SOSP '21</strong>, and
+            <a href="https://intra.kth.se/en/eecs/nyheter/grattis-dejan-kosti-1.1121645">news at KTH EECS</a>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/packetmill.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/packetmill.png" alt="Copying versus overlaying packet metadata: instead of copying descriptors between the driver, DPDK and the application, PacketMill overlays application metadata on the existing buffer." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: rather than copying descriptors between driver, DPDK and application, PacketMill overlays metadata on the existing buffer.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM ASPLOS</span><span class="sep">·</span><span class="year">2021</span></div>
+          <h3><a href="documents/publications/packetmill-asplos21.pdf">PacketMill: Toward per-core 100-Gbps Networking</a></h3>
+          <p>
+            Vertically integrating a network protocol stack enables a single CPU core to forward packets faster
+            than 100 Gbps. More details are at the <a href="https://packetmill.github.io">PacketMill project page</a>,
+            and in <a href="https://www.ericsson.com/en/blog/2021/4/multi-hundred-gigabit-networking-commodity-hardware">the Ericsson blog</a>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <svg class="ill" viewBox="0 0 320 200" role="img" aria-label="Diagram: an application write persists in client-local non-volatile memory and replicates to a peer client's NVM, with the cluster storage tier updated only in the background.">
+            <text class="ts" x="10" y="18">write path</text>
+            <rect class="n" x="10" y="28" width="146" height="76" rx="8"/>
+            <text class="ts" x="83" y="46" text-anchor="middle">client node</text>
+            <rect class="na" x="22" y="56" width="54" height="34" rx="6"/>
+            <text class="ts" x="49" y="77" text-anchor="middle">app</text>
+            <path class="fa" d="M80 73h8"/>
+            <rect class="na" x="92" y="56" width="52" height="34" rx="6"/>
+            <text class="ts" x="118" y="72" text-anchor="middle">local</text>
+            <text class="ts" x="118" y="84" text-anchor="middle">NVM</text>
+            <path class="fa" d="M160 73h14"/>
+            <rect class="n" x="180" y="28" width="128" height="76" rx="8"/>
+            <text class="ts" x="244" y="46" text-anchor="middle">peer client node</text>
+            <rect class="na" x="196" y="56" width="96" height="34" rx="6"/>
+            <text class="ts" x="244" y="77" text-anchor="middle">local NVM (replica)</text>
+            <text class="ta" x="167" y="120" text-anchor="middle">replicate</text>
+            <path class="fd" d="M60 108v28"/>
+            <text class="ts" x="68" y="126">lazily</text>
+            <rect class="nd" x="10" y="142" width="180" height="34" rx="7"/>
+            <text class="ts" x="100" y="163" text-anchor="middle">cluster storage, in the background</text>
+            <text class="ta" x="200" y="158">acked without a</text>
+            <text class="ta" x="200" y="172">server round trip</text>
+          </svg>
+          <figcaption>Sketch, not from the paper — I could not find the Assise sources.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX OSDI</span><span class="sep">·</span><span class="year">2020</span></div>
+          <h3><a href="documents/publications/assise-osdi20.pdf">Assise: Performance and Availability via Client-local NVM in a Distributed File System</a></h3>
+          <p>
+            A blueprint of how a next generation distributed file system should be built on top of NVRAM that is
+            becoming widely available, achieving large performance gains by keeping the hot path in client-local
+            non-volatile memory.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/ddio.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/ddio.png" alt="Data Direct I/O: the network interface card DMAs incoming data straight into the last-level cache of the CPU socket rather than into DRAM." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: with Data Direct I/O the NIC places incoming data straight into the last-level cache rather than DRAM.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX ATC</span><span class="sep">·</span><span class="year">2020</span></div>
+          <h3><a href="documents/publications/ddio-atc20.pdf">Reexamining Direct Cache Access to Optimize I/O Intensive Applications for Multi-hundred-gigabit Networks</a></h3>
+          <p>
+            Direct Cache Access lets a NIC deliver packets into the last-level cache instead of DRAM — a design
+            whose assumptions no longer hold at multi-hundred-gigabit rates. We reexamine DCA as it is actually
+            implemented in Intel processors, and show how to tune it for I/O intensive applications at these speeds.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/cheetah.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/cheetah.png" alt="Cheetah stateless load balancer: the chosen server is encoded in a cookie carried by the connection, so the load balancer can recompute the mapping without per-connection state." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: the selected server travels with the connection as a cookie, so consistency does not require per-connection state.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2020</span></div>
+          <h3><a href="documents/publications/cheetah-nsdi20.pdf">A High-Speed Load-Balancer Design with Guaranteed Per-Connection-Consistency</a></h3>
+          <p>
+            Cheetah is a new load balancer for solving the difficult challenge of remembering which server is
+            serving which connection, without the tradeoff between uniform load balancing and efficiency.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/rsspp.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/rsspp.png" alt="Receive Side Scaling: the NIC hashes each packet into an indirection table whose buckets are assigned to processing cores." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: RSS hashes packets into an indirection table of buckets — the table RSS++ rebalances at run time.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2019</span></div>
+          <h3><a href="documents/publications/rsspp-conext19.pdf">RSS++: load and state-aware receive side scaling</a></h3>
+          <p>
+            RSS++ shows how load-balancing with Receive Side Scaling (RSS) — the mechanism every modern NIC already
+            uses to spread packets across cores — can be improved for large increases in efficiency.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/cachedirector.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/cachedirector.png" alt="Traditional DPDK places the first 64 bytes of the packet — the header — in a random last-level cache slice; with CacheDirector the mbuf headroom is adjusted so the header lands in the slice belonging to the core that will process it." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: stock DPDK drops the packet header in a random LLC slice; CacheDirector steers it to the slice of the core that will process it.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">EuroSys</span><span class="sep">·</span><span class="year">2019</span></div>
+          <h3><a href="documents/publications/slice-aware-eurosys19.pdf">Make the Most out of Last Level Cache in Intel Processors</a></h3>
+          <p>
+            Work done in collaboration with Ericsson: CacheDirector unlocked a performance-enhancing feature that
+            had existed in Intel processors for almost a decade, by placing data in the cache slice closest to the
+            core that will use it.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM SoCC</span><span class="sep">·</span><span class="year">2018</span></div>
+          <h3><a href="documents/publications/kurma-socc18.pdf">Fast and Accurate Load Balancing for Geo-Distributed Storage Systems</a></h3>
+          <p>
+            Kurma is our fast and accurate load balancer for geo-distributed storage systems.
+            <a href="https://www.kth.se/blogs/ultra/2018/09/our-upcoming-socc-paper-fast-and-accurate-load-balancing-for-geo-distributed-storage-systems/">More on the ULTRA blog</a>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <figure>
+          <a class="fig-img" href="image/figs/metron.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/metron.png" alt="The Metron controller takes a service chain description, identifies traffic classes, synthesizes hardware and software operations, installs OpenFlow rules and dispatches traffic to the correct core." loading="lazy"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: Metron synthesizes the chain into switch rules plus per-core software, then rebalances from run-time statistics.</figcaption>
+        </figure>
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2018</span></div>
+          <h3><a href="documents/publications/metron-nsdi18.pdf">Metron: NFV Service Chains at the True Speed of the Underlying Hardware</a></h3>
+          <p>
+            Metron runs NFV service chains at the true speed of the underlying hardware. This work led to, and
+            inspired, the ULTRA project. The <a href="documents/publications/metron-tocs21.pdf">journal article</a>
+            extends it to show how high performance NFV service chaining can be done even in the presence of
+            blackboxes.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">EuroSys</span><span class="sep">·</span><span class="year">2017</span></div>
+          <h3><a href="documents/publications/rein-eurosys17.pdf">Rein: Taming Tail Latency in Key-Value Stores via Multiget Scheduling</a></h3>
+          <p>
+            The first major contribution of the Time-Critical Clouds project: we reduce the tail latency in
+            key-value stores by up to 1.9x by scheduling multiget requests more efficiently.
+            <a href="https://www.kth.se/blogs/tcc/2017/05/presentation-at-eurosys-2017-on-reducing-tail-latency-in-key-value-datastores/">Video and paper</a>.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2015</span></div>
+          <h3><a href="documents/publications/monocle-conext15.pdf">Monocle: Dynamic, Fine-Grained Data Plane Monitoring</a></h3>
+          <p>
+            Fine-grained dynamic monitoring of switch dataplanes, part of our work on increasing the reliability of
+            Software-Defined Networks. An extended version is available as an
+            <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1184865&amp;dswid=-4372">IEEE/ACM ToN</a> article.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM SoCC</span><span class="sep">·</span><span class="year">2015</span></div>
+          <h3><a href="documents/publications/geoperf-socc15.pdf">The Nearest Replica Can Be Farther Than You Think</a></h3>
+          <p>
+            GeoPerf improved the performance of geo-replicated storage systems by questioning an assumption in the
+            title: the closest replica is not necessarily the fastest one.
+          </p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">PAM</span><span class="sep">·</span><span class="year">2015</span></div>
+          <h3><a href="documents/publications/switches-pam15.pdf">What You Need to Know About SDN Flow Tables</a></h3>
+          <p>Part of our PROPHET work: we identified serious issues in the interplay between the control and data planes of OpenFlow switches. An extended version appeared in <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1184868&amp;dswid=-8556">Elsevier Computer Networks</a>.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2014</span></div>
+          <h3><a href="documents/publications/rum-conext14.pdf">Providing Reliable FIB Update Acknowledgments in SDN</a></h3>
+          <p>An approach for verifying that a rule the controller installed has actually been installed in the switch.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX ATC</span><span class="sep">·</span><span class="year">2013</span></div>
+          <h3><a href="documents/publications/deepdive-usenix13.pdf">DeepDive: Transparently Identifying and Managing Performance Interference in Virtualized Environments</a></h3>
+          <p>Identifying — transparently, without cooperation from the guests — when co-located virtual machines are interfering with each other, and doing something about it.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2012</span></div>
+          <h3><a href="documents/publications/soft-conext12.pdf">A SOFT Way for OpenFlow Switch Interoperability Testing</a></h3>
+          <p>One of our two key contributions to testing OpenFlow networks: cross-checking switch implementations against each other to find where they disagree.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2012</span></div>
+          <h3><a href="documents/publications/nice-nsdi12.pdf">A NICE Way to Test OpenFlow Applications</a></h3>
+          <p>Applying model checking and symbolic execution to OpenFlow control programs, to increase the reliability of Software-Defined Networks.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM ASPLOS</span><span class="sep">·</span><span class="year">2012</span></div>
+          <h3><a href="documents/publications/dejavu-asplos12.pdf">DejaVu: Accelerating Resource Allocation in Virtualized Environments</a></h3>
+          <p>Reusing what was learned from previous runs to reach a good resource allocation for virtualized workloads faster.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM CoNEXT</span><span class="sep">·</span><span class="year">2011</span></div>
+          <h3><a href="documents/publications/response-conext11.pdf">Identifying and Using Energy-Critical Paths</a></h3>
+          <p>Finding the paths through a network whose energy consumption actually matters, and using that knowledge to save power.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM SIGCOMM</span><span class="sep">·</span><span class="year">2011</span></div>
+          <h3><a href="documents/publications/bh2-sigcomm11.pdf">Insomnia in the Access (or How to Curb Access Network Related Energy Consumption)</a></h3>
+          <p>Access networks stay awake largely for traffic that does not need them to. This paper looks at how much of that energy consumption can be curbed.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2009</span></div>
+          <h3><a href="documents/publications/crystalball-nsdi09.pdf">CrystalBall: Predicting and Preventing Inconsistencies in Deployed Distributed Systems</a></h3>
+          <p>A deployed distributed system explores its own future execution paths at run time, so that it can steer away from an inconsistency before reaching it.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM SOSP</span><span class="sep">·</span><span class="year">2007</span></div>
+          <h3><a href="documents/publications/mirage-sosp07.pdf">Staged Deployment in Mirage, an Integrated Software Upgrade Testing and Distribution System</a></h3>
+          <p>Rolling out a software upgrade in stages, so that testing and distribution are one integrated process rather than two disconnected ones.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX ATC</span><span class="sep">·</span><span class="year">2005</span></div>
+          <h3><a href="documents/publications/bullet-usenix05.pdf">Maintaining High Bandwidth under Dynamic Network Conditions</a></h3>
+          <p>Keeping overlay data dissemination fast when the underlying network conditions keep changing.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX OSDI</span><span class="sep">·</span><span class="year">2004</span></div>
+          <h3><a href="documents/publications/fuse-osdi04.pdf">FUSE: Lightweight Guaranteed Distributed Failure Notification</a></h3>
+          <p>A lightweight abstraction that guarantees every participant learns about a failure, so distributed applications do not have to invent their own detection.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX NSDI</span><span class="sep">·</span><span class="year">2004</span></div>
+          <h3><a href="documents/publications/macedon-nsdi04.pdf">MACEDON: Methodology for Automatically Creating, Evaluating, and Designing Overlay Networks</a></h3>
+          <p>A methodology and toolchain for specifying an overlay network once and then generating, running and evaluating it.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">ACM SOSP</span><span class="sep">·</span><span class="year">2003</span></div>
+          <h3><a href="documents/publications/bullet-sosp03.pdf">Bullet: High Bandwidth Data Dissemination Using an Overlay Mesh</a></h3>
+          <p>Disseminating data at high bandwidth over an overlay mesh rather than a tree, so that a node can pull missing pieces from several peers.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USITS</span><span class="sep">·</span><span class="year">2003</span></div>
+          <h3><a href="documents/publications/ransub-usits03.pdf">Using Random Subsets to Build Scalable Network Services</a></h3>
+          <p>Random subsets of participants as a building block for network services that have to scale.</p>
+        </div>
+      </article>
+      <article class="entry nofig">
+        <div class="entry-body">
+          <div class="meta"><span class="venue">USENIX OSDI</span><span class="sep">·</span><span class="year">2002</span></div>
+          <h3><a href="documents/publications/modelnet-osdi02.pdf">Scalability and Accuracy in a Large-Scale Network Emulator</a></h3>
+          <p>ModelNet: emulating a large network accurately enough to run real, unmodified applications over it.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH ===== -->
+<section class="section alt" id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Research</span>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="venue">Wallenberg Scholar</span><span class="sep">·</span><span class="year">2025 – 2029</span></div>
+      <h3>(unlimited) ChatGPT for every child</h3>
+      <p>
+        The goal of my Wallenberg Scholar Project is to build a substantially more energy efficient platform
+        for AI inferencing. The project runs from 2025 until 2029 and is titled
+        <a href="https://www.kth.se/blogs/dai/"><b>“Sustainable and Adaptive Inferencing for Democratizing AI” (project blog link)</b></a>.
+        An interview about the project is also <a href="https://kaw.wallenberg.org/en/research/democratizing-use-ai"><b>available</b></a>.
+      </p>
+      <p>
+        Our <a href="https://www.kth.se/blogs/dai/2024/12/our-first-paper-deriving-coding-specific-sub-models-from-llms-using-resource-efficient-pruning/"><b>first paper</b></a>
+        shows that it is possible to efficiently extract programming-language-specific sub-models using
+        appropriate calibration datasets while maintaining acceptable accuracy w.r.t. full models.
+      </p>
+      <p>
+        Which <b>form of communication should Large Language Models (LLMs) use</b> when they are collaboratively
+        working on a problem, for example, one or two models processing the context and another model answering
+        a question without seeing the context itself: plain text, hidden state, or some other way? In our
+        <a href="https://www.kth.se/blogs/dai/2026/01/our-upcoming-iclr-paper-kvcomm-enabling-efficient-llm-communication-through-selective-kv-sharing/"><b>ICLR 2026 paper</b></a>
+        we propose and evaluate an approach called KVComm that uses carefully selected KV pairs computed during
+        self-attention for this purpose. Our KV selection strategy is based on attention importance scores and a
+        Gaussian prior. KVComm reduces the computation costs by 2.5x to 6x relative to textual approaches, and
+        enables up to a 3x reduction in communication relative to approaches that transmit the entire set of KV pairs.
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="venue">VR SFL &amp; WASP</span><span class="sep">·</span><span class="year">ongoing</span></div>
+      <h3>ML for systems, systems for ML</h3>
+      <p>
+        My recent focus is on using <b>machine learning for systems, and building systems for machine learning</b>.
+        One key example is our Swedish Research Council (VR) project on
+        <a href="https://www.kth.se/blogs/sfl/"><b>Scalable Federated Learning (SFL)</b></a>. This project aims to
+        develop a highly scalable, flexible, extensible, distributed federated machine learning approach that can
+        directly benefit public health and wellness. In our <a href="documents/publications/cfd-lnai23.pdf"><b>CFD</b></a>
+        paper we demonstrate our ability to perform dropout on image recognition models using coding theory
+        (e.g., using Gold codes), resulting in more than 2X network bandwidth savings when used for Federated
+        Learning. Our <a href="documents/publications/fmmhead-icprai24.pdf"><b>FMM-head</b></a> work shows the benefit
+        of taking the underlying model of the heart (via Frequency Modulated Möbius waves) into account when
+        performing ECG anomaly detection. Our model achieves up to 0.31 increase in area under the ROC curve
+        (AUROC) when compared to the state of the art models. Moreover, the processing time of our model is four
+        orders of magnitude lower than solving an optimization problem to obtain the same parameters, thus making
+        it suitable for real-time ECG parameter extraction and anomaly detection. Our
+        <a href="documents/publications/ecgi-miccai-stacom24.pdf"><b>paper at STACOM</b></a> demonstrates a potential
+        for removing a large number of leads (more than half!) during ECG Imaging.
+      </p>
+      <p>
+        In the domain of optimization, our <a href="documents/publications/deepgantt-ipsn23.pdf"><b>DeepGANTT IPSN '23</b></a>
+        paper demonstrates our ability to apply transformers to Graph Neural Networks (GNNs) for scaling up an IoT
+        scheduling problem 10X beyond what a constraint optimization solver can solve in a reasonable time. The
+        follow-on <a href="https://ieeexplore.ieee.org/document/11271344"><b>RobustGANTT journal article</b></a>
+        demonstrates that GNN-based models with Transformer-like architecture trained on small 10-node networks can
+        robustly generalize to large-scale IoT deployments with up to 1000 nodes (i.e., 100x bigger than those
+        encountered during training), achieving up to 2× resource savings in energy and spectrum utilization while
+        maintaining consistent performance across diverse network topologies.
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="venue">ERC Consolidator · ULTRA</span><span class="sep">·</span><span class="year">2018 – 2024</span></div>
+      <h3>10x more efficient Internet Services</h3>
+      <p>
+        In my 2018-2024 <b>ERC Consolidator Project</b> called
+        <a href="https://www.kth.se/blogs/ultra/"><b>ULTRA</b></a>, we wanted to dramatically change the way
+        Internet Services are constructed. In our SoCC 2018 paper, we present
+        <a href="https://www.kth.se/blogs/ultra/2018/09/our-upcoming-socc-paper-fast-and-accurate-load-balancing-for-geo-distributed-storage-systems/"><b>Kurma, our fast and accurate load balancer for geo-distributed storage systems</b></a>.
+        We have collaborated with Ericsson on our
+        <a href="documents/publications/slice-aware-eurosys19.pdf"><b>CacheDirector work published at EuroSys 2019</b></a>.
+        The work on Metron (<a href="documents/publications/metron-nsdi18.pdf"><b>NFV service chains at the true speed of the underlying hardware</b></a>)
+        has led to, and has inspired this project. Our CoNEXT 2019 paper called
+        <a href="documents/publications/rsspp-conext19.pdf"><b>RSS++</b></a> shows how load-balancing with Receive
+        Side Scaling (RSS) can be improved for large increases in efficiency. In our NSDI 2020 paper we introduced
+        <a href="documents/publications/cheetah-nsdi20.pdf"><b>Cheetah</b></a>, a new load balancer for solving the
+        difficult challenge of remembering which server is serving which connection, without the tradeoff between
+        uniform load balancing and efficiency. In our
+        <a href="documents/publications/packetmill-asplos21.pdf"><b>ASPLOS 2021 paper</b></a>, we have shown that
+        vertically integrating a network protocol stack enables a single CPU core to forward packets faster than
+        100 Gbps. More details are available at the <a href="https://packetmill.github.io"><b>PacketMill</b></a>
+        project page. The <a href="documents/publications/metron-tocs21.pdf"><b>Metron journal article</b></a> is now
+        also available, and it shows how high performance NFV service chaining can be done even in the presence of
+        blackboxes. Our NSDI 2022 paper <a href="documents/publications/ordermatters-nsdi22.pdf"><b>Packet Order Matters</b></a>
+        shows a surprising result: deliberately <b>delaying</b> packets can improve the performance of backend
+        servers by up to a factor of 2 (e.g., those used for Network Function Virtualization)! We show three
+        different scenarios in which our <b>Reframer</b> can be deployed. Our final work in this project is
+        <a href="documents/publications/fajita-conext24.pdf"><b>FAJITA</b></a>, which shows that a commodity server
+        running a chain of stateful network functions can process more than 170 M packets per second (equivalent of
+        1.4 Tbps if payloads are stored in a disaggregated fashion as in our earlier
+        <a href="documents/publications/ribosome-nsdi23.pdf"><b>Ribosome</b></a> work [NSDI ’23]!).
+      </p>
+      <p>
+        In our <a href="documents/publications/assise-osdi20.pdf"><b>OSDI 2020 paper</b></a> on Assise, we provide a
+        blueprint of how a <b>next generation distributed file system</b> should be built on top of NVRAM that is
+        becoming widely available, and achieve large performance gains. Our
+        <a href="documents/publications/linefs-sosp21.pdf"><b>LineFS</b></a> paper (Best Paper award at SOSP '21)
+        builds upon this work by offloading CPU-intensive tasks to a SmartNIC (BlueField-1 in our case) for about
+        80% performance improvement across the board. Our
+        <a href="documents/publications/redn-nsdi22.pdf"><b>RedN NSDI 2022</b></a> paper shows another surprising
+        result, namely that Remote Direct Memory Access (RDMA), as implemented in widely deployed RDMA Network
+        Interface Cards, is <b>Turing Complete!</b> We leverage this finding to reduce the tail latency of services
+        running on busy servers <b>by 35x!</b>
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="venue">SSF Framework · TCC</span><span class="sep">·</span><span class="year">2016 – 2022</span></div>
+      <h3>Time-Critical Clouds</h3>
+      <p>
+        A major focus area for my research group was on
+        <a href="https://www.kth.se/blogs/tcc/"><b>Time-Critical Clouds</b></a>, a 2016-2022 project supported by
+        <a href="http://stratresearch.se/">SSF (the Swedish Foundation for Strategic Research)</a> with 27 M SEK
+        (~2.7 M EUR). This was a joint effort with
+        <a href="https://www.ri.se/en/what-we-do/our-areas/internet-things">the Connected Intelligence group</a> of
+        <a href="https://www.ri.se/">RISE AB</a>. Our first major contribution is a Eurosys 2017 paper
+        <a href="https://www.kth.se/blogs/tcc/2017/05/presentation-at-eurosys-2017-on-reducing-tail-latency-in-key-value-datastores/">(link to video and paper available here)</a>.
+        In this work we reduce the tail latency in key-value stores by up to 1.9x by scheduling multiget requests
+        more efficiently. We have also shown how to run NFV service chains at the true speed of the underlying
+        hardware <a href="documents/publications/metron-nsdi18.pdf"><b>in our NSDI '18 paper</b></a>. In our
+        <a href="documents/publications/slice-aware-eurosys19.pdf"><b>EuroSys 2019</b></a> paper we have unlocked a
+        performance-enhancing feature that existed in Intel processors for almost a decade. In our
+        <a href="documents/publications/ddio-atc20.pdf"><b>USENIX ATC 2020 paper</b></a>, we are reexamining Direct
+        Cache Access (DCA) to optimize I/O intensive applications for multi-hundred-gigabit networks. In our
+        <a href="documents/publications/nicbench-pam21.pdf"><b>PAM 2021</b></a> paper, we show that the forwarding
+        throughput of the widely-deployed programmable Network Interface Cards (NICs) sharply degrades when
+        i) the forwarding plane is updated and ii) packets match multiple forwarding tables in the NIC.
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="meta"><span class="venue">ERC Starting Grant · PROPHET</span><span class="sep">·</span><span class="year">2010 – 2016</span></div>
+      <h3>Simplifying the way networked systems are developed and deployed</h3>
+      <p>
+        We have concluded the work on the <a href="https://www.kth.se/blogs/prophet/"><b>PROPHET</b></a> ERC project
+        (2010-2016), in which we aimed to dramatically change the way networked systems are developed and deployed.
+        For example, we improved the performance of geo-replicated storage systems using
+        <a href="documents/publications/geoperf-socc15.pdf">GeoPerf [SOCC '15]</a>. We have successfully applied
+        software verification techniques to increase the reliability of <b>Software-Defined Networks (SDN)</b>. Some
+        of our key contributions to testing of OpenFlow networks are
+        <a href="documents/publications/nice-nsdi12.pdf">NICE [NSDI '12]</a> and
+        <a href="documents/publications/soft-conext12.pdf">SOFT [CoNEXT '12]</a>. We have identified serious issues
+        in the <a href="documents/publications/switches-pam15.pdf">interplay between the control and data planes in
+        OpenFlow switches [PAM '15]</a>, and proposed an
+        <a href="documents/publications/rum-conext14.pdf">approach for verifying rule installation [CoNEXT '14]</a>
+        as well as <a href="documents/publications/monocle-conext15.pdf">fine-grained dynamic monitoring of switch
+        dataplanes [CoNEXT '15]</a>. Extended versions of these contributions are available as
+        <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1184865&amp;dswid=-4372">IEEE/ACM TON</a> and
+        <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1184868&amp;dswid=-8556">Elsevier Computer Networks</a>
+        journal publications. My work in Wallenberg AI, Autonomous Systems and Software Program (WASP) as a WASP
+        faculty (advising an industrial PhD student at Ericsson, Amir Roozbeh) is complementary to these efforts.
+      </p>
+      <p>
+        We have wrapped up our work in the <a href="http://www.beba-project.eu/">BEhavioral-BAsed Forwarding (BEBA)</a>
+        Horizon2020 project (2014-2017) that aimed to reshape Software-Defined Networks. Our contributions are
+        described in <a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1044355&amp;dswid=-9309">George Katsikas' licentiate thesis</a>,
+        and involve <a href="http://www.sciencedirect.com/science/article/pii/S0164121217300055">deep understanding and performance optimization</a>
+        of Network Functions Virtualization (NFV) service chains. Moreover, our work on
+        <a href="http://kth.diva-portal.org/smash/get/diva2:1046357/FULLTEXT01.pdf">Synthesized Network Functions</a>
+        demonstrates high throughput with low predictable latency on a single commodity server thanks to its highly
+        synthesized code and request dispatching. The overall project was
+        <a href="http://cordis.europa.eu/result/rcn/206128_en.html">highlighted by the EU commission</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ALL PUBLICATIONS ===== -->
+<section class="section" id="allpublications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Complete record</span>
+      <h2>All publications</h2>
+      <p>Journal, conference and workshop publications with full author lists.</p>
+    </div>
+    <div class="legacy">
+<p class="lead">
 <ul style="margin-top: 0in;" type="disc">
 
 
   
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A2028592&dswid=-9220">"Robust Generalization of Graph Neural Networks for Scheduling Backscatter Communications at Scale"</a>, Daniel F. Pérez-Ramírez, Nicolas Tsiftes, Carlos Pérez-Penichet, Dejan Kostic, Thiemo Voigt, and Magnus Boman, IEEE Transactions in Machine Learning for Communication and Networking (TMLCN), 2025.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A2028592&amp;dswid=-9220">"Robust Generalization of Graph Neural Networks for Scheduling Backscatter Communications at Scale"</a>, Daniel F. Pérez-Ramírez, Nicolas Tsiftes, Carlos Pérez-Penichet, Dejan Kostic, Thiemo Voigt, and Magnus Boman, IEEE Transactions in Machine Learning for Communication and Networking (TMLCN), 2025.</span><br/>
+<br/>
 </li>
   
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://link.springer.com/chapter/10.1007/978-3-031-87756-8_30">"Reducing the number of leads for ECG Imaging with Graph Neural Networks and meaningful latent space"</a>, Giacomo Verardo, Daniel F. Perez-Ramirez, Samuel Bruchfeld, Magnus Boman, Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, In: Camara, O., et al. Statistical Atlases and Computational Models of the Heart. Workshop, CMRxRecon and MBAS Challenge Papers. STACOM 2024. Lecture Notes in Computer Science, vol 15448. Springer, Cham.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://link.springer.com/chapter/10.1007/978-3-031-87756-8_30">"Reducing the number of leads for ECG Imaging with Graph Neural Networks and meaningful latent space"</a>, Giacomo Verardo, Daniel F. Perez-Ramirez, Samuel Bruchfeld, Magnus Boman, Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, In: Camara, O., et al. Statistical Atlases and Computational Models of the Heart. Workshop, CMRxRecon and MBAS Challenge Papers. STACOM 2024. Lecture Notes in Computer Science, vol 15448. Springer, Cham.</span><br/>
+<br/>
 </li>
   
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://link.springer.com/book/10.1007/978-981-97-8702-9?page=1#toc">"FMM-Head: Enhancing Autoencoder-based ECG anomaly detection with prior knowledge"</a>, Giacomo Verardo, Magnus Boman, Samuel Bruchfeld,  Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, In: Wallraven, C., Liu, C. L., & Ross, A. (eds) Pattern Recognition and Artificial Intelligence. ICPRAI 2024. Lecture Notes in Computer Science, vol 14892. 2025, Springer, Singapore.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://link.springer.com/book/10.1007/978-981-97-8702-9?page=1#toc">"FMM-Head: Enhancing Autoencoder-based ECG anomaly detection with prior knowledge"</a>, Giacomo Verardo, Magnus Boman, Samuel Bruchfeld,  Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, In: Wallraven, C., Liu, C. L., & Ross, A. (eds) Pattern Recognition and Artificial Intelligence. ICPRAI 2024. Lecture Notes in Computer Science, vol 14892. 2025, Springer, Singapore.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/iotlb-peerj23.pdf">"Overcoming the IOTLB wall for multi-100-Gbps Linux-based networking"</a>, Alireza Farshin, Luigi Rizzo, Khaled Elmeleegy, and Dejan Kostic, PeerJ Computer Science, 2023,<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/iotlb-peerj23.pdf">"Overcoming the IOTLB wall for multi-100-Gbps Linux-based networking"</a>, Alireza Farshin, Luigi Rizzo, Khaled Elmeleegy, and Dejan Kostic, PeerJ Computer Science, 2023,<br/>&nbsp;</span><br/></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/cfd-lnai23.pdf">"Fast Server Learning Rate Tuning for Coded Federated Dropout"</a>, Giacomo Verardo, Daniel Barreira, Marco Chiesa, Dejan Kostic and Gerald Quentin Maguire Jr., In: Goebel, R., Yu, H., Faltings, B., Fan, L. & Xiong, Z. (Eds.). Trustworthy Federated Learning. Lecture Notes in Artificial Intelligence, vol. 13448, pp. 85-100. Springer, Cham, 2023<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/cfd-lnai23.pdf">"Fast Server Learning Rate Tuning for Coded Federated Dropout"</a>, Giacomo Verardo, Daniel Barreira, Marco Chiesa, Dejan Kostic and Gerald Quentin Maguire Jr., In: Goebel, R., Yu, H., Faltings, B., Fan, L. & Xiong, Z. (Eds.). Trustworthy Federated Learning. Lecture Notes in Artificial Intelligence, vol. 13448, pp. 85-100. Springer, Cham, 2023<br/>&nbsp;</span><br/></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/cheetah-ton21.pdf">"Cheetah: A High-Speed Programmable Load-Balancer Framework with Guaranteed Per-Connection-Consistency"</a>, Tom Barbette, Erfan Wu, Dejan Kostic, Gerald Q. Maguire Jr., Panagiotis Papadimitratos, and Marco Chiesa, IEEE/ACM Transactions on Networking, 2021.<br />&nbsp;</span><br /></li>
-
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/metron-tocs21.pdf">"Metron: High Performance NFV Service Chaining Even in the Presence of Blackboxes"</a>, Georgios Katsikas, Tom Barbette, Dejan Kostic, Rebecca Steinert, and Gerald Q. Maguire Jr., ACM Transactions on Computer Systems<i style="">(TOCS)</i>, July 2021<i style="">.</i>.<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/cheetah-ton21.pdf">"Cheetah: A High-Speed Programmable Load-Balancer Framework with Guaranteed Per-Connection-Consistency"</a>, Tom Barbette, Erfan Wu, Dejan Kostic, Gerald Q. Maguire Jr., Panagiotis Papadimitratos, and Marco Chiesa, IEEE/ACM Transactions on Networking, 2021.<br/>&nbsp;</span><br/></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/portranger-ccr20.pdf">"Path Persistence in the Cloud: A Study of the Effects of Inter-Region Traffic Engineering in a Large Cloud Providers Network"</a>, Waleed Reda, Kirill Bogdanov, Alexandros Milolidakis, Hamid Ghasemirahni, Marco Chiesa, Gerald Q. Maguire Jr., and Dejan Kostic, <i style="">SIGCOMM Computer Communication Review (SIGCOMM CCR)</i>, April 2020<i style="">.</i>.<br />&nbsp;</span><br /></li>
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://doi.org/10.1109/ACCESS.2020.2984500">"Fast Deployment of Reliable Distributed Control Planes with Performance Guarantees"</a>, Shaoteng Liu, Rebecca Steinert, Natalia Vesselinova, and Dejan Kostic, <i style="">IEEE Access</i>. March 2020<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/metron-tocs21.pdf">"Metron: High Performance NFV Service Chaining Even in the Presence of Blackboxes"</a>, Georgios Katsikas, Tom Barbette, Dejan Kostic, Rebecca Steinert, and Gerald Q. Maguire Jr., ACM Transactions on Computer Systems<i style="">(TOCS)</i>, July 2021<i style="">.</i>.<br/>&nbsp;</span><br/></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://ieeexplore.ieee.org/document/8356736/">"Software-Defined 'Hardware' Infrastructures: A Survey on Enabling Technologies and Open Research Directions"</a>, Amir Roozbeh, Joao Soares, Gerald Q. Maguire Jr., Fetahi Wuhib, Chakri Padala, Mozhgan Mahloo, Daniel Turull, Vinay Yadhav, and Dejan Kostic, <i style="">IEEE Communications Surveys & Tutorials</i>, May 2018<i style="">.</i>.<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/portranger-ccr20.pdf">"Path Persistence in the Cloud: A Study of the Effects of Inter-Region Traffic Engineering in a Large Cloud Providers Network"</a>, Waleed Reda, Kirill Bogdanov, Alexandros Milolidakis, Hamid Ghasemirahni, Marco Chiesa, Gerald Q. Maguire Jr., and Dejan Kostic, <i style="">SIGCOMM Computer Communication Review (SIGCOMM CCR)</i>, April 2020<i style="">.</i>.<br/>&nbsp;</span><br/></li>
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://doi.org/10.1109/ACCESS.2020.2984500">"Fast Deployment of Reliable Distributed Control Planes with Performance Guarantees"</a>, Shaoteng Liu, Rebecca Steinert, Natalia Vesselinova, and Dejan Kostic, <i style="">IEEE Access</i>. March 2020<br/>&nbsp;</span><br/></li>
+
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://ieeexplore.ieee.org/document/8356736/">"Software-Defined 'Hardware' Infrastructures: A Survey on Enabling Technologies and Open Research Directions"</a>, Amir Roozbeh, Joao Soares, Gerald Q. Maguire Jr., Fetahi Wuhib, Chakri Padala, Mozhgan Mahloo, Daniel Turull, Vinay Yadhav, and Dejan Kostic, <i style="">IEEE Communications Surveys & Tutorials</i>, May 2018<i style="">.</i>.<br/>&nbsp;</span><br/></li>
 
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/switches-elsevier18-author-copy.pdf">"Methodology, Measurement and Analysis of Flow Table Update Characteristics in Hardware OpenFlow Switches"</a>, Maciej Kuzniar, Peter Peresini, Dejan Kostic, and Marco Canini, <i style="">Computer Networks: The International Journal of
-Computer and Telecommunications Networking</i>, <i style="">Elsevier,</i>&nbsp;2018<i style="">.</i>.<br />&nbsp;</span><br /></li>
+Computer and Telecommunications Networking</i>, <i style="">Elsevier,</i>&nbsp;2018<i style="">.</i>.<br/>&nbsp;</span><br/></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/monocle-ton18-author-copy.pdf">"Dynamic, Fine-Grained Data Plane Monitoring with Monocle"</a>, Peter Peresini, Maciej Kuzniar, and Dejan Kostic, IEEE/ACM Transactions on Networking, 2018.<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/monocle-ton18-author-copy.pdf">"Dynamic, Fine-Grained Data Plane Monitoring with Monocle"</a>, Peter Peresini, Maciej Kuzniar, and Dejan Kostic, IEEE/ACM Transactions on Networking, 2018.<br/>&nbsp;</span><br/></li>
 
 <li class="MsoNormal" style="text-align: justify;">
 <p><span style="font-size: 11pt;">"<a href="https://authors.elsevier.com/tracking/article/details.do?aid=9909&amp;jid=JSS&amp;surname=Katsikas">Profiling
@@ -469,7 +1037,7 @@ and Accelerating Commodity NFV Service Chains with SCC</a>",
 Georgios Katsikas,
 Gerald Q. Maguire Jr., and Dejan
 Kostic, <i style="">The Journal of Systems &amp;
-Software, </i>2017.</p>
+Software, </i>2017.</span></p>
 </li>
 
 <li class="MsoNormal" style="text-align: justify;">
@@ -478,7 +1046,7 @@ Synthesizing high performance NFV service chains</a>",
 Georgios Katsikas,
 Marcel Enguehard, Maciej Kuzniar, Gerald Q. Maguire Jr., and Dejan
 Kostic, <i style="">PeerJ Computer Science,</i>
-2016.</p>
+2016.</span></p>
 </li>
 <li class="MsoNormal" style="text-align: justify;">
 <p><span style="font-size: 11pt;">"<a href="http://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A867620&amp;dswid=-6124">Systematically Testing OpenFlow Controller
@@ -512,189 +1080,189 @@ Erik Vandekieft, <i>ACM Transactions on Computer
 Systems (TOCS), </i>Volume 26 ,&nbsp;
 Issue 1&nbsp; (February 2008), Pages: 3-61.</span></p>
 </li>
-<br />
+<br/>
 </ul>
-</h2>
+
 <h2>Conference and Workshop
-Publications<br />
-<br />
-</big></big></h2>
+Publications<br/>
+<br/>
+</h2>
 <ul style="margin-top: 0in;" type="disc">
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Dissecting GPU Utilization for LLM Inference on Nvidia Hopper", <span style="font-size: 11pt;">Mohammad Siavashi, Gerald Q. Maguire Jr., Dejan Kostic, and Marco Chiesa, Proceedings of the IEEE International Symposium on Workload Characterization (IISWC), September 2026. <i>To appear.</i></span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Dissecting GPU Utilization for LLM Inference on Nvidia Hopper", <span style="font-size: 11pt;">Mohammad Siavashi, Gerald Q. Maguire Jr., Dejan Kostic, and Marco Chiesa, Proceedings of the IEEE International Symposium on Workload Characterization (IISWC), September 2026. <i>To appear.</i></span><br/>
+<br/>
+</span></li>
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/queuemem-nsdi26.pdf">"Queue-Mem: Energy-Efficient Hardware Storage for Advanced Network Function Acceleration"</a>, <span style="font-size: 11pt;">Mariano Scazzariello, Tommaso Caiazzi, Hamid Ghasemirahni, Dejan Kostic, and Marco Chiesa, Proceedings of the 23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI), May 2026.</span><br/>
+<br/>
+</span></li>
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://openreview.net/forum?id=F7rUng23nw">"KVComm: Enabling Efficient LLM Communication through Selective KV Sharing"</a>, <span style="font-size: 11pt;">Xiangyu Shi, Marco Chiesa, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the Fourteenth International Conference on Learning Representation (ICLR), April 2026.</span><br/>
+<br/>
+</span></li>
+
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/taco-dafny26.pdf">"Toward Automated, Contamination-free Dafny Benchmark Generation"</a>, Changjie Wang, Mariano Scazzariello,Dejan Kostic, and Marco Chiesa, Dafny Workshop at POPL, January 2026. <br/>
+</span></li>
+<br/>
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/HarmonAIze-apsys25.pdf">"Cloud abstractions for AI workloads"</a><span style="font-size: 11pt;">, Marco Canini, Theophilus A. Benson, Ricardo Bianchini, Íñigo Goiri, Dejan Kostić, Peter Pietzuch, and Simon Peter, Proceedings of the 16th ACM SIGOPS Asia-Pacific Workshop on Systems (ApSys), October 2025.</span><br/>
+<br/>
+</span></li>
+
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://arxiv.org/abs/2501.05248">"Deriving Coding-Specific Sub-Models from LLMs using Resource-Efficient Pruning"</a>, Laura Puccioni, Alireza Farshin, Mariano Scazzariello, Changjie Wang, Marco Chiesa, and Dejan Kostic, Proceedings of the Second International Workshop on Large Language Models for Code (LLM4Code), May 2025.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/queuemem-nsdi26.pdf">"Queue-Mem: Energy-Efficient Hardware Storage for Advanced Network Function Acceleration"</a>, <span style="font-size: 11pt;">Mariano Scazzariello, Tommaso Caiazzi, Hamid Ghasemirahni, Dejan Kostic, and Marco Chiesa, Proceedings of the 23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI), May 2026.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://arxiv.org/abs/2501.05258">"Automating the Detection of Code Vulnerabilities by Analyzing GitHub Issues"</a>, Daniele Cipollone, Changjie Wang, Mariano Scazzariello, Simone Ferlin, Maliheh Izadi, Dejan Kostic, and Marco Chiesa, Proceedings of the Second International Workshop on Large Language Models for Code (LLM4Code), May 2025.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://openreview.net/forum?id=F7rUng23nw">"KVComm: Enabling Efficient LLM Communication through Selective KV Sharing"</a>, <span style="font-size: 11pt;">Xiangyu Shi, Marco Chiesa, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the Fourteenth International Conference on Learning Representation (ICLR), April 2026.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/qllm-euromlsys25.pdf">"Priority-Aware Preemptive Scheduling for Mixed-Priority Workloads in MoE Inference"</a>, Mohammad Siavashi, Faezeh Keshmiri Dindarloo, Dejan Kostic, and Marco Chiesa, Proceedings of the 5th Workshop on Machine Learning and Systems (EuroMLSys), March 2025.</span><br/>
+<br/>
 </li>
 
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/fajita-conext24.pdf">"FAJITA: Stateful Packet Processing at 100 Million pps"</a>, Hamid Ghasemirahni, Alireza Farshin, Mariano Scazzariello, Gerald Q. Maguire Jr., Dejan Kostic, and Marco Chiesa, Proceedings of the 20th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT), December 2024.</span><br/>
+<br/>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/taco-dafny26.pdf">"Toward Automated, Contamination-free Dafny Benchmark Generation"</a></b>, Changjie Wang, Mariano Scazzariello,Dejan Kostic, and Marco Chiesa, Dafny Workshop at POPL, January 2026. <br />
-</li>
-<br />
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/HarmonAIze-apsys25.pdf">"Cloud abstractions for AI workloads"</a><span style="font-size: 11pt;">, Marco Canini, Theophilus A. Benson, Ricardo Bianchini, Íñigo Goiri, Dejan Kostić, Peter Pietzuch, and Simon Peter, Proceedings of the 16th ACM SIGOPS Asia-Pacific Workshop on Systems (ApSys), October 2025.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/netconfeval-conext24.pdf">"NetConfEval: Can LLMs Facilitate Network Configuration"</a>, Changjie Wang, Mariano Scazzariello, Alireza Farshin, Simone Ferlin, Dejan Kostic, and Marco Chiesa, Proceedings of the 20th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT), December 2024. <b>IRTF Applied Networking Research Prize (ANRP) award!</b></span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://arxiv.org/abs/2501.05248">"Deriving Coding-Specific Sub-Models from LLMs using Resource-Efficient Pruning"</a>, Laura Puccioni, Alireza Farshin, Mariano Scazzariello, Changjie Wang, Marco Chiesa, and Dejan Kostic, Proceedings of the Second International Workshop on Large Language Models for Code (LLM4Code), May 2025.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/ecgi-miccai-stacom24.pdf">"Reducing the number of leads for ECG Imaging with Graph Neural Networks and meaningful latent space"</a>, Giacomo Verardo, Daniel F. Perez-Ramirez, Samuel Bruchfeld, Magnus Boman, Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 15th Statistical Atlases and Computational Modeling of the Heart (STACOM), October 2024.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="https://arxiv.org/abs/2501.05258">"Automating the Detection of Code Vulnerabilities by Analyzing GitHub Issues"</a>, Daniele Cipollone, Changjie Wang, Mariano Scazzariello, Simone Ferlin, Maliheh Izadi, Dejan Kostic, and Marco Chiesa, Proceedings of the Second International Workshop on Large Language Models for Code (LLM4Code), May 2025.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/fmmhead-icprai24.pdf">"FMM-Head: Enhancing Autoencoder-based ECG anomaly detection with prior knowledge"</a>, Giacomo Verardo, Magnus Boman, Samuel Bruchfeld,  Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 4th International Conference on Pattern Recognition and Artificial Intelligence (ICPRAI), July 2024.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/qllm-euromlsys25.pdf">"Priority-Aware Preemptive Scheduling for Mixed-Priority Workloads in MoE Inference"</a></b>, Mohammad Siavashi, Faezeh Keshmiri Dindarloo, Dejan Kostic, and Marco Chiesa, Proceedings of the 5th Workshop on Machine Learning and Systems (EuroMLSys), March 2025.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/gpucentric-edgesys24.pdf">"Toward GPU-centric Networking on Commodity Hardware"</a>, Massimo Girondi, Mariano Scazzariello, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 7th International Workshop on Edge Systems, Analytics and Networking (ACM EdgeSys 2024), April 2024.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/fajita-conext24.pdf">"FAJITA: Stateful Packet Processing at 100 Million pps"</a></b>, Hamid Ghasemirahni, Alireza Farshin, Mariano Scazzariello, Gerald Q. Maguire Jr., Dejan Kostic, and Marco Chiesa, Proceedings of the 20th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT), December 2024.</span><br />
-<br />
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/netconfeval-conext24.pdf">"NetConfEval: Can LLMs Facilitate Network Configuration"</a></b>, Changjie Wang, Mariano Scazzariello, Alireza Farshin, Simone Ferlin, Dejan Kostic, and Marco Chiesa, Proceedings of the 20th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT), December 2024. <b>IRTF Applied Networking Research Prize (ANRP) award!</b></span><br />
-<br />
-</li>
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/ecgi-miccai-stacom24.pdf">"Reducing the number of leads for ECG Imaging with Graph Neural Networks and meaningful latent space"</a>, Giacomo Verardo, Daniel F. Perez-Ramirez, Samuel Bruchfeld, Magnus Boman, Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 15th Statistical Atlases and Computational Modeling of the Heart (STACOM), October 2024.</span><br />
-<br />
-</li>
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/fmmhead-icprai24.pdf">"FMM-Head: Enhancing Autoencoder-based ECG anomaly detection with prior knowledge"</a>, Giacomo Verardo, Magnus Boman, Samuel Bruchfeld,  Marco Chiesa, Sabine Koch, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 4th International Conference on Pattern Recognition and Artificial Intelligence (ICPRAI), July 2024.</span><br />
-<br />
-</li>
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/gpucentric-edgesys24.pdf">"Toward GPU-centric Networking on Commodity Hardware"</a>, Massimo Girondi, Mariano Scazzariello, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 7th International Workshop on Edge Systems, Analytics and Networking (ACM EdgeSys 2024), April 2024.</span><br />
-<br />
-</li>
-
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/flowmage-euromlsys24.pdf">"Deploying Stateful Network Functions Efficiently using Large Language Models"</a>, Hamid Ghasemirahni, Alireza Farshin, Mariano Scazzariello, Marco Chiesa, and Dejan Kostic, Proceedings of the 4th Workshop on Machine Learning and Systems (EuroMLSys 2024), April 2024.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/flowmage-euromlsys24.pdf">"Deploying Stateful Network Functions Efficiently using Large Language Models"</a>, Hamid Ghasemirahni, Alireza Farshin, Mariano Scazzariello, Marco Chiesa, and Dejan Kostic, Proceedings of the 4th Workshop on Machine Learning and Systems (EuroMLSys 2024), April 2024.</span><br/>
+<br/>
 </li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/deepgantt-ipsn23.pdf">"DeepGANTT: A Scalable Deep Learning Scheduler for Backscatter Networks"</a>,  Daniel F. Perez-Ramirez, Carlos Perez-Penichet, Nicolas Tsiftes, Thiemo Voigt, Dejan Kostic, Magnus Boman, Proceedings of the 22nd ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN), 2023.</span><br />
-<br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/deepgantt-ipsn23.pdf">"DeepGANTT: A Scalable Deep Learning Scheduler for Backscatter Networks"</a>,  Daniel F. Perez-Ramirez, Carlos Perez-Penichet, Nicolas Tsiftes, Thiemo Voigt, Dejan Kostic, Magnus Boman, Proceedings of the 22nd ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN), 2023.</span><br/>
+<br/>
 </li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/ribosome-nsdi23.pdf">"A High-Speed Stateful Packet Processing Approach for Tbps Programmable Switches"</a>, <span style="font-size: 11pt;">Mariano Scazzariello, Tommaso Caiazzi, Hamid Ghasemirahni, Tom Barbette, Dejan Kostic, Marco Chiesa, and Marco Chiesa, Proceedings of the 20th USENIX Symposium on Networked Systems Design and Implementation (NSDI), April 2023.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/ribosome-nsdi23.pdf">"A High-Speed Stateful Packet Processing Approach for Tbps Programmable Switches"</a>, <span style="font-size: 11pt;">Mariano Scazzariello, Tommaso Caiazzi, Hamid Ghasemirahni, Tom Barbette, Dejan Kostic, Marco Chiesa, and Marco Chiesa, Proceedings of the 20th USENIX Symposium on Networked Systems Design and Implementation (NSDI), April 2023.</span><br/>
+<br/>
+</span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">
-<a href="https://arxiv.org/abs/2201.11036">"Fast Server Learning Rate Tuning for Coded Federated Dropout</strong></a>", Giacomo Verardo, Daniel Barreira, Marco Chiesa, Dejan Kostic and Gerald Quentin Maguire Jr., International Workshop on Trustworthy Federated Learning in Conjunction with IJCAI 2022 (FL-IJCAI 2022), June 2022.</li>
+<a href="https://arxiv.org/abs/2201.11036">"Fast Server Learning Rate Tuning for Coded Federated Dropout</a>", Giacomo Verardo, Daniel Barreira, Marco Chiesa, Dejan Kostic and Gerald Quentin Maguire Jr., International Workshop on Trustworthy Federated Learning in Conjunction with IJCAI 2022 (FL-IJCAI 2022), June 2022.</span></li>
 <br>
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/ordermatters-nsdi22.pdf">"Packet Order Matters! Improving Application Performance by Deliberately Delaying Packets"</a>,<span style="font-size: 11pt;">Hamid Ghasemirahni, Tom Barbette, Georgios P. Katsikas, Alireza Farshin, Amir Roozbeh, Massimo Girondi, Marco Chiesa, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 19th USENIX Symposium on Networked Systems Design and Implementation (NSDI), April 2022. <b>Community Award!</b></span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/ordermatters-nsdi22.pdf">"Packet Order Matters! Improving Application Performance by Deliberately Delaying Packets"</a>,<span style="font-size: 11pt;">Hamid Ghasemirahni, Tom Barbette, Georgios P. Katsikas, Alireza Farshin, Amir Roozbeh, Massimo Girondi, Marco Chiesa, Gerald Q. Maguire Jr., and Dejan Kostic, Proceedings of the 19th USENIX Symposium on Networked Systems Design and Implementation (NSDI), April 2022. <b>Community Award!</b></span><br/>
+<br/>
+</span></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/redn-nsdi22.pdf">"RDMA is Turing complete, we just did not know it yet!"</a>,<span style="font-size: 11pt;">Waleed Reda, Marco Canini, Dejan Kostic, and Simon Peter, Proceedings of the 19th USENIX Symposium on Networked Systems Design and Implementation (NSDI), April 2022.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/redn-nsdi22.pdf">"RDMA is Turing complete, we just did not know it yet!"</a>,<span style="font-size: 11pt;">Waleed Reda, Marco Canini, Dejan Kostic, and Simon Peter, Proceedings of the 19th USENIX Symposium on Networked Systems Design and Implementation (NSDI), April 2022.</span><br/>
+<br/>
+</span></span></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/linefs-sosp21.pdf">"LineFS: Efficient SmartNIC Offload of a Distributed File System with Pipeline Parallelism"</a>,<span style="font-size: 11pt;">Jongyul Kim, Insu Jang, Waleed Reda, Marco Canini, Dejan Kostic, Youngjin Kwon, Simon Peter, and Emmett Witchel, Proceedings of the 28th ACM Symposium on Operating Systems Principles (SOSP), October 2021.  <b>Best Paper Award!</b></span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/linefs-sosp21.pdf">"LineFS: Efficient SmartNIC Offload of a Distributed File System with Pipeline Parallelism"</a>,<span style="font-size: 11pt;">Jongyul Kim, Insu Jang, Waleed Reda, Marco Canini, Dejan Kostic, Youngjin Kwon, Simon Peter, and Emmett Witchel, Proceedings of the 28th ACM Symposium on Operating Systems Principles (SOSP), October 2021.  <b>Best Paper Award!</b></span><br/>
+<br/>
+</span></span></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/packetmill-asplos21.pdf">"PacketMill: Toward per-core 100-Gbps Networking"</a>,<span style="font-size: 11pt;"> Alireza Farshin, Tom Barbette, Amir Roozbeh, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the 26th International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)</i>, April 2021.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/packetmill-asplos21.pdf">"PacketMill: Toward per-core 100-Gbps Networking"</a>,<span style="font-size: 11pt;"> Alireza Farshin, Tom Barbette, Amir Roozbeh, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the 26th International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)</i>, April 2021.</span><br/>
+<br/>
+</span></span></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/nicbench-pam21.pdf">"What you need to know about (Smart) Network Interface Cards"</a>,<span style="font-size: 11pt;">, Georgios P. Katsikas, Tom Barbette, Marco Chiesa, Dejan Kostic, and Gerald Q. Maguire Jr.,<i>Proceedings of The Passive and Active Measurement Conference (PAM) </i>, April 2021.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/nicbench-pam21.pdf">"What you need to know about (Smart) Network Interface Cards"</a>,<span style="font-size: 11pt;">, Georgios P. Katsikas, Tom Barbette, Marco Chiesa, Dejan Kostic, and Gerald Q. Maguire Jr.,<i>Proceedings of The Passive and Active Measurement Conference (PAM) </i>, April 2021.</span><br/>
+<br/>
+</span></span></li>
 
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/assise-osdi20.pdf">"Assise: Performance and Availability via Client-local NVM in a Distributed File System"</a>,<span style="font-size: 11pt;">Thomas E Anderson, Marco Canini, Jongyul Kim, Dejan Kostic, Youngjin Kwon, Simon Peter, Waleed Reda, Henry N Schuh, and Emmett Witchel, <i>Proceedings of the 14th USENIX Symposium on Operating Systems Design and Implementation (OSDI)</i>, November 2020.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/assise-osdi20.pdf">"Assise: Performance and Availability via Client-local NVM in a Distributed File System"</a>,<span style="font-size: 11pt;">Thomas E Anderson, Marco Canini, Jongyul Kim, Dejan Kostic, Youngjin Kwon, Simon Peter, Waleed Reda, Henry N Schuh, and Emmett Witchel, <i>Proceedings of the 14th USENIX Symposium on Operating Systems Design and Implementation (OSDI)</i>, November 2020.</span><br/>
+<br/>
+</span></span></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/ddio-atc20.pdf">"Reexamining Direct Cache Access to Optimize I/O Intensive Applications for Multi-hundred-gigabit Networks"</a>,<span style="font-size: 11pt;"> Alireza Farshin, Amir Roozbeh, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the USENIX Annual Technical Conference (USENIX ATC)</i>, July 2020.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/ddio-atc20.pdf">"Reexamining Direct Cache Access to Optimize I/O Intensive Applications for Multi-hundred-gigabit Networks"</a>,<span style="font-size: 11pt;"> Alireza Farshin, Amir Roozbeh, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the USENIX Annual Technical Conference (USENIX ATC)</i>, July 2020.</span><br/>
+<br/>
+</span></span></li>
 
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/cheetah-nsdi20.pdf">"A High-Speed Load-Balancer Design with Guaranteed Per-Connection-Consistency"</a>,<span style="font-size: 11pt;"> Tom Barbette, Chen Tang, Haoran Yao, Dejan Kostic, Gerald Q. Maguire Jr., Panagiotis Papadimitratos, and Marco Chiesa,<i>  Proceedings of the 17th USENIX Symposium on Networked Systems Design and Implementation (NSDI)</i>, Feburary 2020.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/cheetah-nsdi20.pdf">"A High-Speed Load-Balancer Design with Guaranteed Per-Connection-Consistency"</a>,<span style="font-size: 11pt;"> Tom Barbette, Chen Tang, Haoran Yao, Dejan Kostic, Gerald Q. Maguire Jr., Panagiotis Papadimitratos, and Marco Chiesa,<i>  Proceedings of the 17th USENIX Symposium on Networked Systems Design and Implementation (NSDI)</i>, Feburary 2020.</span><br/>
+<br/>
+</span></span></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/rsspp-conext19.pdf">"RSS++: load and state-aware receive side scaling"</a>,<span style="font-size: 11pt;"> Tom Barbette, Georgios Katsikas, Gerald Q. Maguire Jr., and Dejan Kostic,<i>  Proceedings of the 15th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT)</i>,  December 2019.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/rsspp-conext19.pdf">"RSS++: load and state-aware receive side scaling"</a>,<span style="font-size: 11pt;"> Tom Barbette, Georgios Katsikas, Gerald Q. Maguire Jr., and Dejan Kostic,<i>  Proceedings of the 15th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT)</i>,  December 2019.</span><br/>
+<br/>
+</span></span></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/slice-aware-eurosys19.pdf">"Make the Most out of Last Level Cache in Intel Processors"</a>,<span style="font-size: 11pt;"> Alireza Farshin, Amir Roozbeh, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the Fourteenth European Conference on Computer Systems (EuroSys)</i>, March 2019.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/slice-aware-eurosys19.pdf">"Make the Most out of Last Level Cache in Intel Processors"</a>,<span style="font-size: 11pt;"> Alireza Farshin, Amir Roozbeh, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the Fourteenth European Conference on Computer Systems (EuroSys)</i>, March 2019.</span><br/>
+<br/>
+</span></span></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/kurma-socc18.pdf">"Fast and Accurate Load Balancing for Geo-Distributed Storage Systems"</a>, Kirill Bogdanov, Waleed Reda, Gerald Q. Maguire Jr., Dejan Kostic, and Marco Canini, <i>Proceedings of the ACM Symposium on Cloud Computing 2018 (ACM SoCC)</i>, October 2018.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/kurma-socc18.pdf">"Fast and Accurate Load Balancing for Geo-Distributed Storage Systems"</a>, Kirill Bogdanov, Waleed Reda, Gerald Q. Maguire Jr., Dejan Kostic, and Marco Canini, <i>Proceedings of the ACM Symposium on Cloud Computing 2018 (ACM SoCC)</i>, October 2018.</span><br/>
+<br/>
+</span></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/metron-nsdi18.pdf">"Metron: NFV Service Chains at the True Speed of the Underlying Hardware"</a>, <span style="font-size: 11pt;">Georgios Katsikas, Tom Barbette, Dejan Kostic, Rebecca Steinert, and Gerald Q. Maguire Jr., <i>Proceedings of the 15th USENIX Symposium on Networked Systems Design and Implementation (NSDI)</i>, April 2018.</span><br />
-<br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;"><a href="documents/publications/metron-nsdi18.pdf">"Metron: NFV Service Chains at the True Speed of the Underlying Hardware"</a>, <span style="font-size: 11pt;">Georgios Katsikas, Tom Barbette, Dejan Kostic, Rebecca Steinert, and Gerald Q. Maguire Jr., <i>Proceedings of the 15th USENIX Symposium on Networked Systems Design and Implementation (NSDI)</i>, April 2018.</span><br/>
+<br/>
+</span></span></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;">"</span><span style="font-size: 11pt;"><a href="documents/publications/rein-eurosys17.pdf">Rein: Taming Tail Latency in Key-Value Stores via Multiget Scheduling</a>",<span style="font-size: 11pt;"> Waleed Reda, Marco Canini, Lalith Suresh, Dejan Kostic, and Sean Braithwaite, <i>Proceedings of the Twelfth European Conference on Computer Systems (EuroSys)</i>, April 2017.&nbsp;</span><br /> <br />
-</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span style="font-size: 11pt;">"</span><span style="font-size: 11pt;"><a href="documents/publications/rein-eurosys17.pdf">Rein: Taming Tail Latency in Key-Value Stores via Multiget Scheduling</a>",<span style="font-size: 11pt;"> Waleed Reda, Marco Canini, Lalith Suresh, Dejan Kostic, and Sean Braithwaite, <i>Proceedings of the Twelfth European Conference on Computer Systems (EuroSys)</i>, April 2017.&nbsp;</span><br/> <br/>
+</span></span></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/monocle-conext15.pdf">"Monocle: Dynamic, Fine-Grained Data Plane Monitoring</span></a>",<span style="font-size: 11pt;"> Peter Peresini, Maciej Kuzniar, and Dejan Kostic, <i>Proceedings of the 11th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT)</i>, December 2015.<br />&nbsp;</span><br /></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/monocle-conext15.pdf">"Monocle: Dynamic, Fine-Grained Data Plane Monitoring</a></span>",<span style="font-size: 11pt;"> Peter Peresini, Maciej Kuzniar, and Dejan Kostic, <i>Proceedings of the 11th International Conference on emerging Networking EXperiments and Technologies (ACM CoNEXT)</i>, December 2015.<br/>&nbsp;</span><br/></li>
 
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/geoperf-socc15.pdf">The Nearest Replica Can Be Farther Than You Think</span></a>",<span style="font-size: 11pt;"> Kirill Bogdanov, Miguel Peon-Quiros, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the ACM Symposium on Cloud Computing 2015 (ACM SoCC)</i>, August 2015.<br />  <br />
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/geoperf-socc15.pdf">The Nearest Replica Can Be Farther Than You Think</a></span>",<span style="font-size: 11pt;"> Kirill Bogdanov, Miguel Peon-Quiros, Gerald Q. Maguire Jr., and Dejan Kostic, <i>Proceedings of the ACM Symposium on Cloud Computing 2015 (ACM SoCC)</i>, August 2015.<br/>  <br/>
 </span></li>
 
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/switches-pam15.pdf">"What You Need to Know
-About SDN Flow Tables</span>"</a>,
+About SDN Flow Tables</a></span>",
 <span style="font-size: 11pt;">
 Maciej Kuzniar, Peter Peresini, and Dejan Kostic, <i>Proceedings of the
 Passive and Active Measurement Conference (PAM)</i>,
-March 2015.<br />
-<br />
-</span></span></li>
-<li class="MsoNormal" style="text-align: justify;"></span><span style="font-size: 11pt;"></span><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf"></span></a></span><a href="documents/publications/rum-conext14.pdf"><span style="font-size: 11pt;">Providing
-Reliable FIB Update Acknowledgments in SDN<span class="more"></span></span></span></a><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf"></span></a></span><span style="font-size: 11pt;">,</span><span style="font-size: 11pt;"><span class="more">
+March 2015.<br/>
+<br/>
+</span></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf"></a></span><a href="documents/publications/rum-conext14.pdf"><span style="font-size: 11pt;">Providing
+Reliable FIB Update Acknowledgments in SDN<span class="more"></span></span></a><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf"></a></span><span style="font-size: 11pt;">,</span><span style="font-size: 11pt;"><span class="more">
 <span style="font-size: 11pt;">
 Maciej Kuzniar, Peter
 Peresini, and Dejan Kostic, <i>Proceedings of the 10th International
 Conference on
 emerging Networking EXperiments and Technologies (ACM CoNEXT)</i>,
 December
-2014.<br />
-<br />
-</span></span></li>
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span class="more"></span></span><span style="font-size: 11pt;"><span class="more"></span></span></span><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf">ESPRES: Transparent SDN Update
-Scheduling</span></a>", Peter Peresini, Maciej Kuzniar,
+2014.<br/>
+<br/>
+</span></span></span></li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><span class="more"></span></span><span style="font-size: 11pt;"><span class="more"></span></span><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf">ESPRES: Transparent SDN Update
+Scheduling</a></span>", Peter Peresini, Maciej Kuzniar,
 Marco Canini, and Dejan Kostic, <span style="font-style: italic;">Proceedings
 of the Workshop on Hot Topics in Software Defined Networking (HotSDN)</span>,
-August 2014.<br />
-<br />
-</span></li>
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;"></span><a href="documents/publications/espres-ons14.pdf"><span style="font-size: 11pt;">"</span></a><a href="documents/publications/espres-hotsdn14.pdf"></span></a><span style="font-size: 11pt;"><a href="documents/publications/espres-ons14.pdf">ESPRES:
+August 2014.<br/>
+<br/>
+</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;"></span><a href="documents/publications/espres-ons14.pdf"><span style="font-size: 11pt;">"</span></a><a href="documents/publications/espres-hotsdn14.pdf"></a><span style="font-size: 11pt;"><a href="documents/publications/espres-ons14.pdf">ESPRES:
 Easy Scheduling and Prioritization for SDN</a></span><a href="documents/publications/espres-ons14.pdf"><span style="font-size: 11pt;">"</span><span style="font-size: 11pt;">,</span></a><span style="font-size: 11pt;"> Peter
 Peresini, Maciej Kuzniar, Marco Canini, and Dejan Kostic, <span style="font-style: italic;">Open Networking Summit (ONS</span>) Research Track
-2014</span>, March 2014.<br />
-<br />
-</span></span></li>
-<li class="MsoNormal" style="text-align: justify;"></span><span style="font-size: 11pt;">"<a href="documents/publications/api-ewsdn13.pdf">OpenFlow
+2014</span>, March 2014.<br/>
+<br/>
+</li>
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/api-ewsdn13.pdf">OpenFlow
 Needs You! A Call for a Discussion
 About a Cleaner OpenFlow API</a>",<span style="font-size: 11pt;"> Peter Peresini,
 Maciej
 Kuzniar, and Dejan Kostic, <span style="font-style: italic;">Proceedings
 of the 2nd European Workshop on
 Software Defined Networks (EWSDN)</span>,
-October 2013.<br />
-<br />
-</span></li>
+October 2013.<br/>
+<br/>
+</span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/netide-ewsdn13.pdf">NetIDE: First steps towards an integrated
 development environment for portable network apps</a>",<span style="font-size: 11pt;">
 Federico
@@ -702,22 +1270,22 @@ M. Facca, Elio Salvadori, Holger Karl, Diego R. Lopez, Pedro Andres
 Aranda Gutierrez,
 Dejan Kostic, and Roberto Riggio, <i>Proceedings
 of the 2nd European
-Workshop on Software Defined Networks (</span>EWSDN)</i></span>,
-October 2013.</span><br />
-<br />
+Workshop on Software Defined Networks (</i></span>EWSDN)</span>,
+October 2013.<br/>
+<br/>
 </li>
-<li class="MsoNormal" style="text-align: justify;"></span><span style="font-size: 11pt;">"<a href="documents/publications/compute-wripe13.pdf">Is the Network Capable of Computation?</a>",<span style="font-size: 11pt;">
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/compute-wripe13.pdf">Is the Network Capable of Computation?</a>",<span style="font-size: 11pt;">
 Peter Peresini and Dejan Kostic, Proceedings
-of the 3rd International Workshop on Rigorous Protocol Engineering (WRiPE)</i>, October 2013.<br />
-<br />
-</span></li>
+of the 3rd International Workshop on Rigorous Protocol Engineering (WRiPE), October 2013.<br/>
+<br/>
+</span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/ofcpp-hotsdn13.pdf">OF.CPP: Consistent
-Packet Processing for OpenFlow</span></a>",<span style="font-size: 11pt;">
+Packet Processing for OpenFlow</a></span>",<span style="font-size: 11pt;">
 Peter Peresini, Maciej Kuzniar, Nedeljko Vasic, Marco Canini, and Dejan
 Kostic, <i style="">Proceedings of the Workshop on Hot
 Topics in Software Defined Networking (HotSDN)</i>,
-August 2013.<br />
-<br />
+August 2013.<br/>
+<br/>
 </span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Automatic
 Failure Recovery for Software-Defined Networks</span>", <span style="font-size: 11pt;">Maciej
@@ -726,16 +1294,16 @@ Peresini, Nedeljko Vasic, Marco Canini, and Dejan Kostic, <i style="">Proceeding
 Software Defined
 Networking (HotSDN)</i>,
 August 2013.
-(short paper).<br />
-<br />
+(short paper).<br/>
+<br/>
 </span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><a name="OLE_LINK5"><span style="font-size: 11pt;"></span></a><a href="documents/publications/deepdive-usenix13.pdf"><span style="font-size: 11pt;">"DeepDive: Transparently Identifying
 and Managing Performance Interference in Virtualized Environments"</span></a><span style="font-size: 11pt;">,&nbsp;</span><span style="font-size: 11pt">Dejan Novakovic,
 Nedeljko
 Vasic,&nbsp;Stanko&nbsp;Novakovic,</span><span style="font-size: 11pt;">
 Dejan Kostic, and Ricardo Bianchini, Proceedings of The 2013 USENIX
-Annual Technical Conference</span>, June 2013</span>.</span><a name="OLE_LINK5"><span style="font-size: 11pt;"></span></a><br />
-<br />
+Annual Technical Conference</span>, June 2013.<a name="OLE_LINK5"><span style="font-size: 11pt;"></span></a><br/>
+<br/>
 </li>
 <li class="MsoNormal" style="text-align: justify;"><a name="OLE_LINK5"><span style="font-size: 11pt;">"</span></a><a href="documents/publications/soft-conext12.pdf"><span style="font-size: 11pt;">A SOFT Way for OpenFlow Switch
 Interoperability Testing</span></a>",<span style="font-size: 11pt;">Maciej Kuzniar, Peter
@@ -743,18 +1311,18 @@ Peresini, Marco Canini, Daniele Venzano, and Dejan Kostic, Proceedings
 of the 8th International Conference on emerging Networking EXperiments
 and Technologies ACM CoNEXT),
 December
-2012.</span><br />
-<br />
+2012.</span><br/>
+<br/>
 </li>
-<li class="MsoNormal" style="text-align: justify;"></span><a href="documents/publications/eprof-greencom12.pdf"><span style="font-size: 11pt;">
+<li class="MsoNormal" style="text-align: justify;"><a href="documents/publications/eprof-greencom12.pdf"><span style="font-size: 11pt;">
 "Profiling
 Software for Energy Consumption</span></a>"<span style="font-size: 11pt;">,<span style="font-size: 11pt;">
 Simon Schubert,
 Dejan Kostic, Willy Zwaenepoel, and Kang Shin, <i>Proceedings of the IEEE
 International Conference on Green Computing and Communications </i>(</span>GreenCom)
-November 2012.</span><br />
-<br />
-</span></li>
+November 2012.</span><br/>
+<br/>
+</li>
 <li class="MsoNormal" style="text-align: justify;"><a href="documents/publications/often-ewsdn12.pdf"><span style="font-size: 11pt;">
 "OFTEN
 Testing OpenFlow Networks</span></a>",<span style="font-size: 11pt;">
@@ -763,176 +1331,176 @@ Canini, and
 Dejan Kostic, <i>Proceedings
 of the 1st European Workshop on
 Software Defined Networks (EWSDN)</i>, October
-2012.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></span></li>
+2012.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"</span><a href="documents/publications/nice-nsdi12.pdf"><span style="font-size: 11pt;">A NICE Way to Test OpenFlow
 Applications</span></a><span style="font-size: 11pt;">", Marco Canini, Daniele Venzano,
 Peter Peresini, Dejan Kostic, and Jennifer Rexford, <i>Proceedings
 of the 9th USENIX Symposium on Networked Systems Design and
-Implementation (NSDI)</i>, April 2012.</span><br />
-<br />
+Implementation (NSDI)</i>, April 2012.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"</span><a href="documents/publications/dejavu-asplos12.pdf"><span style="font-size: 11pt;">DejaVu: Accelerating Resource
 Allocation in Virtualized Environments</span></a><span style="font-size: 11pt;">", Nedeljko Vasic, Dejan Novakovic,
 Svetozar Miucin, Dejan Kostic, and Ricardo Bianchini, <i>Proceedings
 of the</i> <i>Seventeenth International Conference on.
 Architectural Support for Programming Languages and Operating Systems (ASPLOS)</i>,
-March 2012.<br />
-<br />
+March 2012.<br/>
+<br/>
 </span><span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"</span><a href="documents/publications/response-conext11.pdf"><span style="font-size: 11pt;">Identifying and Using
 Energy-Critical Paths</span></a><span style="font-size: 11pt;">", <span style="font-size: 11pt;">Nedeljko Vasic, Dejan Novakovic,
 Satyam Shekhar, Prateek Bhurat, Marco Canini, and Dejan Kostic, <i>Proceedings
 of the 7th International Conference on emerging Networking EXperiments
 and Technologies (ACM CoNEXT)</i>, December
-2011.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+2011.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"</span><a href="documents/publications/avenger-srds11.pdf"><span style="font-size: 11pt;">Finding Almost-Invariants in
 Distributed Systems</span></a><span style="font-size: 11pt;">", <span style="font-size: 11pt;">Maysam
 Yabandeh, Abhishek Anand, Marco Canini, Dejan Kostic,&nbsp;<i>
 Proceedings of the 30th IEEE Symposium on Reliable Distributed Systems (SRDS)</i>,
-October 2011, (short paper).<br />
-<br />
-</span><span style="font-size: 11pt;"></span></li>
+October 2011, (short paper).<br/>
+<br/>
+</span><span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/nice-wripe11.pdf">Automating
 the Testing of
 OpenFlow Applications</a>", <span style="font-size: 11pt;">Marco Canini, Dejan Kostic,
 Jennifer
 Rexford, and Daniele Venzano, <i>Proceedings of the 1st
 International Workshop on Rigorous Protocol Engineering (WRiPE)</i>,
-October 2011.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+October 2011.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"</span><a href="documents/publications/sahara-icsm11.pdf"><span style="font-size: 11pt;">Sahara: Guiding the Debugging of
 Failed Software Upgrades</span></a><span style="font-size: 11pt;">", <span style="font-size: 11pt;">Rekha Bachwani, Olivier Crameri,
 Ricardo Bianchini, Dejan Kostic, and Willy Zwaenepoel, <i>Proceedings
 of the 27<sup>th</sup> IEEE International Conference on
 Software Maintenance (ICSM)</i>,&nbsp;
-September 2011.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+September 2011.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/bh2-sigcomm11.pdf">"Insomnia in
 the Access (or How to Curb Access Network Related Energy Consumption)"</a>,<span style="font-size: 11pt;">
 Eduard Goma, Marco Canini, Alberto Lopez, Nikolaos Laoutaris, Dejan
 Kostic, Pablo Rodriguez, Rade Stanojevic, and Pablo Yague, <i>Proceedings
 of the ACM SIGCOMM 2011 Conference on Applications,
 Technologies, Architectures, and Protocols for Computer Communications</i>,
-August 2011.<br />
-<br />
-</span></li>
+August 2011.<br/>
+<br/>
+</span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/dice-usenix11.pdf">Toward
 Online Testing of Federated and Heterogeneous Distributed Systems</a>",
 &nbsp;Marco Canini, Vojin Jovanovic,
 Daniele
 Venzano, Boris Spasojevic, Olivier Crameri, and Dejan Kostic, <i>Proceedings
 of the 2011 USENIX Annual Technical Conference</i>,
-June 2011, (short paper).</span><br />
-<br />
+June 2011, (short paper).</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/dice-ladis10.pdf">Fault
 Prediction in
 Distributed Systems Gone Wild</a>", <span style="font-size: 11pt;">Marco
 Canini, Dejan Novakovic, Vojin Jovanovic, and Dejan Kostic, <i>Proceedings
 of the 4th ACM SIGOPS/SIGACT Workshop on Large Scale Distributed
-Systems and Middleware (LADIS), </i>July 2010.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+Systems and Middleware (LADIS), </i>July 2010.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/eate-eenergy10.pdf">Energy-Aware
 Traffic Engineering</a>", <span style="font-size: 11pt;">Nedeljko
 Vasic and Dejan Kostic, <i>Proceedings of The 1st International Conf. on
 Energy-Efficient Computing and Networking (E-ENERGY),
-</i>April 2010.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+</i>April 2010.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/gatekeeper-comsnets10.pdf">Bandwidth
 Adaptation in Streaming Overlays</a>", <span style="font-size: 11pt;">Simon
 Schubert, Frank Uyeda, Nedeljko Vasic, Naveen Cherukuri, and Dejan
 Kostic, <i>Proceedings of The Second International Conference on
 COMmunication Systems and NETworkS (COMSNETS),</i>
-January 2010.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+January 2010.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Towards
 a
 Cost-Effective
 Networking Testbed". <span style="font-size: 11pt;">Nikola Knezevic, Simon Schubert, and
 Dejan Kostic,<i> Proceedings of the 4th Workshop on Real Overlays
 and Distributed Systems (ROADS),</i> October
-2009.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+2009.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Making
 Cluster
 Applications Energy-Aware",<span style="font-size: 11pt;"> Nedeljko
 Vasic, Martin Barisits, Vincent Salzgeber, and Dejan Kostic,&nbsp;<i>Proceedings
 of the First Workshop on Automated Control for Datacenters and Clouds (ACDC)</i>,
-June 2009.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+June 2009.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Simplifying
 Distributed
 System Development", <span style="font-size: 11pt;">Maysam Yabandeh,
 Nedeljko Vasic, Dejan Kostic, and Viktor Kuncak, <i>Proceedings
 of the 12th Workshop on Hot Topics in Operating Systems (HotOS
-XII)</i>, May 2009.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+XII)</i>, May 2009.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"><a href="documents/publications/crystalball-nsdi09.pdf">"CrystalBall:
 Predicting and Preventing Inconsistencies in Deployed Distributed
 Systems"</a>, <span style="font-size: 11pt;">Maysam Yabandeh,
 Nikola Knezevic, Dejan Kostic, and Viktor Kuncak, <i>Proceedings
 of the 6th USENIX Symposium on Networked Systems Design and
-Implementation (NSDI)</i>, April 2009.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+Implementation (NSDI)</i>, April 2009.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/uno-comsnets09.pdf">One Bit Is
 Enough: a Framework for Deploying Explicit Feedback Congestion Control
 Protocols</a>",<span style="font-size: 11pt;"> Nedeljko Vasic,
 Srinidhi Kuntimaddi, Dejan Kostic, <i>Proceedings of The First
 International Conference on COMmunication Systems and NETworkS (COMSNETS),</i>
-January 2009. <b>Best Student Paper Award</b>.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></li>
+January 2009. <b>Best Student Paper Award</b>.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Opis:
 Reliable
 Distributed Systems in OCaml", Pierre-Evariste Dagand, Dejan
 Kostic, and Viktor Kuncak, <i>Proceedings of TLDI</i>,
-January 2009.</span><br />
-<br />
-</span></li>
-<li class="MsoNormal" style="text-align: justify;"></span>"<a href="documents/publications/ccdht-comsnets09.pdf"><span style="font-size: 11pt;">
+January 2009.</span><br/>
+<br/>
+</li>
+<li class="MsoNormal" style="text-align: justify;">"<a href="documents/publications/ccdht-comsnets09.pdf"><span style="font-size: 11pt;">
 Handling
 Very Large Numbers of Messages in Distributed Hash Tables</span></a>",<span style="font-size: 11pt;">
 Fabius Klemm, Jean-Yves Le Boudec, Dejan Kostic, and Karl Aberer, </span><span style="font-size: 11pt;">
 Proceedings
 of The First International Conference on COMmunication Systems and
-NETworkS (COMSNETS),</span></i><span style="font-size: 11pt;">January
-2009.</span><br />
-<br />
-<span style="font-size: 11pt;"></span></span></li>
+NETworkS (COMSNETS),</span><span style="font-size: 11pt;">January
+2009.</span><br/>
+<br/>
+<span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/mirage-sosp07.pdf">Staged
 Deployment in Mirage, an Integrated Software Upgrade Testing and
 Distribution System</a>", Olivier Crameri, Nikola
 Knezevic, Dejan Kostic,&nbsp; Ricardo Bianchini, Willy Zwaenepoel, <i>Proceedings
 of the 21st ACM Symposium on Operating Systems Principles (SOSP),</i>
-October 2007.</span><br />
-<br />
+October 2007.</span><br/>
+<br/>
 <span style="font-size: 11pt;" lang="EN-GB"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;" lang="EN-GB">"Enabling
 DVD-like Features in P2P Video-on-demand Systems", Nevena
 Vratonjic, Priya Gupta, Nikola Knezevic, Dejan Kostic and Antony
 Rowstron, <i>Proceedings of the SIGCOMM Peer-to-Peer Streaming
-and IP-TV Workshop (P2P-TV)</i>, August 2007.</span><span style="font-size: 11pt;"></span><br />
-<br />
+and IP-TV Workshop (P2P-TV)</i>, August 2007.</span><span style="font-size: 11pt;"></span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/htas-icdcs07.pdf">A High
 Throughput Atomic Storage Algorithm</a>", Rachid
 Guerraoui, Dejan Kostic, Ron Levy and Vivien Quema, <i>Proceedings
 of the 27th International Conference on Distributed Computing Systems (ICDCS),</i>
-June 2007.</span><br />
-<br />
+June 2007.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"Improving
 the
@@ -940,70 +1508,70 @@ Throughput
 of Distributed Hash Tables Using Congestion-Aware Routing",
 Fabius Klemm, Jean-Yves Le Boudec, Dejan Kostic, Karl Aberer, <i>Proceedings
 of the Sixth International Workshop on Peer to Peer Systems (IPTPS)</i>,
-February 2007.</span><br />
-<br />
+February 2007.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/bullet-usenix05.pdf">Maintaining
 High Bandwidth under Dynamic Network<span style="font-weight: normal;"> </span>Conditions</a>",
 Dejan Kostic, Ryan Braud, Charles Killian, Erik Vandekieft, James W.
 Anderson, Alex C. Snoeren, and Amin Vahdat, <i>Proceedings of
 the 2005 USENIX Annual Technical Conference, </i>April
-2005.</span><br />
-<br />
+2005.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/fuse-osdi04.pdf">FUSE:
 Lightweight Guaranteed Distributed Failure Notification</a>",
 John Dunagan, Nicholas J. A. Harvey, Michael B. Jones, Dejan Kostic,
 Marvin Theimer, and Alec Wolman, <i>Proceedings of the 6th
 Symposium on Operating Systems Design and Implementation (OSDI)</i>,
-December 2004.<br />
-<br />
+December 2004.<br/>
+<br/>
 </span></li>
 <li class="MsoNormal" style="text-align: justify;">"<span style="font-size: 11pt;"><a href="documents/publications/macedon-nsdi04.pdf">MACEDON:
 Methodology for Automatically Creating, Evaluating, and Designing
 Overlay Networks</a></span><span style="font-size: 11pt;">", Adolfo Rodriguez, Charles
 Killian, Sooraj Bhat, Dejan Kostic, and Amin Vahdat, <i>Proceedings
 of the USENIX/ACM Symposium on Networked Systems Design and
-Implementation (NSDI),</i> March 2004.</span><br />
-<br />
+Implementation (NSDI),</i> March 2004.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/ammo-icdcs04.pdf">Scalability
 in Adaptive Multi-Metric Overlays</a>", Adolfo
 Rodriguez, Dejan Kostic, and Amin Vahdat, <i>The 24th
 International Conference on Distributed Computing Systems (ICDCS)</i>,
-March 2004.</span><br />
-<br />
+March 2004.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/bullet-sosp03.pdf">Bullet: High
 Bandwidth Data Dissemination Using an Overlay Mesh</a>",&nbsp;Dejan
 Kostic, Adolfo Rodriguez, Jeannie Albrecht, and Amin Vahdat,&nbsp;<i>Proceedings
 of the 19th ACM Symposium on Operating System Principles (SOSP)</i>,&nbsp;October
-2003.</span><br />
-<br />
+2003.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/ransub-usits03.pdf">Using
 Random Subsets to Build Scalable Network Services</a>",
 Dejan Kostic,<span style="color: purple;"> </span>Adolfo
 Rodriguez, Jeannie Albrecht, Abhijeet Bhirud, and Amin Vahdat. <i>Proceedings
 of the 4th USENIX Symposium on Internet Technologies and Systems (USITS),</i>
-March 2003.</span><br />
-<br />
+March 2003.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/modelnet-osdi02.pdf">Scalability
 and Accuracy in a Large-Scale Network Emulator</a>",
 Amin Vahdat, Ken Yocum, Kevin Walsh, Priya Mahadevan, Dejan Kostic,
 Jeff Chase, and David Becker. <i>Proceedings of the 5th
 Symposium on Operating Systems Design and Implementation (OSDI)</i>,
-December 2002.</span><br />
-<br />
+December 2002.</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/opus-openarch02.pdf">Opus: an
 Overlay Peer Utility Service</a>", Rebecca Braynard,
 Dejan Kostic, Adolfo Rodriguez, Jeffrey Chase, and Amin Vahdat, <i>Proceedings
 of the 5th International Conference on Open Architectures and Network
 Programming (OPENARCH),</i> June
-2002.&nbsp;</span><br />
-<br />
+2002.&nbsp;</span><br/>
+<br/>
 <span style="font-size: 11pt;"></span></li>
 <li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;">"<a href="documents/publications/self-iptps02.pdf">Self-Organizing
 Subsets:
@@ -1015,20 +1583,75 @@ Peer to Peer Systems (IPTPS),</i> March 2002.</span></li>
 <p class="MsoNormal" style="margin-left: 0.5in; text-align: justify;"><span style="font-size: 11pt;">&nbsp;</span></p>
 </ul>
 
-	    </p>
-          </div>
-        </div>
-      </div>
-    </section>
+	    </li></ul></p>
+    </div>
+  </div>
+</section>
 
+<!-- ===== SERVICE ===== -->
+<section class="section alt" id="service">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Service</span>
+      <h2>Selected Recent Service</h2>
+    </div>
+    <div class="legacy">
+ERC Starting Grant 2023 PE6 Panel Chair<br/>
+ERC Starting Grant 2021 PE6 Panel Chair<br/>
+ERC Starting Grant 2019 PE6 Panel member<br/>
+ERC Starting Grant 2017 PE6 Panel member<br/>
 
+<br>
+TPC Co-chair of <a style="font-weight: bold;" href="https://www.systor.org/2023/">SYSTOR 2023</a><br/>
+TPC Co-chair of <a style="font-weight: bold;" href="https://www.eurosys2020.org/">EuroSys 2020</a> <br/>
+TPC Co-chair of <a style="font-weight: bold;" href="http://icdcs2018.ocg.at/">ICDCS 2018</a> "Cloud Computing and Data Centers"<br/>
+TPC Co-chair of <a style="font-weight: bold;" href="http://conferences.sigcomm.org/co-next/2016/#%21/home">CoNEXT
+  2016</a><span style="font-weight: bold;"> </span><br/>
 
-    <section id="students" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Current and past students</h2>
-            <p class="lead">
+<br>
+TPC Member
+for <b><a href="https://www.usenix.org/conference/nsdi26">NSDI '27</a></b>
+<br>
+<br>
+TPC Member
+for <b><a href="https://www.usenix.org/conference/nsdi26">NSDI '26</a></b>, 
+<b><a href="https://www.usenix.org/conference/osdi26">OSDI '26</a></b>,
+<b><a href="https://sigops.org/s/conferences/sosp/2026/">SOSP '26</a></b>
+<br>
+TPC Member
+for <b><a href="https://www.usenix.org/conference/nsdi25">NSDI
+    '25</a></b>, <b><a href="https://www.usenix.org/conference/osdi25">OSDI '25</a></b>, <b>SIGCOMM '25</b>
+<br>
+TPC Member for <b>ASPLOS '24</b>, <b>OSDI '24</b>, <b>SIGCOMM '24</b>
+<br>
+TPC Member for <b><a href="https://www.usenix.org/conference/nsdi23">NSDI '23</a></b>
+<br>
+TPC Member for <b>ASPLOS '22</b>, <b>NSDI '22</b>, <b>OSDI '22</b>, <b>SYSTOR '22</b>
+<br>
+TPC Member for <a style="font-weight: bold;" href="https://www.usenix.org/conference/nsdi21">NSDI '21</a>, 
+<a style="font-weight: bold;" href="https://sosp2021.mpi-sws.org/">SOSP '21</a>
+<br>
+TPC Member for <a style="font-weight: bold;" href="https://www.usenix.org/conference/nsdi20">NSDI '20</a>
+
+<br>
+TPC Member for <a href="https://conferences.sigcomm.org/sigcomm/2019/"><b>SIGCOMM '19</b></a>, <a href="https://www.usenix.org/conference/atc19"><b>USENIX ATC '19</b></a>, <a style="font-weight: bold;" href="https://www.usenix.org/conference/nsdi19">NSDI '19</a>
+<br>
+
+TPC Member for <a style="font-weight: bold;" href="http://eurosys2018.org/">Eurosys '18</a>, <a style="font-weight: bold;" href="http://eurosys2017.org/"> EuroSys '17</a>, <a style="font-weight: bold;" href="https://conferences2.sigcomm.org/co-next/2018/#!/home"> CoNEXT '18</a>, <a style="font-weight: bold;" href="http://conext2017.kaist.ac.kr/#%21/home">CoNEXT '17</a><span style="font-weight: bold;"> </span><br/>
+TPC Member for OSDI '16, CoNEXT '15, SoCC '15, NSDI'15
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDENTS ===== -->
+<section class="section" id="students">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Group</span>
+      <h2>Students</h2>
+    </div>
+    <div class="legacy">
+<p class="lead">
 <p align="justify"> I am actively advising
 several doctoral students at KTH: </p>
 <ul style="margin-left: 40px;">
@@ -1049,7 +1672,7 @@ several doctoral students at KTH: </p>
 <br>
 <p align="justify">Several of my
 students have already defended their PhDs:</p>
-<!-- <ul style="margin-left: 40px;"> -->
+
 
 
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="https://www.kth.se/profile/verardo/?l=en">Giacomo Verardo</a>, 2026</li>
@@ -1062,12 +1685,12 @@ Farshin</a>, 2023 (Google Ph.D. Fellowship from 2021)</li>
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;">
 <a href="https://wreda.github.io/">Waleed Reda</a>, 2022</li>
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;">
-<a href="https://scholar.google.com/citations?user=w847RawAAAAJ&hl=en&oi=ao">Amir Roozbeh</a>, 2021</li>
+<a href="https://scholar.google.com/citations?user=w847RawAAAAJ&amp;hl=en&amp;oi=ao">Amir Roozbeh</a>, 2021</li>
 
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;">
 <a href="https://www.kth.se/profile/kirillb/">Kirill
 Bogdanov</a>, 2018</li>
-<li><a href="https://scholar.google.com/citations?user=3g-PMYoAAAAJ&hl=en">Georgios
+<li><a href="https://scholar.google.com/citations?user=3g-PMYoAAAAJ&amp;hl=en">Georgios
     Katsikas</a>, 2018</li>
 <li><a href="https://scholar.google.se/citations?user=uJi7kNgAAAAJ&amp;hl=en&amp;oi=ao">Maciej
 Kuzniar</a>, 2016 </li>
@@ -1082,26 +1705,27 @@ Award)</li>
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;">Maysam
 Yabandeh, 2011</li>
 </ul>
-<br />
+<br/>
 <p align="justify">
 Some of my students at KTH have already defended their licentiate theses (a degree half-way to the doctoral degree in Sweden):</p>
 <ul style="margin-left: 40px;">
 <li><a href="https://www.kth.se/profile/girondi">Massimo Girondi (2024)</a></li>
 </ul>
 <p align="justify">My <a style="font-weight:" href="documents/dkostic-cv.pdf">Full CV</a> contains the list of Master projects
-  that were supervised and/or examined by me: </p>
+  that were supervised and/or examined by me: </p></p>
+    </div>
+  </div>
+</section>
 
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="teaching" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Teaching</h2>
-            <p class="lead">
+<!-- ===== TEACHING ===== -->
+<section class="section alt" id="teaching">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Courses</span>
+      <h2>Teaching</h2>
+    </div>
+    <div class="legacy">
+<p class="lead">
 
 <p align="justify">
 
@@ -1123,9 +1747,9 @@ At KTH, I teach (or have taught):</p>
 
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="https://www.kth.se/student/kurser/kurs/IK2217?l=en">IK2217:
 
-Advanced Internet Technology II</a>, <a href="https://kth.instructure.com/courses/1500">Spring 2017</a>, <a href="https://kth.instructure.com/courses/4147">Spring 2018</a><br />
+Advanced Internet Technology II</a>, <a href="https://kth.instructure.com/courses/1500">Spring 2017</a>, <a href="https://kth.instructure.com/courses/4147">Spring 2018</a><br/>
 
-</a></li>
+</li>
 
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="https://kth.instructure.com/courses/195">IK2200: Communication System Design</a>, Fall 2014, Fall 2015, <a href="https://kth.instructure.com/courses/195">Fall 2016, </a><a href="https://kth.instructure.com/courses/2530">Fall 2017</a><a href="https://kth.instructure.com/courses/195"></a>, <a href="https://kth.instructure.com/courses/6436">Fall 2018</a>, <a href="https://kth.instructure.com/courses/12166">Fall 2019</a>, <a href="https://kth.instructure.com/courses/20983">Fall 2020</a>, <a href="https://kth.instructure.com/courses/28718">Fall 2021</a>, <a href="https://canvas.kth.se/courses/34872">Fall 2022</a>, <a href="https://canvas.kth.se/courses/41494">Fall 2023</a>, <a href="https://canvas.kth.se/courses/49294">Fall 2024</a>, <a href="https://canvas.kth.se/courses/56255">Fall 2025</a>
 </li>
@@ -1136,112 +1760,125 @@ Advanced Internet Technology II</a>, <a href="https://kth.instructure.com/course
 
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="http://www.kth.se/student/kurser/kurs/ID3012?l=en">FID3012:
 
-Advanced Topics in Networked Systems</a>, (Fall 2014/Spring 2015, Fall 2015/Spring 2016, Fall 2016/Spring 2017, Fall 2017/Spring 2018, Fall 2018/Spring 2018, Fall 2018/Spring 2019, Fall 2019/Spring 2020, Fall 2020/Spring 2021, Fall 2021/Spring 2022, Fall 2022/Spring 2023, Fall 2023/Spring 2024, Fall 2024/Spring 2025, Fall 2025/Spring 2026)<br />
+Advanced Topics in Networked Systems</a>, (Fall 2014/Spring 2015, Fall 2015/Spring 2016, Fall 2016/Spring 2017, Fall 2017/Spring 2018, Fall 2018/Spring 2018, Fall 2018/Spring 2019, Fall 2019/Spring 2020, Fall 2020/Spring 2021, Fall 2021/Spring 2022, Fall 2022/Spring 2023, Fall 2023/Spring 2024, Fall 2024/Spring 2025, Fall 2025/Spring 2026)<br/>
 
-<br />
+<br/>
 
 </li>
 
-</ul>
+</li></ul></p>
+    </div>
+  </div>
+</section>
 
-
-          </div>
-        </div>
+<!-- ===== BIO ===== -->
+<section class="section" id="bio">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">About</span>
+      <h2>Short biography</h2>
+    </div>
+    <div class="cols">
+      <div>
+        <p>
+          Dejan Kostic obtained his Ph.D. in Computer Science at the Duke University. He spent the last two years
+          of his studies and a brief stay as a postdoctoral scholar at the University of California, San Diego.
+          He received his Master of Science degree in Computer Science from the University of Texas at Dallas, and
+          his Bachelor of Science degree in Computer Engineering and Information Technology from the University of
+          Belgrade (ETF), Serbia.
+        </p>
+        <p>
+          From 2006 until 2012 he worked as a tenure-track Assistant Professor at the School of Computer and
+          Communications Sciences at EPFL (Ecole Polytechnique Federale de Lausanne), Switzerland. From 2012 until
+          June 2014, he worked at the IMDEA Networks Institute (Madrid, Spain) as a Research Associate Professor
+          with tenure. He is a Professor of Internetworking at KTH since April 2014.
+        </p>
       </div>
-    </section>
-
-
-    <section id="bio" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Short biography</h2>
-            <p class="lead">
-<p align="justify">
-
-Dejan Kostic obtained his Ph.D. in Computer Science at the Duke University.  He spent the last two years of his studies and a brief stay as a postdoctoral scholar at the University of California, San Diego. He received his Master of Science degree in Computer Science from the University of Texas at Dallas, and his Bachelor of Science degree in Computer Engineering and Information Technology from the University of Belgrade (ETF), Serbia. From 2006 until 2012 he worked as a tenure-track Assistant Professor at the School of Computer and Communications Sciences at EPFL (Ecole Polytechnique Federale de Lausanne), Switzerland. In 2010, he received a European Research Council (ERC) Starting Investigator Award. From 2012 until June 2014, he worked at the IMDEA Networks&nbsp;Institute (Madrid, Spain) as a&nbsp;Research Associate Professor with tenure.  He is a Professor of Internetworking at KTH since April 2014. In 2017, he received a European Research Council (ERC) Consolidator Award. In 2024, he was named a Wallenberg Scholar.  </p>
-
-	    </p>
-          </div>
-        </div>
+      <div>
+        <h3>Recognition</h3>
+        <ul class="list-plain">
+          <li><strong>2024</strong> — Named a Wallenberg Scholar (18 MSEK, 5 years)</li>
+          <li><strong>2022</strong> — Community Award, USENIX NSDI</li>
+          <li><strong>2021</strong> — Best Paper Award, ACM SOSP</li>
+          <li><strong>2017</strong> — European Research Council (ERC) Consolidator Award</li>
+          <li><strong>2010</strong> — European Research Council (ERC) Starting Investigator Award</li>
+        </ul>
+        <p style="margin-top:18px">
+          <a href="documents/dkostic-cv.pdf">Full CV (PDF)</a>
+        </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Contact</h2>
-            <p class="lead">
-d m k &lt;at&gt; k t h &nbsp;&lt;dot&gt; s e<br /><p>Office phone# +46&nbsp;8-790&nbsp;42&nbsp;65</p>
-<h3>Mailing address (not my physical address)</h3>
-
-<p></span><br />Prof. Dejan Kostic<br /><span style="" lang="EN">KTH<br />
-School of EECS<br>
-Malvinas v 10
-<br>
-114 28 Stockholm
-<br>
-Sweden
-</span><br /><br /></span></p>
-
-<h3>Physical address</h3>
-<p>Prof. Dejan Kostic,<br />
-KTH, School of EECS<br />
-Teknikringen 18<br />
-114 28 Stockholm</p>
-<p>
-
-My office is #355 on the upper three floor of the building locally called "Sing-Sing". The building has two entrances, and you will have to call me or email me to let you in. I recommend this entrance <a href="https://maps.app.goo.gl/3dUCbhitkxugKCFQ7">Google Maps (59.348630, 18.073859)</a>, Teknikringen 18, 114 28 Stockholm):
-
-  <br />
-<span style="font-size: 11pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="ES"><br />
-</span>
-
-          </div>
-        </div>
+<!-- ===== CONTACT ===== -->
+<section class="section alt" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Email &amp; phone</h3>
+        <p>d m k &lt;at&gt; k t h &lt;dot&gt; s e<br>
+           Office phone: +46 8-790 42 65</p>
+        <h3>Physical address</h3>
+        <address>
+          Prof. Dejan Kostic<br>
+          KTH, School of EECS<br>
+          Teknikringen 18<br>
+          114 28 Stockholm
+        </address>
+        <p>
+          My office is #355 on the upper three floor of the building locally called “Sing-Sing”. The building has
+          two entrances, and you will have to call me or email me to let you in. I recommend this entrance
+          <a href="https://maps.app.goo.gl/3dUCbhitkxugKCFQ7">Google Maps (59.348630, 18.073859)</a>,
+          Teknikringen 18, 114 28 Stockholm.
+        </p>
       </div>
-    </section>
+      <div>
+        <h3>Mailing address</h3>
+        <p class="note" style="margin-top:0">Not my physical address.</p>
+        <address>
+          Prof. Dejan Kostic<br>
+          KTH<br>
+          School of EECS<br>
+          Malvinas v 10<br>
+          114 28 Stockholm<br>
+          Sweden
+        </address>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-    <section id="personal">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-<h2>Personal</h2>
+<!-- ===== PERSONAL ===== -->
+<section class="section" id="personal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Off duty</span>
+      <h2>Personal</h2>
+    </div>
+    <div class="legacy">
 <p class="lead">
-<!-- <p align="justify">[not endorsed by my employer(s)]<br /> -->
-I love taking&nbsp;<a style="font-weight: bold;"
-		      href="photo.html#stockholm">Stockholm Photos</a>, and my
+
+I love taking&nbsp;<a style="font-weight: bold;" href="photo.html#stockholm">Stockholm Photos</a>, and my
 larger portfolio is here:&nbsp;<a style="font-weight: bold;" href="https://pixels.com/profiles/dejan-kostic?tab=artwork">https://pixels.com/profiles/dejan-kostic?tab=artwork</a>. 
 
 <br>
 You can also <a style="font-weight: bold;" href="https://www.instagram.com/dmkostic"> follow me (dmkostic) on Instagram</a> and <a href="https://twitter.com/dmkostic"><b>Twitter</b></a>. My LinkedIn profile is <a href="https://www.linkedin.com/in/dekostic/"><b>here</b></a>.
-<br />
+<br/></p>
+    </div>
+  </div>
+</section>
 
-          </div>
-        </div>
-      </div>
-    </section>
+<footer>
+  <div class="wrap">
+    Copyright © Dejan Kostic · KTH Royal Institute of Technology ·
+    <a href="documents/dkostic-cv.pdf">CV</a>
+  </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy Dejan Kostic</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
-
-  </body>
-
+</body>
 </html>
