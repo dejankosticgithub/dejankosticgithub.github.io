@@ -12,17 +12,15 @@
 :root {
   --bg:#ffffff; --bg-alt:#f6f7f9; --bg-card:#ffffff;
   --fg:#1a1d21; --fg-muted:#5a6472; --rule:#e2e6ec;
-  --acc:#004791; --acc-soft:#e7eef7; --acc2:#00879a;
-  --ill-bg:#f2f6fb; --ill-muted:#a9bcd2;
-  --gold:#a97400; --gold-soft:#fdf3dc;
+  --acc:#004791; --acc-soft:#e7eef7; --acc2:#00879a; --on-acc:#ffffff;
+  --gold:#8f6200; --gold-soft:#fdf3dc;
   --shadow:0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.06);
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:#0f1216; --bg-alt:#141920; --bg-card:#171d25;
     --fg:#e8ecf1; --fg-muted:#9aa7b8; --rule:#262f3b;
-    --acc:#6aa9f0; --acc-soft:#16283f; --acc2:#3fd0df;
-    --ill-bg:#121a24; --ill-muted:#46596f;
+    --acc:#6aa9f0; --acc-soft:#16283f; --acc2:#3fd0df; --on-acc:#0f1216;
     --gold:#e8bc5c; --gold-soft:#33280f;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
   }
@@ -30,6 +28,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+/* the sticky nav wraps to more rows as the viewport narrows, so the
+   anchor offset has to grow with it or headings land behind the nav */
+@media (max-width: 820px) { html { scroll-padding-top: 116px; } }
+@media (max-width: 620px) { html { scroll-padding-top: 146px; } }
 body {
   margin: 0; background: var(--bg); color: var(--fg);
   font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -85,8 +87,8 @@ p { margin: 0 0 1em; }
   border: 1px solid var(--rule); background: var(--bg-card); font-size: .89rem; font-weight: 600; color: var(--fg);
 }
 .chip:hover { border-color: var(--acc); color: var(--acc); text-decoration: none; }
-.chip.primary { background: var(--acc); border-color: var(--acc); color: #fff; }
-.chip.primary:hover { color: #fff; filter: brightness(1.08); }
+.chip.primary { background: var(--acc); border-color: var(--acc); color: var(--on-acc); }
+.chip.primary:hover { color: var(--on-acc); filter: brightness(1.08); }
 .chip svg { width: 15px; height: 15px; fill: currentColor; }
 .social { display: flex; gap: 14px; margin-top: 16px; }
 .social a { color: var(--fg-muted); display: inline-flex; }
@@ -95,17 +97,20 @@ p { margin: 0 0 1em; }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 26px; } .portrait { max-width: 240px; } }
 
 /* news */
-.news { margin-top: 42px; }
-.news h2 { font-size: 1.24rem; margin-bottom: 16px; }
-.news-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.news-list li {
-  position: relative; padding: 14px 18px 14px 40px;
+.news { margin-top: 34px; }
+.news h2 { font-size: 1.1rem; margin-bottom: 11px; }
+.news-list {
+  list-style: none; margin: 0; padding: 0;
   background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px;
-  font-size: .96rem; line-height: 1.55;
 }
+.news-list li {
+  position: relative; padding: 9px 16px 9px 32px;
+  font-size: .91rem; line-height: 1.45;
+}
+.news-list li + li { border-top: 1px solid var(--rule); }
 .news-list li::before {
-  content: ""; position: absolute; left: 18px; top: 22px;
-  width: 8px; height: 8px; border-radius: 50%; background: var(--acc2);
+  content: ""; position: absolute; left: 15px; top: 16px;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--acc2);
 }
 
 /* position banner */
@@ -146,8 +151,6 @@ p { margin: 0 0 1em; }
   background: var(--gold-soft); color: var(--gold); font-size: .76rem; font-weight: 700;
   border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
 }
-.more { display: inline-block; margin-top: 14px; font-weight: 600; font-size: .93rem; }
-.more::after { content: " →"; }
 figure { margin: 0; }
 .fig-img {
   display: block; position: relative; background: #fff;
@@ -173,25 +176,6 @@ figcaption { font-size: .8rem; color: var(--fg-muted); margin-top: 8px; line-hei
 .proj p { color: var(--fg-muted); }
 .proj p:last-child { margin-bottom: 0; }
 
-/* hand-drawn sketches (only where no paper figure exists) */
-.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-.ill {
-  width: 100%; aspect-ratio: 8 / 5; display: block; background: var(--ill-bg);
-  border-radius: 10px; border: 1px solid var(--rule);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-.ill .n  { fill: var(--bg-card); stroke: var(--ill-muted); stroke-width: 2; }
-.ill .na { fill: var(--acc-soft); stroke: var(--acc); stroke-width: 2; }
-.ill .nd { fill: none; stroke: var(--ill-muted); stroke-width: 2; stroke-dasharray: 5 5; }
-.ill .cm { fill: var(--ill-muted); }
-.ill .ca { fill: var(--acc); }
-.ill .f  { fill: none; stroke: var(--ill-muted); stroke-width: 2.4; stroke-linecap: round; marker-end: url(#ah-m); }
-.ill .fa { fill: none; stroke: var(--acc); stroke-width: 2.4; stroke-linecap: round; marker-end: url(#ah-a); }
-.ill .fd { fill: none; stroke: var(--ill-muted); stroke-width: 2; stroke-dasharray: 5 5; marker-end: url(#ah-m); }
-.ill .t  { font-size: 12px; font-weight: 600; fill: var(--fg); }
-.ill .ts { font-size: 10px; font-weight: 500; fill: var(--fg-muted); }
-.ill .ta { font-size: 11px; font-weight: 700; fill: var(--acc); }
-
 /* two-column blocks */
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
 @media (max-width: 760px) { .cols { grid-template-columns: 1fr; gap: 28px; } }
@@ -214,15 +198,6 @@ figcaption { font-size: .8rem; color: var(--fg-muted); margin-top: 8px; line-hei
 .legacy .lead { font-size: inherit; }
 .legacy big { font-size: inherit; }
 
-details.more-block { margin-top: 8px; }
-details.more-block > summary {
-  cursor: pointer; font-weight: 600; color: var(--acc); font-size: .95rem;
-  padding: 10px 0; list-style: none;
-}
-details.more-block > summary::-webkit-details-marker { display: none; }
-details.more-block > summary::before { content: "▸ "; }
-details.more-block[open] > summary::before { content: "▾ "; }
-
 footer { border-top: 1px solid var(--rule); padding: 30px 0 46px; color: var(--fg-muted); font-size: .9rem; }
 footer a { color: var(--fg-muted); text-decoration: underline; }
 footer a:hover { color: var(--acc); }
@@ -230,13 +205,6 @@ footer a:hover { color: var(--acc); }
 </head>
 
 <body>
-
-<svg class="defs" aria-hidden="true" focusable="false"><defs>
-  <marker id="ah-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M0 0 10 5 0 10Z" fill="var(--ill-muted)"/></marker>
-  <marker id="ah-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M0 0 10 5 0 10Z" fill="var(--acc)"/></marker>
-</defs></svg>
 
 <nav class="nav">
   <div class="wrap nav-inner">
@@ -1187,8 +1155,8 @@ Passive and Active Measurement Conference (PAM)</i>,
 March 2015.<br/>
 <br/>
 </span></li>
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf"></a></span><a href="documents/publications/rum-conext14.pdf"><span style="font-size: 11pt;">Providing
-Reliable FIB Update Acknowledgments in SDN<span class="more"></span></span></a><span style="font-size: 11pt;">"<a href="documents/publications/espres-hotsdn14.pdf"></a></span><span style="font-size: 11pt;">,</span><span style="font-size: 11pt;"><span class="more">
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;">"</span><a href="documents/publications/rum-conext14.pdf"><span style="font-size: 11pt;">Providing
+Reliable FIB Update Acknowledgments in SDN<span class="more"></span></span></a><span style="font-size: 11pt;">"</span><span style="font-size: 11pt;">,</span><span style="font-size: 11pt;"><span class="more">
 <span style="font-size: 11pt;">
 Maciej Kuzniar, Peter
 Peresini, and Dejan Kostic, <i>Proceedings of the 10th International
@@ -1205,7 +1173,7 @@ of the Workshop on Hot Topics in Software Defined Networking (HotSDN)</span>,
 August 2014.<br/>
 <br/>
 </li>
-<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;"></span><a href="documents/publications/espres-ons14.pdf"><span style="font-size: 11pt;">"</span></a><a href="documents/publications/espres-hotsdn14.pdf"></a><span style="font-size: 11pt;"><a href="documents/publications/espres-ons14.pdf">ESPRES:
+<li class="MsoNormal" style="text-align: justify;"><span style="font-size: 11pt;"></span><span style="font-size: 11pt;"></span><a href="documents/publications/espres-ons14.pdf"><span style="font-size: 11pt;">"</span></a><span style="font-size: 11pt;"><a href="documents/publications/espres-ons14.pdf">ESPRES:
 Easy Scheduling and Prioritization for SDN</a></span><a href="documents/publications/espres-ons14.pdf"><span style="font-size: 11pt;">"</span><span style="font-size: 11pt;">,</span></a><span style="font-size: 11pt;"> Peter
 Peresini, Maciej Kuzniar, Marco Canini, and Dejan Kostic, <span style="font-style: italic;">Open Networking Summit (ONS</span>) Research Track
 2014</span>, March 2014.<br/>
@@ -1669,7 +1637,7 @@ Some of my students at KTH have already defended their licentiate theses (a degr
 <ul style="margin-left: 40px;">
 <li><a href="https://www.kth.se/profile/girondi">Massimo Girondi (2024)</a></li>
 </ul>
-<p align="justify">My <a style="font-weight:" href="documents/dkostic-cv.pdf">Full CV</a> contains the list of Master projects
+<p align="justify">My <a href="documents/dkostic-cv.pdf">Full CV</a> contains the list of Master projects
   that were supervised and/or examined by me: </p></p>
     </div>
   </div>
@@ -1709,7 +1677,7 @@ Advanced Internet Technology II</a>, <a href="https://kth.instructure.com/course
 
 </li>
 
-<li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="https://kth.instructure.com/courses/195">IK2200: Communication System Design</a>, Fall 2014, Fall 2015, <a href="https://kth.instructure.com/courses/195">Fall 2016, </a><a href="https://kth.instructure.com/courses/2530">Fall 2017</a><a href="https://kth.instructure.com/courses/195"></a>, <a href="https://kth.instructure.com/courses/6436">Fall 2018</a>, <a href="https://kth.instructure.com/courses/12166">Fall 2019</a>, <a href="https://kth.instructure.com/courses/20983">Fall 2020</a>, <a href="https://kth.instructure.com/courses/28718">Fall 2021</a>, <a href="https://canvas.kth.se/courses/34872">Fall 2022</a>, <a href="https://canvas.kth.se/courses/41494">Fall 2023</a>, <a href="https://canvas.kth.se/courses/49294">Fall 2024</a>, <a href="https://canvas.kth.se/courses/56255">Fall 2025</a>
+<li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="https://kth.instructure.com/courses/195">IK2200: Communication System Design</a>, Fall 2014, Fall 2015, <a href="https://kth.instructure.com/courses/195">Fall 2016, </a><a href="https://kth.instructure.com/courses/2530">Fall 2017</a>, <a href="https://kth.instructure.com/courses/6436">Fall 2018</a>, <a href="https://kth.instructure.com/courses/12166">Fall 2019</a>, <a href="https://kth.instructure.com/courses/20983">Fall 2020</a>, <a href="https://kth.instructure.com/courses/28718">Fall 2021</a>, <a href="https://canvas.kth.se/courses/34872">Fall 2022</a>, <a href="https://canvas.kth.se/courses/41494">Fall 2023</a>, <a href="https://canvas.kth.se/courses/49294">Fall 2024</a>, <a href="https://canvas.kth.se/courses/56255">Fall 2025</a>
 </li>
 
 <li style="border: 0px none ; margin: 0px; padding: 0px; background-color: transparent; vertical-align: baseline;"><a href="http://www.kth.se/student/kurser/kurs/IK3619?l=en">IK3619
