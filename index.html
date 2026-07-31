@@ -515,30 +515,8 @@ footer a:hover { color: var(--acc); }
 
       <article class="entry">
         <figure>
-          <svg class="ill" viewBox="0 0 320 200" role="img" aria-label="Diagram: an application write persists in client-local non-volatile memory and replicates to a peer client's NVM, with the cluster storage tier updated only in the background.">
-            <text class="ts" x="10" y="18">write path</text>
-            <rect class="n" x="10" y="28" width="146" height="76" rx="8"/>
-            <text class="ts" x="83" y="46" text-anchor="middle">client node</text>
-            <rect class="na" x="22" y="56" width="54" height="34" rx="6"/>
-            <text class="ts" x="49" y="77" text-anchor="middle">app</text>
-            <path class="fa" d="M80 73h8"/>
-            <rect class="na" x="92" y="56" width="52" height="34" rx="6"/>
-            <text class="ts" x="118" y="72" text-anchor="middle">local</text>
-            <text class="ts" x="118" y="84" text-anchor="middle">NVM</text>
-            <path class="fa" d="M160 73h14"/>
-            <rect class="n" x="180" y="28" width="128" height="76" rx="8"/>
-            <text class="ts" x="244" y="46" text-anchor="middle">peer client node</text>
-            <rect class="na" x="196" y="56" width="96" height="34" rx="6"/>
-            <text class="ts" x="244" y="77" text-anchor="middle">local NVM (replica)</text>
-            <text class="ta" x="167" y="120" text-anchor="middle">replicate</text>
-            <path class="fd" d="M60 108v28"/>
-            <text class="ts" x="68" y="126">lazily</text>
-            <rect class="nd" x="10" y="142" width="180" height="34" rx="7"/>
-            <text class="ts" x="100" y="163" text-anchor="middle">cluster storage, in the background</text>
-            <text class="ta" x="200" y="158">acked without a</text>
-            <text class="ta" x="200" y="172">server round trip</text>
-          </svg>
-          <figcaption>Sketch, not from the paper — I could not find the Assise sources.</figcaption>
+          <a class="fig-img" href="image/figs/assise.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="image/figs/assise.png" alt="Assise IO paths: an application writes through LibFS into a process-local NVM update log, which replicates over RDMA to hot and warm replicas, with eviction to SharedFS caches and cold storage in the background." loading="lazy" width="900" height="380"><span class="zoom">click to enlarge</span></a>
+          <figcaption>From the paper: Assise IO paths. Dashed lines are RDMA operations, solid lines local ones; shaded areas are per process.</figcaption>
         </figure>
         <div class="entry-body">
           <div class="meta"><span class="venue">USENIX OSDI</span><span class="sep">·</span><span class="year">2020</span></div>
