@@ -181,9 +181,6 @@ figcaption { font-size: .8rem; color: var(--fg-muted); margin-top: 8px; line-hei
 @media (max-width: 760px) { .cols { grid-template-columns: 1fr; gap: 28px; } }
 .cols h3 { margin-bottom: .4em; }
 .cols p, .cols address { color: var(--fg-muted); font-style: normal; margin: 0 0 1em; }
-.list-plain { list-style: none; margin: 0; padding: 0; }
-.list-plain li { padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: .96rem; }
-.list-plain li:last-child { border-bottom: 0; }
 .note { font-size: .95rem; color: var(--fg-muted); border-left: 3px solid var(--rule); padding-left: 16px; margin-top: 30px; }
 
 /* legacy content carried over from the previous site */
@@ -242,7 +239,7 @@ footer a:hover { color: var(--acc); }
           Main research interests: <strong>distributed systems, machine learning, computer networks and
           operating systems</strong>. My group works on making computing dramatically more efficient — from
           network stacks that saturate 100+ Gbps links on a single CPU core, to inference platforms that aim
-          to put large language models within everyone's reach at a fraction of today's energy cost.
+          to put powerful AI systems within everyone's reach at a fraction of today's energy cost.
         </p>
         <ul class="chips">
           <li><a class="chip primary" href="documents/dkostic-cv.pdf">
@@ -278,6 +275,8 @@ footer a:hover { color: var(--acc); }
         <li><b>RedN</b> is in the news at <a href="https://techxplore.com/news/2022-09-commodity-rdma-network-interface-cards.html"><b>TechXplore!</b></a>, and <a href="https://www.hpcwire.com/2021/04/06/whats-new-in-hpc-research-tundra-fugaku-%C2%B5hpc-more/"><b>HPCWire</b></a>.</li>
         <li><a href="https://www.kth.se/blogs/ultra/2021/11/best-paper-award-at-sosp-2021-for-our-paper-linefs-efficient-smartnic-offload-of-a-distributed-file-system-with-pipeline-parallelism/"><b>Best Paper Award at SOSP 2021</b></a> for our <b><a href="documents/publications/linefs-sosp21.pdf">LineFS</a></b> paper! Also in the <a href="https://intra.kth.se/en/eecs/nyheter/grattis-dejan-kosti-1.1121645"><b>News at KTH EECS.</b></a></li>
         <li>PacketMill is in the news in <a href="https://www.ericsson.com/en/blog/2021/4/multi-hundred-gigabit-networking-commodity-hardware"><b>the Ericsson Blog.</b></a>, our load-balancing work (RSS++, Cheetah, and CrossRSS) is in the news <a href="https://intra.kth.se/en/eecs/nyheter/forskning-kommer-att-minska-datacenters-elforbrukning-1.1051568"><b>at KTH EECS</b></a>, and CacheDirector is in the news (<b><a href="https://techxplore.com/news/2019-07-cache-intel-processors-packet.html">TechXplore</a></b>, <a href="https://www.ericsson.com/en/blog/2019/3/maximizing-cots-hardware-performance-with-cpu-memory-management"><b>Ericsson</b></a>, <a href="https://web.archive.org/web/2020/https://www.kth.se/en/aktuellt/nyheter/forskare-pa-g-1.890770"><b>KTH</b>, <a href="https://intra.kth.se/en/eecs/nyheter/a-positive-side-effect-of-cache-monitoring-doing-good-rather-than-evil-1.912507"><b>KTH EECS</b></a>).</a></li>
+        <li>Awarded an <b>ERC Consolidator Grant</b> for <a href="https://www.kth.se/blogs/ultra/"><b>ULTRA</b></a>, on making Internet services 10x more efficient (2018 – 2024).</li>
+        <li>Awarded an <b>ERC Starting Grant</b> for <a href="https://www.kth.se/blogs/prophet/"><b>PROPHET</b></a>, on simplifying the way networked systems are developed and deployed (2010 – 2016).</li>
       </ul>
     </div>
   </div>
@@ -1714,22 +1713,14 @@ Advanced Topics in Networked Systems</a>, (Fall 2014/Spring 2015, Fall 2015/Spri
           his Bachelor of Science degree in Computer Engineering and Information Technology from the University of
           Belgrade (ETF), Serbia.
         </p>
-        <p>
+      </div>
+      <div>
+        <p style="margin-top:0">
           From 2006 until 2012 he worked as a tenure-track Assistant Professor at the School of Computer and
           Communications Sciences at EPFL (Ecole Polytechnique Federale de Lausanne), Switzerland. From 2012 until
           June 2014, he worked at the IMDEA Networks Institute (Madrid, Spain) as a Research Associate Professor
           with tenure. He is a Professor of Internetworking at KTH since April 2014.
         </p>
-      </div>
-      <div>
-        <h3>Recognition</h3>
-        <ul class="list-plain">
-          <li><strong>2024</strong> — Named a Wallenberg Scholar (18 MSEK, 5 years)</li>
-          <li><strong>2022</strong> — Community Award, USENIX NSDI</li>
-          <li><strong>2021</strong> — Best Paper Award, ACM SOSP</li>
-          <li><strong>2017</strong> — European Research Council (ERC) Consolidator Award</li>
-          <li><strong>2010</strong> — European Research Council (ERC) Starting Investigator Award</li>
-        </ul>
         <p style="margin-top:18px">
           <a href="documents/dkostic-cv.pdf">Full CV (PDF)</a>
         </p>
